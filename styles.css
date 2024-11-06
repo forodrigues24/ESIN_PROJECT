@@ -1,0 +1,110 @@
+/* Estilo básico para a seção do cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 1rem 2rem;
+    border-bottom: 0.125rem solid #ddd;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .header a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.125rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    background-color: #007BFF; /* Cor de fundo azul */
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+  }
+  
+  .header a:hover {
+    background-color: #0056b3; /* Efeito de hover - escurece o azul */
+  }
+  
+  /* Fundo da página */
+  body {
+    background-color: #e0f7fa; /* Azul claro quase branco */
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Estilo para o form e centralização do fieldset */
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Centralização vertical */
+  }
+  
+  fieldset {
+    background-color: #f9f9f9;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border: 0.25rem solid #007BFF; /* Aumentei a espessura da borda e alterei para um azul mais forte */
+    width: 22rem; /* Largura fixa em rem */
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* Sombra suave para dar mais destaque */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Garante que o conteúdo seja centralizado */
+  }
+  
+  
+  /* Estilo para o legend */
+  legend {
+    color: #007BFF; /* Azul mais claro, quase branco */
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem; /* Espaçamento abaixo do legend */
+    width: 100%;
+  }
+  
+  /* Estilo para os elementos do formulário */
+  label {
+    font-size: 1rem;
+    margin-bottom: 0.1rem; /* Quase sem espaço abaixo do label */
+    align-self: flex-start;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.2rem; /* Espaçamento muito pequeno entre os campos */
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+  }
+  /* Estilo para o título dentro do fieldset */
+fieldset h2 {
+    color: #007BFF; /* Cor azul para o título */
+    font-weight: bold; /* Negrito */
+    font-size: 1.5rem; /* Tamanho do texto */
+    text-align: center; /* Centraliza o título */
+    margin-bottom: 1.5rem; /* Espaço abaixo do título */
+  }
+  
+  input[type="submit"] {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    margin-top: 1rem; /* Aumentado para garantir que o botão fique centralizado */
+    transition: background-color 0.3s ease;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3; /* Efeito de hover - escurece o azul do botão */
+  }
+  
