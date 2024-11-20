@@ -1,110 +1,341 @@
-/* Estilo básico para a seção do cabeçalho */
+
+/* Configurações globais do site */
+/**/
+/**/
+/**/
+
+
+/* Estilo básico para o cabeçalho */
+/* Estilo básico para o cabeçalho */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f0f0f0;
-    padding: 1rem 2rem;
-    border-bottom: 0.125rem solid #ddd;
-  }
-  
-  .header h1 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  .header a {
-    text-decoration: none;
-    color: white;
-    font-size: 1.125rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    background-color: #007BFF; /* Cor de fundo azul */
-    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
-  }
-  
-  .header a:hover {
-    background-color: #0056b3; /* Efeito de hover - escurece o azul */
-  }
-  
-  /* Fundo da página */
-  body {
-    background-color: #e0f7fa; /* Azul claro quase branco */
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  /* Estilo para o form e centralização do fieldset */
-  form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh; /* Centralização vertical */
-  }
-  
-  fieldset {
-    background-color: #f9f9f9;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    border: 0.25rem solid #007BFF; /* Aumentei a espessura da borda e alterei para um azul mais forte */
-    width: 22rem; /* Largura fixa em rem */
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* Sombra suave para dar mais destaque */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Garante que o conteúdo seja centralizado */
-  }
-  
-  
-  /* Estilo para o legend */
-  legend {
-    color: #007BFF; /* Azul mais claro, quase branco */
-    font-weight: bold;
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 1rem; /* Espaçamento abaixo do legend */
-    width: 100%;
-  }
-  
-  /* Estilo para os elementos do formulário */
-  label {
-    font-size: 1rem;
-    margin-bottom: 0.1rem; /* Quase sem espaço abaixo do label */
-    align-self: flex-start;
-  }
-  
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-bottom: 0.2rem; /* Espaçamento muito pequeno entre os campos */
-    border: 0.0625rem solid #ccc;
-    border-radius: 0.25rem;
-    box-sizing: border-box;
-  }
-  /* Estilo para o título dentro do fieldset */
-fieldset h2 {
-    color: #007BFF; /* Cor azul para o título */
-    font-weight: bold; /* Negrito */
-    font-size: 1.5rem; /* Tamanho do texto */
-    text-align: center; /* Centraliza o título */
-    margin-bottom: 1.5rem; /* Espaço abaixo do título */
-  }
-  
-  input[type="submit"] {
-    padding: 0.5rem 1.5rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 0.25rem;
-    background-color: #007BFF;
-    color: white;
-    cursor: pointer;
-    margin-top: 1rem; /* Aumentado para garantir que o botão fique centralizado */
-    transition: background-color 0.3s ease;
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #0056b3; /* Efeito de hover - escurece o azul do botão */
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #5a67d8, #667eea); /* Gradiente azul moderno */
+  padding: 1rem 2rem;
+  border-bottom: 0.125rem solid #4c51bf; /* Azul mais intenso */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais marcante */
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0 0 15px 15px; /* Bordas arredondadas no fundo */
+}
+
+/* Estilo para o título no cabeçalho */
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #f0f8ff;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-grow: 1;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Sutil sombra no texto */
+}
+
+/* Alinha os links à direita */
+.nav-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+/* Estilo para os links dentro do cabeçalho */
+.header a {
+  text-decoration: none;
+  color: #f0f8ff;
+  font-size: 1.125rem;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  background-color: rgba(90, 103, 216, 0.9);
+  transition: transform 0.3s, background-color 0.3s;
+  margin-left: 15px;
+}
+
+/* Efeito de hover nos links */
+.header a:hover {
+  background-color: #4c51bf;
+  transform: scale(1.05); /* Efeito de zoom leve */
+}
+
+
+/* Fundo da página */
+body {
+  background: linear-gradient(to bottom right, #a5ebfb, #f0f8ff); /* Azul claro para quase branco */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh; /* Garante que a página preencha a altura da janela */
+}
+
+/* Pagina - Loginpage */
+/**/
+/**/
+/**/
+
+/* Estilo para o form e centralização do fieldset */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Centralização vertical */
+}
+
+fieldset {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 0.25rem solid #007BFF; /* Borda em azul */
+  width: 22rem; /* Largura fixa */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza o conteúdo */
+}
+
+legend {
+  color: #007BFF; /* Azul mais claro */
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem; /* Espaçamento abaixo do legend */
+}
+
+/* Estilo para os elementos do formulário */
+label {
+  font-size: 1rem;
+  margin-bottom: 0.1rem; /* Espaço mínimo abaixo do label */
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.2rem; /* Espaçamento pequeno entre os campos */
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem; /* Espaçamento para garantir centralização */
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* Efeito de hover */
+}
+
+/* Pagina - Sobre */
+/**/
+/**/
+/**/
+
+/* Seção do Mapa */
+.map-container {
+  text-align: center;
+  margin-top: -2px; /* Remover o espaço entre a seção do mapa e a anterior */
+}
+
+.map-container iframe {
+  max-width: 100%;
+}
+
+/* Seção da presidência da clínica */
+.board-section {
+  text-align: center;
+  margin: 0; /* Remover margens */
+  padding: 2rem;
+  background-color: #f9f9f9; /* Cor de fundo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+  border-radius: 8px;
+}
+
+.board-members {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.member {
+  text-align: center;
+  margin: 10px;
+}
+
+.member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Pagina - Especialidades */
+/**/
+/**/
+/**/
+
+.especialidades-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os itens "quebrem" para uma nova linha */
+  justify-content: space-around; /* Espaça os itens igualmente */
+  padding: 2rem;
+  background: transparent; /* Remove fundo */
+}
+
+.especialidade {
+  width: 30%; /* Cada coluna ocupa 30% da largura */
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin-bottom: 2rem; /* Espaçamento entre as colunas */
+  text-align: center;
+  box-sizing: border-box; /* Garante que o padding e a borda não alterem a largura */
+}
+
+.especialidade img {
+  width: 100%; /* Faz a imagem ocupar toda a largura */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.especialidade h3 {
+  font-size: 1.5rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+}
+
+.especialidade p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Estilo para os links gerais (presidente, etc.) */
+a {
+  text-decoration: none;
+  color: inherit; /* Herda a cor do elemento pai */
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit; /* Mantém a mesma cor */
+}
+
+/* Seção do Sobre a Clínica */
+/**/
+/**/
+/**/
+
+.content {
+  background: transparent; /* Torna o fundo transparente */
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: justify;
+  margin-top: 0; /* Remover o espaçamento entre a seção de conteúdo e a próxima seção */
+}
+
+.map-container {
+  background-color: #e3f2fd; /* Cor amarela clara */
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  margin-top: -2px;
+}
+
+.map-container iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+  border: 0;
+}
+
+.content h3 {
+  font-size: 2rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+}
+
+/* Pagina - Presidentes */
+/**/
+/**/
+/**/
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #007BFF; /* Borda ao redor da imagem */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* Sombra sutil */
+  transition: transform 0.3s ease; /* Efeito de hover */
+}
+
+.professional-background {
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 20px;
+  background-color: #f9f9f9; /* Fundo suave para a seção */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Caixa branca abaixo do cabeçalho */
+.content-box {
+  background-color: white; /* Caixa branca */
+  padding: 1.5rem; /* Reduzi o espaçamento interno */
+  margin-top: 20px; /* Espaçamento entre a barra e a caixa */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: fit-content; /* Ajusta a largura ao conteúdo */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Imagem do perfil */
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #007BFF; /* Borda ao redor da imagem */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3); /* Sombra sutil */
+  transition: transform 0.3s ease; /* Efeito de hover */
+}
+
+.profile-image:hover {
+  transform: scale(1.25); /* Aumenta um pouco a imagem ao passar o mouse */
+}
+
+
+/* Títulos dentro do conteúdo */
+h3 {
+  font-size: 2rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para os parágrafos */
+p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
