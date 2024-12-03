@@ -5,22 +5,27 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body>
+  <body id="login-page">
+
     <!-- Cabeçalho da página -->
-    <div class="header">
-      <h1>Clínica Saúde Viva</h1>
-      <div class="nav-buttons">
+    <header class="header">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo">
+      </div>
+
+      <!-- Links de Navegação -->
+      <nav class="nav-buttons">
         <a href="especialidades.html">Especialidades</a>
         <a href="sobre.html">Sobre</a>
-      </div>
-    </div>
+      </nav>
+    </header>
 
     <!-- Formulário de login -->
     <form action="login.php" method="post">
       <fieldset>
-        <!-- Texto dentro da caixa (sem o uso de legend) -->
         <h2>Login</h2> <!-- Título dentro do fieldset -->
-
+    
         <label for="username">Usuário:</label>
         <input type="text" id="username" name="username" required>
         <br><br>
@@ -28,6 +33,9 @@
         <input type="password" id="password" name="password" required>
         <br><br>
         <input type="submit" value="Entrar">
+        
+        <!-- Botão de redirecionamento para registro -->
+        <a href="registpage.html" class="register-button">Registrar-se</a>
       </fieldset>
     </form>
   </body>

@@ -7,36 +7,48 @@
   </head>
   <body>
     <!-- Cabeçalho da página -->
-    <div class="header">
-      <h1>Clínica Saúde Viva</h1>
-      <div class="nav-buttons">
-        <a href="loginpage.html">Login</a>
-        <a href="sobre.html">Sobre</a>
+    <header class="header">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo">
       </div>
-    </div>
+
+      <!-- Links de Navegação -->
+      <nav class="nav-buttons">
+        <a href="especialidades.html">Especialidades</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    
+      <!-- Botões Extras -->
+      <div class="action-buttons">
+        <a href="loginpage.html" class="login-button">Login</a>
+      </div>
+
+    </header>
 
     <!-- Título das Especialidades fora da div -->
-    <div class="content">
+     <!-- Título da seção -->
+     <section class="title">
       <h3>Especialidades</h3>
-    </div>
+    </section>
 
     <!-- Seção de especialidades -->
-    <div class="especialidades-container">
-      <div class="especialidade">
+    <main class="especialidades-container">
+      <article class="especialidade">
         <h3>Cardiologia</h3>
         <img src="images/4.jpg" alt="Cardiologia">
         <p>A Cardiologia é a especialidade médica dedicada ao diagnóstico, tratamento e prevenção de doenças do coração e do sistema cardiovascular.</p>
-      </div>
-      <div class="especialidade">
+      </article>
+      <article class="especialidade">
         <h3>Ortopedia</h3>
         <img src="images/5.jpg" alt="Ortopedia">
         <p>Ortopedia é a especialidade médica que trata das doenças e lesões dos ossos, músculos, ligamentos e articulações.</p>
-      </div>
-      <div class="especialidade">
+      </article>
+      <article class="especialidade">
         <h3>Pediatria</h3>
         <img src="images/6.jpg" alt="Pediatria">
         <p>A Pediatria é a especialidade que cuida da saúde das crianças, desde o nascimento até a adolescência, abordando aspectos físicos e emocionais.</p>
-      </div>
-    </div>
+      </article>
+    </main>
   </body>
 </html>

@@ -1,41 +1,67 @@
 
-/* Configurações globais do site */
-/**/
-/**/
-/**/
+/* =====================================
+Project Name: Clinic Project
+Author Name: Fábio Rodrigues, Tiago Castanheira, Sandro Oliveira
+
+========================================*/   
+/*======================================
+[ CSS Table of contents ]
+
+1. Global Configurations
+2. Header
+3. Background & Body
+4. Login Page
+5. Register Page
+6. About Page
+7. Specialties Page
+8. About the Clinic Section
+9. Presidents Page
+
+========================================*/ 
+
+/*===================
+1.Global Configurations
+=====================*/
+
+body {
+  margin: 0;             /* Remove a margem padrão ao redor do body */
+  padding: 0;            /* Remove o padding padrão ao redor do body */
+  font-family: Arial, sans-serif;  /* Define a fonte padrão da página */
+  background-color: #f4f4f4;  /* Define uma cor de fundo para o body */
+  color: #333;           /* Define a cor do texto */
+  line-height: 1.6;      /* Melhora a legibilidade do texto */
+  box-sizing: border-box; /* Garantir que o padding e bordas sejam incluídos nas dimensões de largura e altura */
+}
 
 
-/* Estilo básico para o cabeçalho */
-/* Estilo básico para o cabeçalho */
+/*===================
+2.Header
+=====================*/
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #5a67d8, #667eea); /* Gradiente azul moderno */
+  background: linear-gradient(35deg, #0016d9, #0430f5); /* Gradiente azul moderno */
   padding: 1rem 2rem;
-  border-bottom: 0.125rem solid #4c51bf; /* Azul mais intenso */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sombra mais marcante */
+  border-bottom: 3px solid #4c51bf; /* Azul mais intenso */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais marcante */
   width: 100%;
   box-sizing: border-box;
-  border-radius: 0 0 15px 15px; /* Bordas arredondadas no fundo */
 }
 
 /* Estilo para o título no cabeçalho */
 .header h1 {
-  margin: 0;
   font-size: 2rem;
-  color: #f0f8ff;
-  font-weight: 700;
-  white-space: nowrap;
-  flex-grow: 1;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Sutil sombra no texto */
+  color: #f0f8ff; /* Texto branco */
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Sutil sombra no texto */
+  margin: 0;
 }
 
 /* Alinha os links à direita */
 .nav-buttons {
   display: flex;
-  justify-content: flex-end;
-  gap: 20px;
+  gap: 15px; /* Espaçamento entre os links */
 }
 
 /* Estilo para os links dentro do cabeçalho */
@@ -56,19 +82,96 @@
   transform: scale(1.05); /* Efeito de zoom leve */
 }
 
+/* Logo */
+.header .logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  background: transparent; /* Fundo transparente */
+  padding: 0; /* Remove padding extra */
+  border: none; /* Remove bordas */
+  box-shadow: none; /* Remove sombra */
+}
 
-/* Fundo da página */
-body {
-  background: linear-gradient(to bottom right, #a5ebfb, #f0f8ff); /* Azul claro para quase branco */
+.header .logo img {
+  height: 40px; /* Ajusta o tamanho do logo */
+  margin-right: 10px;
+  transition: none; /* Remove qualquer transição */
+}
+
+/* Específico para o link do logo */
+
+.no-hover {
+  transform: none !important; /* Remove transformações */
+  transition: none !important; /* Remove transições */
+}
+
+.no-hover:hover {
+  all: unset !important; /* Remove todos os efeitos de hover */
+  transform: none !important; /* Garante que o zoom não ocorre */
+  transition: none !important; /* Remove qualquer transição */
+  cursor: default; /* Opcional, remove a mãozinha de link se necessário */
+}
+
+/* Estilo básico para o botão Login page */
+/* Container para os botões de ação */
+/* Estilo do Header */
+.header {
+  display: flex;                  /* Usa Flexbox para alinhar os itens do header */
+  justify-content: space-between; /* Alinha o conteúdo do header com espaçamento entre os elementos */
+  align-items: center;            /* Centraliza os itens verticalmente no header */
+  padding: 1rem;                  /* Espaçamento interno para dar uma margem no header */
+}
+
+/* Container para os botões de ação */
+.action-buttons {
+  display: flex;                  /* Usa Flexbox para alinhar os botões */
+  justify-content: center;        /* Centraliza os botões horizontalmente */
+  align-items: center;            /* Alinha os botões verticalmente no centro */
+  margin-right: 1rem;              /* Pode adicionar margem para o botão não colar a borda esquerda do container */
+}
+
+/* Estilo básico para o botão de login */
+.action-buttons .login-button {
+  display: inline-block;          /* Garante que o botão se comporte como um bloco em linha */
+  background-color: #28a745;      /* Cor de fundo verde */
+  color: white;                   /* Cor do texto */
+  font-size: 1rem;                /* Tamanho da fonte */
+  font-weight: bold;              /* Deixa o texto em negrito */
+  padding: 0.5rem 1.5rem;         /* Padding para dar o tamanho confortável ao botão */
+  border-radius: 0.25rem;         /* Bordas arredondadas */
+  text-decoration: none;          /* Remove o sublinhado do link */
+  text-align: center;             /* Alinha o texto ao centro */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito quando o mouse passa sobre o botão */
+.action-buttons .login-button:hover {
+  background-color: #218838;      /* Cor de fundo mais escura no hover */
+  transform: scale(1.05);          /* Leve aumento no botão no hover */
+}
+
+/* Efeito de clique (pressionado) */
+.action-buttons .login-button:active {
+  transform: scale(0.98);          /* Diminui o botão ligeiramente quando pressionado */
+}
+
+
+
+/*===================
+4. Login Page
+=====================*/
+
+#login-page {
+  background: url('https://www.transparenttextures.com/patterns/arabesque.png'), linear-gradient(135deg, #adedfc, #d2e9f0);
   margin: 0;
   font-family: Arial, sans-serif;
   min-height: 100vh; /* Garante que a página preencha a altura da janela */
 }
 
-/* Pagina - Loginpage */
-/**/
-/**/
-/**/
 
 /* Estilo para o form e centralização do fieldset */
 form {
@@ -132,20 +235,139 @@ input[type="submit"]:hover {
   background-color: #0056b3; /* Efeito de hover */
 }
 
-/* Pagina - Sobre */
-/**/
-/**/
-/**/
+/* Estilo básico para o botão Registrar-se */
+/* Estilo básico para o botão Registrar-se */
+.register-button {
+  display: inline-block;         /* Garante que o botão se comporte como um bloco em linha */
+  background-color: #28a745;     /* Cor de fundo verde */
+  color: white;                  /* Cor do texto */
+  font-size: 0.9rem;             /* Tamanho da fonte reduzido para ficar mais compacto */
+  font-weight: bold;             /* Deixa o texto em negrito */
+  padding: 0.4rem 1rem;          /* Padding reduzido para diminuir o tamanho do botão */
+  border-radius: 0.25rem;        /* Bordas arredondadas */
+  text-decoration: none;         /* Remove o sublinhado do link */
+  text-align: center;            /* Alinha o texto ao centro */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Efeito suave na cor e transformação */
+  margin-top: 0.5rem;              /* Adiciona uma margem superior */
+}
 
-/* Seção do Mapa */
-.map-container {
+/* Efeito quando o mouse passa sobre o botão */
+.register-button:hover {
+  background-color: #218838;     /* Cor de fundo mais escura no hover */
+  transform: scale(1.05);         /* Leve aumento no botão no hover */
+}
+
+/* Efeito de clique (pressionado) */
+.register-button:active {
+  transform: scale(0.98);         /* Diminui o botão ligeiramente quando pressionado */
+}
+
+
+/*===================
+5. Register Page
+=====================*/
+
+
+.registration-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120vh; /* Centraliza verticalmente */
+  margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+.registration-form fieldset {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 0.25rem solid #007BFF; /* Azul */
+  width: 100%; /* Use o tamanho máximo permitido */
+  max-width: 400px; /* Define a largura máxima */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.registration-form h2 {
+  color: #007BFF;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
   text-align: center;
-  margin-top: -2px; /* Remover o espaço entre a seção do mapa e a anterior */
+}
+
+/* Estilo uniforme para os rótulos */
+.registration-form label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 100%; /* Faz com que o label ocupe toda a largura */
+}
+
+/* Campos de entrada */
+.registration-form input[type="text"],
+.registration-form input[type="number"],
+.registration-form input[type="email"],
+.registration-form input[type="tel"],
+.registration-form input[type="password"] {
+  width: 100%; /* Ocupa toda a largura do formulário */
+  max-width: 350px; /* Largura máxima para os campos */
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+/* Botão de envio */
+.registration-form input[type="submit"] {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.registration-form input[type="submit"]:hover {
+  background-color: #0056b3; /* Tom mais escuro de azul */
+}
+
+
+
+
+
+/*===================
+6. About Page
+=====================*/
+
+.map-container {
+  background-color: #e3f2fd; /* Cor amarela clara */
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  margin-top: -2px;
 }
 
 .map-container iframe {
-  max-width: 100%;
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+  border: 0;
 }
+
+.content h3 {
+  font-size: 2rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+}
+
 
 /* Seção da presidência da clínica */
 .board-section {
@@ -177,22 +399,30 @@ input[type="submit"]:hover {
 }
 
 
-/* Pagina - Especialidades */
-/**/
-/**/
-/**/
+/*===================
+7. Specialities Page
+=====================*/
+
+.title {
+  background-color: #ffffff; /* Fundo branco */
+  padding: 1.5rem 2rem; /* Espaçamento interno */
+  text-align: left; /* Centraliza o texto */
+  margin-bottom: 0; /* Espaçamento inferior */
+}
 
 .especialidades-container {
   display: flex;
-  flex-wrap: wrap; /* Permite que os itens "quebrem" para uma nova linha */
+  flex-wrap: wrap; /* Permite que os itens quebrem para uma nova linha */
   justify-content: space-around; /* Espaça os itens igualmente */
-  padding: 2rem;
-  background: transparent; /* Remove fundo */
+  gap: 2rem; /* Adiciona espaçamento entre os itens */
+  padding: 2rem; /* Espaçamento interno */
+  background-color: #ffffff; /* Fundo branco */
 }
+
 
 .especialidade {
   width: 30%; /* Cada coluna ocupa 30% da largura */
-  background-color: #fff;
+  background-color: #a5eef0f3;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -220,6 +450,10 @@ input[type="submit"]:hover {
   line-height: 1.6;
 }
 
+/*===================
+8. Presidents
+=====================*/
+
 /* Estilo para os links gerais (presidente, etc.) */
 a {
   text-decoration: none;
@@ -231,10 +465,6 @@ a:hover {
   color: inherit; /* Mantém a mesma cor */
 }
 
-/* Seção do Sobre a Clínica */
-/**/
-/**/
-/**/
 
 .content {
   background: transparent; /* Torna o fundo transparente */
@@ -245,32 +475,6 @@ a:hover {
   margin-top: 0; /* Remover o espaçamento entre a seção de conteúdo e a próxima seção */
 }
 
-.map-container {
-  background-color: #e3f2fd; /* Cor amarela clara */
-  padding: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  text-align: center;
-  margin-top: -2px;
-}
-
-.map-container iframe {
-  width: 100%;
-  max-width: 600px;
-  height: 450px;
-  border: 0;
-}
-
-.content h3 {
-  font-size: 2rem;
-  color: #007BFF;
-  margin-bottom: 1rem;
-}
-
-/* Pagina - Presidentes */
-/**/
-/**/
-/**/
 
 .profile-image {
   width: 180px;
@@ -338,4 +542,3 @@ p {
   line-height: 1.6;
   margin-bottom: 1rem;
 }
-
