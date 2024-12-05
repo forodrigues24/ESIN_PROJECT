@@ -6,20 +6,25 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body id="login-page">
-
-    <!-- Cabeçalho da página -->
-    <header class="header">
-      <!-- Logo -->
-      <div class="logo">
+    <header>
+      <a href="index.html"> <!-- Substitua 'pagina-desejada.html' pela URL de destino -->
         <img src="images/logo.png" alt="Logo">
-      </div>
-
-      <!-- Links de Navegação -->
-      <nav class="nav-buttons">
-        <a href="especialidades.html">Especialidades</a>
-        <a href="sobre.html">Sobre</a>
+      </a>
+  
+      <nav>
+        <ul class="nav-links">
+          <li><a href="especialidades.html">Especialidades</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+        </ul>
+  
+        <div class="profile">
+          <a href="loginpage.html">
+            <img src="images/pfp.jpg" alt="Profile">
+          </a>
+        </div>
       </nav>
     </header>
+  
 
     <!-- Formulário de login -->
     <form action="login.php" method="post">
@@ -32,10 +37,13 @@
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" required>
         <br><br>
-        <input type="submit" value="Entrar">
-        
-        <!-- Botão de redirecionamento para registro -->
-        <a href="registpage.html" class="register-button">Registrar-se</a>
+        <!-- Div para centralizar os botões -->
+        <div class="buttons-container">
+          <input type="submit" value="Entrar">
+          
+          <!-- Botão de redirecionamento para registro -->
+          <a href="registpage.php" class="register-button">Registrar-se</a>
+        </div>
       </fieldset>
     </form>
   </body>

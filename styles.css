@@ -33,130 +33,122 @@ body {
   box-sizing: border-box; /* Garantir que o padding e bordas sejam incluídos nas dimensões de largura e altura */
 }
 
-
 /*===================
-2.Header
+2. Header
 =====================*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* O padding ajuda a garantir que o conteúdo não fique colado nas bordas */
+  background-color: #05AEC3; /* Cor de fundo do cabeçalho */
+  color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;  /* Garantir que o cabeçalho ocupe toda a largura da tela */
+  width: 100%;
+  height: 80px; /* Ajuste a altura para garantir que o conteúdo não fique apertado */
+  z-index: 1000;
+  box-shadow: 0 2px 5px #6b6b6b;
+  box-sizing: border-box; /* Garante que o padding seja considerado no cálculo da largura */
+  margin-bottom:5 rem;
+
+}
+
+
+.logo img {
+  height: 50px; /* Ajuste a altura do logo conforme necessário */
+  width: auto; /* Mantém a proporção do logo */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Isso empurra o conteúdo do nav para a direita */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: 20px;
+}
+
+.nav-links li {
+  margin-left: 20px; /* Ajusta o espaçamento entre os itens do menu */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #000; /* Altera a cor do link ao passar o mouse */
+}
+
+.profile {
+  margin-left: 20px; /* Espaçamento entre os links e a imagem do perfil */
+}
+
+.profile img {
+  height: 40px; /* Ajuste a altura da imagem do perfil */
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Estilo para o link do logo */
+.no-hover {
+  transform: none !important;
+  transition: none !important;
+}
+
+.no-hover:hover {
+  all: unset !important;
+  transform: none !important;
+  transition: none !important;
+  cursor: default;
+}
+
+/* Ajustes gerais de estilo para o botão login */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(35deg, #0016d9, #0430f5); /* Gradiente azul moderno */
-  padding: 1rem 2rem;
-  border-bottom: 3px solid #4c51bf; /* Azul mais intenso */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra mais marcante */
-  width: 100%;
-  box-sizing: border-box;
+  padding: 1rem;
 }
 
-/* Estilo para o título no cabeçalho */
-.header h1 {
-  font-size: 2rem;
-  color: #f0f8ff; /* Texto branco */
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Sutil sombra no texto */
-  margin: 0;
-}
-
-/* Alinha os links à direita */
-.nav-buttons {
-  display: flex;
-  gap: 15px; /* Espaçamento entre os links */
-}
-
-/* Estilo para os links dentro do cabeçalho */
-.header a {
-  text-decoration: none;
-  color: #f0f8ff;
-  font-size: 1.125rem;
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  background-color: rgba(90, 103, 216, 0.9);
-  transition: transform 0.3s, background-color 0.3s;
-  margin-left: 15px;
-}
-
-/* Efeito de hover nos links */
-.header a:hover {
-  background-color: #4c51bf;
-  transform: scale(1.05); /* Efeito de zoom leve */
-}
-
-/* Logo */
-.header .logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffffff;
-  text-decoration: none;
-  background: transparent; /* Fundo transparente */
-  padding: 0; /* Remove padding extra */
-  border: none; /* Remove bordas */
-  box-shadow: none; /* Remove sombra */
-}
-
-.header .logo img {
-  height: 40px; /* Ajusta o tamanho do logo */
-  margin-right: 10px;
-  transition: none; /* Remove qualquer transição */
-}
-
-/* Específico para o link do logo */
-
-.no-hover {
-  transform: none !important; /* Remove transformações */
-  transition: none !important; /* Remove transições */
-}
-
-.no-hover:hover {
-  all: unset !important; /* Remove todos os efeitos de hover */
-  transform: none !important; /* Garante que o zoom não ocorre */
-  transition: none !important; /* Remove qualquer transição */
-  cursor: default; /* Opcional, remove a mãozinha de link se necessário */
-}
-
-/* Estilo básico para o botão Login page */
-/* Container para os botões de ação */
-/* Estilo do Header */
-.header {
-  display: flex;                  /* Usa Flexbox para alinhar os itens do header */
-  justify-content: space-between; /* Alinha o conteúdo do header com espaçamento entre os elementos */
-  align-items: center;            /* Centraliza os itens verticalmente no header */
-  padding: 1rem;                  /* Espaçamento interno para dar uma margem no header */
-}
-
-/* Container para os botões de ação */
+/* Botões de ação no cabeçalho */
 .action-buttons {
-  display: flex;                  /* Usa Flexbox para alinhar os botões */
-  justify-content: center;        /* Centraliza os botões horizontalmente */
-  align-items: center;            /* Alinha os botões verticalmente no centro */
-  margin-right: 1rem;              /* Pode adicionar margem para o botão não colar a borda esquerda do container */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
 }
 
-/* Estilo básico para o botão de login */
+/* Estilo do botão login */
 .action-buttons .login-button {
-  display: inline-block;          /* Garante que o botão se comporte como um bloco em linha */
-  background-color: #28a745;      /* Cor de fundo verde */
-  color: white;                   /* Cor do texto */
-  font-size: 1rem;                /* Tamanho da fonte */
-  font-weight: bold;              /* Deixa o texto em negrito */
-  padding: 0.5rem 1.5rem;         /* Padding para dar o tamanho confortável ao botão */
-  border-radius: 0.25rem;         /* Bordas arredondadas */
-  text-decoration: none;          /* Remove o sublinhado do link */
-  text-align: center;             /* Alinha o texto ao centro */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Efeito quando o mouse passa sobre o botão */
 .action-buttons .login-button:hover {
-  background-color: #218838;      /* Cor de fundo mais escura no hover */
-  transform: scale(1.05);          /* Leve aumento no botão no hover */
+  background-color: #218838;
+  transform: scale(1.05);
 }
 
-/* Efeito de clique (pressionado) */
 .action-buttons .login-button:active {
-  transform: scale(0.98);          /* Diminui o botão ligeiramente quando pressionado */
+  transform: scale(0.98);
 }
 
 
@@ -166,7 +158,7 @@ body {
 =====================*/
 
 #login-page {
-  background: url('https://www.transparenttextures.com/patterns/arabesque.png'), linear-gradient(135deg, #adedfc, #d2e9f0);
+  background: linear-gradient(135deg, #b3e5fc, #e1f5fe); /* Gradiente azul claro */
   margin: 0;
   font-family: Arial, sans-serif;
   min-height: 100vh; /* Garante que a página preencha a altura da janela */
@@ -176,10 +168,13 @@ body {
 /* Estilo para o form e centralização do fieldset */
 form {
   display: flex;
+  flex-direction: column;
+
   justify-content: center;
   align-items: center;
-  height: 80vh; /* Centralização vertical */
+  height: 70vh; /* Ajuste a altura para compensar o cabeçalho */
 }
+
 
 fieldset {
   background-color: #f9f9f9;
@@ -220,6 +215,7 @@ input[type="password"] {
 }
 
 input[type="submit"] {
+  
   padding: 0.5rem 1.5rem;
   font-size: 1rem;
   border: none;
@@ -235,7 +231,6 @@ input[type="submit"]:hover {
   background-color: #0056b3; /* Efeito de hover */
 }
 
-/* Estilo básico para o botão Registrar-se */
 /* Estilo básico para o botão Registrar-se */
 .register-button {
   display: inline-block;         /* Garante que o botão se comporte como um bloco em linha */
@@ -267,13 +262,19 @@ input[type="submit"]:hover {
 5. Register Page
 =====================*/
 
+.forms {
+  display: flex;
+  justify-content: center;
+  height: 100vh; /* Centraliza verticalmente */
+  padding: 1rem; /* Adiciona padding para não colar nas bordas */
+}
 
 .registration-form {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 120vh; /* Centraliza verticalmente */
-  margin: 0 auto; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinhado ao topo */
+  min-height: 100vh; /* Usa altura mínima para evitar overflow */
+  padding: 1rem; /* Adiciona padding para não colar nas bordas */
 }
 
 .registration-form fieldset {
@@ -281,13 +282,13 @@ input[type="submit"]:hover {
   padding: 2rem;
   border-radius: 0.5rem;
   border: 0.25rem solid #007BFF; /* Azul */
-  width: 100%; /* Use o tamanho máximo permitido */
-  max-width: 400px; /* Define a largura máxima */
+  width: auto; /* Ajusta a largura automaticamente */
+  max-width: 600px; /* Largura máxima opcional */
   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* Sombra suave */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start; /* Alinha os itens à esquerda */
+  justify-content: flex-start;
 }
 
 .registration-form h2 {
@@ -297,12 +298,29 @@ input[type="submit"]:hover {
   text-align: center;
 }
 
-/* Estilo uniforme para os rótulos */
+.registration-form h4 msg {
+  color: #FF0000; /* Vermelho para erro */
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  font-weight: bold;
+  text-align: center; /* Centraliza mensagem de erro */
+}
+
+/* Ajustando a exibição de cada campo label e input */
+.registration-form .input-container {
+  display: flex;
+  flex-wrap: nowrap; /* Evita que os elementos quebrem para uma nova linha */
+  align-items: center; /* Alinha verticalmente */
+  width: auto; /* Permite que o tamanho seja ajustado automaticamente */
+  margin-bottom: 1rem; /* Espaçamento entre os campos */
+}
+
 .registration-form label {
   font-size: 1rem;
-  margin-bottom: 0.5rem;
-  display: block;
-  width: 100%; /* Faz com que o label ocupe toda a largura */
+  margin-right: 10px; /* Espaço entre o label e o input */
+  display: inline-block;
+  text-align: left; /* Mantém o texto alinhado à esquerda */
+  white-space: nowrap; /* Garante que o label não quebre em várias linhas */
 }
 
 /* Campos de entrada */
@@ -311,14 +329,13 @@ input[type="submit"]:hover {
 .registration-form input[type="email"],
 .registration-form input[type="tel"],
 .registration-form input[type="password"] {
-  width: 100%; /* Ocupa toda a largura do formulário */
-  max-width: 350px; /* Largura máxima para os campos */
   padding: 0.5rem;
   font-size: 1rem;
-  margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   box-sizing: border-box;
+  flex: 1; /* Permite que o input cresça, se necessário */
+  min-width: 200px; /* Define uma largura mínima */
 }
 
 /* Botão de envio */
@@ -337,10 +354,6 @@ input[type="submit"]:hover {
 .registration-form input[type="submit"]:hover {
   background-color: #0056b3; /* Tom mais escuro de azul */
 }
-
-
-
-
 
 /*===================
 6. About Page
@@ -366,6 +379,7 @@ input[type="submit"]:hover {
   font-size: 2rem;
   color: #007BFF;
   margin-bottom: 1rem;
+
 }
 
 
@@ -541,4 +555,180 @@ p {
   color: #555;
   line-height: 1.6;
   margin-bottom: 1rem;
+}
+
+/*===================
+9. Secretary
+=====================*/
+
+/* Reset básico de estilos */
+
+/* Seção de Agendamento */
+.agendamento {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.agendamento h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.agendamento p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+form select,
+form input[type="date"] {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+form select:disabled,
+form input[type="date"]:disabled {
+  background-color: #e9e9e9;
+}
+
+form button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Estilo para esconder seções inicialmente */
+#medicos-container,
+#dias-container,
+#horarios-container {
+  display: none;
+}
+
+#medicos-container select,
+#dias-container input,
+#horarios-container select {
+  margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .agendamento {
+    padding: 20px;
+  }
+
+  .agendamento h2 {
+    font-size: 20px;
+  }
+
+  .agendamento p {
+    font-size: 14px;
+  }
+}
+
+
+/*===================
+10. Admin
+=====================*/
+
+.main-container {
+  display: grid; /* Usando grid layout */
+  grid-template-columns: 30% 1fr; /* A primeira coluna ocupa 30%, a segunda coluna ocupa o espaço restante */
+gap: 20px; /* Espaço entre as colunas */
+  width: 100%;
+  padding: 20px;
+}
+
+#register-role, #some-other-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #007bff; /* Azul */
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 2px;
+}
+
+form input, form select {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
 }

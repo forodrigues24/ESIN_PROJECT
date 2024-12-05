@@ -1,0 +1,11 @@
+
+./sqlite3.exe
+.open database.db
+.read database.sql
+
+
+docker run -d -p 9002:8080 -it --name=esinproject -v C:\project:/var/www/html gfcg/vesica-php73:dev
+
+Para aceder ao site localhost:9003
+
+docker run -d -p 9001:8080 -it --name=example -v C:\example:/var/www/html gfcg/vesica-php73:dev

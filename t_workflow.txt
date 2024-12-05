@@ -1,0 +1,2 @@
+1- Fazer a parte do registro de utentes
+2- Ligar isso com o login
