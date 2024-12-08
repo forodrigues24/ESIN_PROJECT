@@ -32,6 +32,7 @@ CREATE TABLE Department (
 
 CREATE TABLE Person (
     person_id INTEGER PRIMARY KEY,
+    username TEXT NOT NULL UNIQUE,
     password TEXT NOT NULL,
     name TEXT NOT NULL,
     age INTEGER, 
@@ -103,8 +104,7 @@ CREATE TABLE Appointment (
     patient_id INTEGER REFERENCES Patient,
     secretary_id INTEGER REFERENCES Secretary NOT NULL, 
     nurse_id INTEGER REFERENCES Nurse,
-    date TEXT,
-    time TEXT,
+    schedule TEXT,
     report TEXT NOT NULL
 );
 
@@ -119,7 +119,7 @@ CREATE TABLE ExamTech (
     tech_id INTEGER REFERENCES LabTech,
     lab TEXT NOT NULL,
     PRIMARY KEY (exam_id, tech_id),
-    UNIQUE(exam_id, lab)
+    UNIQUE(exam_id, tech_id)
 );
 
 CREATE TABLE Drug (
