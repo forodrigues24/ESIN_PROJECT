@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  $msg = $_SESSION['msg'];
+  unset($_SESSION['msg']);
+?>  
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,23 +16,37 @@
     
     <!-- Cabeçalho da página -->
     <header>
-      <a href="index.html"> <!-- Substitua 'pagina-desejada.html' pela URL de destino -->
+      <a href="index.php"> <!-- Substitua 'pagina-desejada.html' pela URL de destino -->
         <img src="images/logo.png" alt="Logo">
       </a>
-  
+
       <nav>
         <ul class="nav-links">
           <li><a href="especialidades.html">Especialidades</a></li>
           <li><a href="sobre.html">Sobre</a></li>
         </ul>
-  
         <div class="profile">
-          <a href="loginpage.html">
-            <img src="images/pfp.jpg" alt="Profile">
-          </a>
+          <?php if (!isset($_SESSION['email'])) { ?>
+            <a href="loginpage.php">
+              <img src="images/pfp.jpg" alt="Profile">
+            </a>
+          <?php } else { ?>
+            <!-- Redireciona para o painel/perfil se o usuário estiver logado -->
+            <a href="profile.php">
+              <img src="images/pfp.jpg" alt="Profile">
+            </a>
+          <?php } ?>
         </div>
+
+
+        
       </nav>
-    </header>
+  </header>
+  <h4>
+    <?php if (isset($msg)) { ?>
+      <?php echo $msg ?>
+    <?php } ?>
+  </h4> 
 
     
   </body>

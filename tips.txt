@@ -1,8 +1,9 @@
 
 ./sqlite3.exe
-.open database.db
+.open sql/Sdatabase.db
 .read database.sql
 
+PRAGMA table_info(nome_da_tabela);
 
 docker run -d -p 9002:8080 -it --name=esinproject -v C:\project:/var/www/html gfcg/vesica-php73:dev
 

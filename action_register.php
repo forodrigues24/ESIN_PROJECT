@@ -16,12 +16,6 @@
     die();
   }
 
-  if (strlen($name) == 0) {
-    $_SESSION['msg'] = 'Invalid username!';
-    header('Location: registpage.php');
-    die();
-  }
-
   if (
     strlen($password) < 8 ||                // Verifica o comprimento
     !preg_match('/[A-Z]/', $password) ||    // Pelo menos uma letra maiúscula
@@ -45,7 +39,7 @@
 
     insertUser($name,$age,$email,$address,$phone,$password);
     $_SESSION['msg'] = 'Registration successful!';
-    header('Location: index.php');
+    header('Location: loginpage.php');
   } catch (PDOException $e) {
     $error_msg = $e->getMessage();
 
