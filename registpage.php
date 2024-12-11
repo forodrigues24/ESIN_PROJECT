@@ -35,7 +35,7 @@ unset($_SESSION['msg']);
   </header>
 
   <div class="forms">
-    <form action="action_register.php" class="registration-form" method="post" autocomplete="off">
+    <form action="actions/action_register.php" class="registration-form" method="post" autocomplete="off">
       <fieldset>
         <h2>Registrar-se</h2>
 

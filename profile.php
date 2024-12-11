@@ -3,6 +3,7 @@ session_start();
 $msg = $_SESSION['msg'] ?? null;
 unset($_SESSION['msg']);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,11 +33,10 @@ unset($_SESSION['msg']);
             </div>
         </nav>
     </header>
-
     <!-- Caixa branca para o perfil -->
     <fieldset class="changedata-form">
         <div class="logout-button">
-            <h2>Perfil do <?php echo $_SESSION['name']; ?></h2>
+            <h2>Perfil de <?php echo $_SESSION['name']; ?></h2>
             <!-- Container para os botões com alinhamento à direita -->
 
         </div>
@@ -52,7 +52,13 @@ unset($_SESSION['msg']);
 
         <div class="button-group">
             <a href="edit_profile.php" class="btn-edit">Alterar Dados</a>
-            <a href="action_logout.php" class="btn-logout">Logout</a>
+            <a href="actions/action_logout.php" class="btn-logout">Logout</a>
+
+            <h5 class="message">
+                <?php if (isset($msg)) { ?>
+                    <?php echo $msg ?>
+                <?php } ?>
+            </h5>
         </div>
     </fieldset>
 
