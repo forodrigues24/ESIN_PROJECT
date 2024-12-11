@@ -39,6 +39,29 @@ body {
   /* Garantir que o padding e bordas sejam incluídos nas dimensões de largura e altura */
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.message {
+  color: #007BFF; /* Azul escuro */
+  font-size: 24px; /* Tamanho da fonte aumentado */
+  animation: fadeOut 6s ease-out forwards; /* Nome da animação, duração e direção */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; /* Totalmente visível */
+  }
+  to {
+    opacity: 0; /* Totalmente invisível */
+  }
+}
+
+
+
 /*===================
 2. Header
 =====================*/
@@ -61,10 +84,10 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 5px #6b6b6b;
   box-sizing: border-box;
-  /* Garante que o padding seja considerado no cálculo da largura */
-  margin-bottom: 5 rem;
 
+  /* Garante que o padding seja considerado no cálculo da largura */
 }
+
 
 
 .logo img {
@@ -130,13 +153,6 @@ nav {
   cursor: default;
 }
 
-/* Ajustes gerais de estilo para o botão login */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-}
 
 /* Botões de ação no cabeçalho */
 .action-buttons {
@@ -170,6 +186,393 @@ nav {
 }
 
 
+
+/* Slides section styling */
+.slides-container {
+  position: relative; /* Remove o uso de position: absolute */
+  margin-top: 0; /* Garante que não há margem superior */
+  height: 700px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+
+
+.navigator{
+  display:flex;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%);
+}
+
+.navigator .bar{
+  height: 5px;
+  width: 45px;
+  background: transparent;
+  cursor: pointer;
+  border: 2px solid #fff;
+  margin-left: 8px;
+}
+
+.navigator .bar:hover{
+  background: #fff;
+}
+
+input[type="radio"]{
+  position: absolute;
+  visibility: hidden;
+}
+
+.slides{
+  display: flex;
+  height: 100%;
+  width: 300%;
+}
+
+.image{
+  width: 33.33333%;
+  transition: 0.4s ease;
+}
+
+img{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#btn1:checked ~ .first{
+  margin-left: 0;
+}
+
+#btn2:checked ~ .first{
+  margin-left: -33.33333%;
+}
+
+#btn3:checked ~ .first{
+  margin-left: -66.66666%;    
+}
+
+
+/* Info section styling */
+.info-section {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #84c4cc81;
+  margin-top: 820px;
+  padding: 20px 300px;
+}
+
+.info-card {
+  text-align: center;
+  margin: auto;
+}
+
+.info-card h2 {
+  font-size: 2.5rem;
+  color: #007b7f;
+  margin: 0;
+}
+
+.info-card p {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #303030;
+}
+
+/* News section styling */
+.news {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px 150px;
+  margin: 60px 0px;
+  margin-top: 1950px;
+}
+
+.news-header {
+  grid-column: span 3;
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  color: #303030;
+}
+
+.news-item {
+  background-color: #fff;
+  color: #007b7f;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  gap: 15px;
+}
+
+.news-item:hover {
+  transform: scale(1.03);
+}
+
+.news-item img {
+  width: 250px;
+  height: 250px; 
+  object-fit: cover; 
+  border-radius: 8px 0 0 8px;
+  flex-shrink: 0;
+}
+
+.news-content {
+  padding: 10px 15px;
+  flex: 1; 
+}
+
+.news-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.news-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #303030;
+}
+
+.news-content #news-date {
+  margin-top: 15px;
+}
+
+/*===================
+4. Index page
+=====================*/
+/* General */
+
+/* Slides section styling */
+.slides-container {
+  width: 100%;
+  height: 600px;
+  background: transparent;
+  margin-bottom: 0px; /* Espaço para separar das seções subsequentes */
+  border: 1px solid #fff;
+  overflow: hidden;
+}
+
+.navigator {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%);
+}
+
+.navigator .bar {
+  height: 5px;
+  width: 45px;
+  background: transparent;
+  cursor: pointer;
+  border: 2px solid #fff;
+  margin-left: 8px;
+}
+
+.navigator .bar:hover {
+  background: #fff;
+}
+
+input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.slides {
+  display: flex;
+  height: 100%;
+  width: 300%;
+}
+
+.image {
+  width: 33.33333%;
+  transition: 0.4s ease;
+}
+
+img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#btn1:checked ~ .first {
+  margin-left: 0;
+}
+
+#btn2:checked ~ .first {
+  margin-left: -33.33333%;
+}
+
+#btn3:checked ~ .first {
+  margin-left: -66.66666%;
+}
+
+/* Info section styling */
+.info-section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #84c4cc81;
+  padding: 20px 150px; /* Ajustado para melhorar o layout */
+  margin-top: 0px; /* Espaço entre as seções */
+}
+
+/* Info card */
+.info-card {
+  text-align: center;
+  margin: auto;
+}
+
+.info-card h2 {
+  font-size: 2.5rem;
+  color: #007b7f;
+  margin: 0;
+}
+
+.info-card p {
+  font-size: 2rem;
+  margin: 10px 0;
+  color: #303030;
+}
+
+/* News section styling */
+.news {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px 150px;
+  margin-top: 60px; /* Espaço para separar das seções anteriores */
+}
+
+.news-header {
+  grid-column: span 3;
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  color: #303030;
+}
+
+.news-item {
+  background-color: #fff;
+  color: #007b7f;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  gap: 15px;
+}
+
+.news-item:hover {
+  transform: scale(1.03);
+}
+
+.news-item img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+  flex-shrink: 0;
+}
+
+.news-content {
+  padding: 10px 15px;
+  flex: 1;
+}
+
+.news-content h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.news-content p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #303030;
+}
+
+.news-content #news-date {
+  margin-top: 15px;
+}
+
+/* About and Location sections styling */
+.about-section h2, .location-section h2 {
+  text-align: left;
+  font-size: 40px;
+  font-weight: bold;
+  color: #303030;
+}
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 150px;
+  margin-top: 180px; 
+}
+
+.about-section p {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #0f0e0e;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+.about-section a {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #0f0e0e;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 1500px;
+  text-decoration: none;
+}
+
+.about-section a:hover {
+  text-decoration: underline;
+}
+
+.location-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 150px;
+  margin-top: 60px; /* Espaço para separar das seções anteriores */
+  background: #84c4cc81;
+}
+
+.location-section iframe {
+  align-self: center;
+}
+
+.location-section p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #303030;
+  line-height: 1.8;
+  margin: 0 auto;
+  max-width: 1500px;
+}
 
 /*===================
 4. Login Page
@@ -335,7 +738,6 @@ input[type="submit"]:hover {
   /* Sombra suave */
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   /* Alinha os itens à esquerda */
   justify-content: flex-start;
 
@@ -374,27 +776,20 @@ input[type="submit"]:hover {
 .registration-form .input-container {
   display: flex;
   flex-wrap: nowrap;
-  /* Evita que os elementos quebrem para uma nova linha */
   align-items: center;
-  /* Alinha verticalmente */
-  width: auto;
-  /* Permite que o tamanho seja ajustado automaticamente */
   margin-bottom: 1rem;
-  /* Espaçamento entre os campos */
+  width: 100%; /* Garantir que o contêiner ocupe toda a largura disponível */
 }
 
 .registration-form label {
   font-size: 1rem;
   margin-right: 10px;
-  /* Espaço entre o label e o input */
-  display: inline-block;
   text-align: left;
-  /* Mantém o texto alinhado à esquerda */
   white-space: nowrap;
-  /* Garante que o label não quebre em várias linhas */
+  display: inline-block;
+  width: 150px; /* Largura fixa para o label, ajustável conforme necessário */
 }
 
-/* Campos de entrada */
 .registration-form input[type="text"],
 .registration-form input[type="number"],
 .registration-form input[type="email"],
@@ -405,11 +800,9 @@ input[type="submit"]:hover {
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  flex: 1;
-  /* Permite que o input cresça, se necessário */
-  min-width: 200px;
-  /* Define uma largura mínima */
+  width: 100%; /* Garantir que o input ocupe toda a largura disponível no seu contêiner */
 }
+
 
 /* Botão de envio */
 .registration-form input[type="submit"] {
@@ -1074,3 +1467,5 @@ fieldset.changedata-form {
   text-align: left;
   /* Alinha ao texto do formulário */
 }
+
+
