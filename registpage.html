@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Registro</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+
+    // Verifica se as senhas coincidem
+    function validatePasswords() {
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm_password").value;
+
+      if (password !== confirmPassword) {
+        alert("As senhas não coincidem!");
+        return false; // Impede o envio do formulário
+      }
+      return true; // Permite o envio
+    }
+  </script>
+
+</head>
+<body id="login-page">
+  <!-- Cabeçalho da página -->
+  <!-- Cabeçalho da página -->
+  <header class="header">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo">
+    </div>
+
+    <!-- Links de Navegação -->
+    <nav class="nav-buttons">
+      <a href="especialidades.html">Especialidades</a>
+      <a href="sobre.html">Sobre</a>
+    </nav>
+  
+    <!-- Botões Extras -->
+    <div class="action-buttons">
+      <a href="loginpage.html" class="login-button">Login</a>
+    </div>
+
+  </header>
+  <!-- Formulário de registro -->
+  <!-- Formulário de registro -->
+    <!-- Formulário de registro -->
+<form class="registration-form" action="register.php" method="post" onsubmit="return validatePasswords()" autocomplete="off">
+    <fieldset>
+      <h2>Registrar-se</h2> <!-- Título do formulário -->
+  
+      <label for="name">Nome: *</label>
+      <input type="text" id="name" name="name" autocomplete="off" required>
+  
+      <label for="age">Idade:</label>
+      <input type="number" id="age" name="age" min="0" autocomplete="off">
+  
+      <label for="email">Endereço de E-mail: *</label>
+      <input type="email" id="email" name="email" autocomplete="off" required>
+  
+      <label for="address">Morada:</label>
+      <input type="text" id="address" name="address" autocomplete="off">
+  
+      <label for="phone">Número de Telefone: *</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{9}" title="O número de telefone deve conter 9 dígitos." autocomplete="off" required>
+  
+      <label for="password">Senha: *</label>
+      <input type="password" id="password" name="password" autocomplete="new-password" required>
+  
+      <label for="confirm_password">Confirmar Senha: *</label>
+      <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" required>
+  
+      <input type="submit" value="Registrar">
+    </fieldset>
+  </form>
+  
+</body>
+</html>

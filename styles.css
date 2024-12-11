@@ -1,0 +1,1076 @@
+/* =====================================
+Project Name: Clinic Project
+Author Name: Fábio Rodrigues, Tiago Castanheira, Sandro Oliveira
+
+========================================*/
+/*======================================
+[ CSS Table of contents ]
+
+1. Global Configurations
+2. Header
+3. Background & Body
+4. Login Page
+5. Register Page
+6. About Page
+7. Specialties Page
+8. About the Clinic Section
+9. Presidents Page
+
+========================================*/
+
+/*===================
+1.Global Configurations
+=====================*/
+
+body {
+  margin: 0;
+  /* Remove a margem padrão ao redor do body */
+  padding: 0;
+  /* Remove o padding padrão ao redor do body */
+  font-family: Arial, sans-serif;
+  /* Define a fonte padrão da página */
+  background-color: #f4f4f4;
+  /* Define uma cor de fundo para o body */
+  color: #333;
+  /* Define a cor do texto */
+  line-height: 1.6;
+  /* Melhora a legibilidade do texto */
+  box-sizing: border-box;
+  /* Garantir que o padding e bordas sejam incluídos nas dimensões de largura e altura */
+}
+
+/*===================
+2. Header
+=====================*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  /* O padding ajuda a garantir que o conteúdo não fique colado nas bordas */
+  background-color: #05AEC3;
+  /* Cor de fundo do cabeçalho */
+  color: #fff;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Garantir que o cabeçalho ocupe toda a largura da tela */
+  width: 100%;
+  height: 80px;
+  /* Ajuste a altura para garantir que o conteúdo não fique apertado */
+  z-index: 1000;
+  box-shadow: 0 2px 5px #6b6b6b;
+  box-sizing: border-box;
+  /* Garante que o padding seja considerado no cálculo da largura */
+  margin-bottom: 5 rem;
+
+}
+
+
+.logo img {
+  height: 50px;
+  /* Ajuste a altura do logo conforme necessário */
+  width: auto;
+  /* Mantém a proporção do logo */
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  /* Isso empurra o conteúdo do nav para a direita */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin-right: 20px;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  /* Ajusta o espaçamento entre os itens do menu */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #000;
+  /* Altera a cor do link ao passar o mouse */
+}
+
+.profile {
+  margin-left: 20px;
+  /* Espaçamento entre os links e a imagem do perfil */
+}
+
+.profile img {
+  height: 40px;
+  /* Ajuste a altura da imagem do perfil */
+  width: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+/* Estilo para o link do logo */
+.no-hover {
+  transform: none !important;
+  transition: none !important;
+}
+
+.no-hover:hover {
+  all: unset !important;
+  transform: none !important;
+  transition: none !important;
+  cursor: default;
+}
+
+/* Ajustes gerais de estilo para o botão login */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* Botões de ação no cabeçalho */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+/* Estilo do botão login */
+.action-buttons .login-button {
+  display: inline-block;
+  background-color: #28a745;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.action-buttons .login-button:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.action-buttons .login-button:active {
+  transform: scale(0.98);
+}
+
+
+
+/*===================
+4. Login Page
+=====================*/
+
+#login-page {
+  background: linear-gradient(135deg, #b3e5fc, #e1f5fe);
+  /* Gradiente azul claro */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  /* Garante que a página preencha a altura da janela */
+}
+
+
+/* Estilo para o form e centralização do fieldset */
+form {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  /* Ajuste a altura para compensar o cabeçalho */
+}
+
+
+fieldset {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border: 0.25rem solid #007BFF;
+  /* Borda em azul */
+  width: 22rem;
+  /* Largura fixa */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Centraliza o conteúdo */
+}
+
+legend {
+  color: #007BFF;
+  /* Azul mais claro */
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  /* Espaçamento abaixo do legend */
+}
+
+/* Estilo para os elementos do formulário */
+label {
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+  /* Espaço mínimo abaixo do label */
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  /* Espaçamento pequeno entre os campos */
+  border: 0.0625rem solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+  /* Espaçamento para garantir centralização */
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+  /* Efeito de hover */
+}
+
+/* Estilo básico para o botão Registrar-se */
+.register-button {
+  display: inline-block;
+  /* Garante que o botão se comporte como um bloco em linha */
+  background-color: #28a745;
+  /* Cor de fundo verde */
+  color: white;
+  /* Cor do texto */
+  font-size: 0.9rem;
+  /* Tamanho da fonte reduzido para ficar mais compacto */
+  font-weight: bold;
+  /* Deixa o texto em negrito */
+  padding: 0.4rem 1rem;
+  /* Padding reduzido para diminuir o tamanho do botão */
+  border-radius: 0.25rem;
+  /* Bordas arredondadas */
+  text-decoration: none;
+  /* Remove o sublinhado do link */
+  text-align: center;
+  /* Alinha o texto ao centro */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* Efeito suave na cor e transformação */
+  margin-top: 0.5rem;
+  /* Adiciona uma margem superior */
+}
+
+/* Efeito quando o mouse passa sobre o botão */
+.register-button:hover {
+  background-color: #218838;
+  /* Cor de fundo mais escura no hover */
+  transform: scale(1.05);
+  /* Leve aumento no botão no hover */
+}
+
+/* Efeito de clique (pressionado) */
+.register-button:active {
+  transform: scale(0.98);
+  /* Diminui o botão ligeiramente quando pressionado */
+}
+
+
+/*===================
+5. Register Page
+=====================*/
+
+.forms {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  /* Centraliza verticalmente */
+  padding: 1rem;
+  /* Adiciona padding para não colar nas bordas */
+}
+
+.registration-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.registration-form fieldset {
+  background-color: #f9f9f9;
+  border-radius: 0.5rem;
+  border: 0.25rem solid #007BFF;
+  /* Azul */
+  width: auto;
+  /* Ajusta a largura automaticamente */
+  max-width: 600px;
+  /* Largura máxima opcional */
+  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Alinha os itens à esquerda */
+  justify-content: flex-start;
+
+}
+
+.registration-form h2 {
+  color: #007BFF;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  /* Centraliza o texto */
+  align-self: center;
+  /* Sobrescreve o alinhamento geral do fieldset */
+  width: 100%;
+  /* Garante que o título ocupe a largura completa */
+}
+
+.registration-form h4 {
+  color: #FF0000;
+  /* Vermelho para a mensagem */
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  /* Centraliza o texto dentro do <h4> */
+  width: 100%;
+  /* Garante que ocupe toda a largura */
+  margin: 0.5rem 0;
+  /* Espaçamento opcional */
+  display: inline-block;
+  /* Alinha o texto centralmente */
+
+}
+
+
+/* Ajustando a exibição de cada campo label e input */
+.registration-form .input-container {
+  display: flex;
+  flex-wrap: nowrap;
+  /* Evita que os elementos quebrem para uma nova linha */
+  align-items: center;
+  /* Alinha verticalmente */
+  width: auto;
+  /* Permite que o tamanho seja ajustado automaticamente */
+  margin-bottom: 1rem;
+  /* Espaçamento entre os campos */
+}
+
+.registration-form label {
+  font-size: 1rem;
+  margin-right: 10px;
+  /* Espaço entre o label e o input */
+  display: inline-block;
+  text-align: left;
+  /* Mantém o texto alinhado à esquerda */
+  white-space: nowrap;
+  /* Garante que o label não quebre em várias linhas */
+}
+
+/* Campos de entrada */
+.registration-form input[type="text"],
+.registration-form input[type="number"],
+.registration-form input[type="email"],
+.registration-form input[type="tel"],
+.registration-form input[type="password"] {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  box-sizing: border-box;
+  flex: 1;
+  /* Permite que o input cresça, se necessário */
+  min-width: 200px;
+  /* Define uma largura mínima */
+}
+
+/* Botão de envio */
+.registration-form input[type="submit"] {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #43a1df;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-left: auto;
+  /* Adicionado para centralizar */
+  margin-right: auto;
+  /* Adicionado para centralizar */
+  display: block;
+  /* Faz o botão ocupar uma linha completa, necessário para centralização */
+  transition: background-color 0.3s ease;
+}
+
+.registration-form input[type="submit"]:hover {
+  background-color: #0056b3;
+  /* Tom mais escuro de azul */
+}
+
+/*===================
+6. About Page
+=====================*/
+
+.map-container {
+  background-color: #e3f2fd;
+  /* Cor amarela clara */
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  margin-top: -2px;
+}
+
+.map-container iframe {
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+  border: 0;
+}
+
+.content h3 {
+  font-size: 2rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+
+}
+
+
+/* Seção da presidência da clínica */
+.board-section {
+  text-align: center;
+  margin: 0;
+  /* Remover margens */
+  padding: 2rem;
+  background-color: #f9f9f9;
+  /* Cor de fundo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Sombra */
+  border-radius: 8px;
+}
+
+.board-members {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.member {
+  text-align: center;
+  margin: 10px;
+}
+
+.member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/*===================
+7. Specialities Page
+=====================*/
+
+.title {
+  background-color: #ffffff;
+  /* Fundo branco */
+  padding: 1.5rem 2rem;
+  /* Espaçamento interno */
+  text-align: left;
+  /* Centraliza o texto */
+  margin-bottom: 0;
+  /* Espaçamento inferior */
+}
+
+.especialidades-container {
+  display: flex;
+  flex-wrap: wrap;
+  /* Permite que os itens quebrem para uma nova linha */
+  justify-content: space-around;
+  /* Espaça os itens igualmente */
+  gap: 2rem;
+  /* Adiciona espaçamento entre os itens */
+  padding: 2rem;
+  /* Espaçamento interno */
+  background-color: #ffffff;
+  /* Fundo branco */
+}
+
+
+.especialidade {
+  width: 30%;
+  /* Cada coluna ocupa 30% da largura */
+  background-color: #a5eef0f3;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  margin-bottom: 2rem;
+  /* Espaçamento entre as colunas */
+  text-align: center;
+  box-sizing: border-box;
+  /* Garante que o padding e a borda não alterem a largura */
+}
+
+.especialidade img {
+  width: 100%;
+  /* Faz a imagem ocupar toda a largura */
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.especialidade h3 {
+  font-size: 1.5rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+}
+
+.especialidade p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/*===================
+8. Presidents
+=====================*/
+
+/* Estilo para os links gerais (presidente, etc.) */
+a {
+  text-decoration: none;
+  color: inherit;
+  /* Herda a cor do elemento pai */
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+  /* Mantém a mesma cor */
+}
+
+
+.content {
+  background: transparent;
+  /* Torna o fundo transparente */
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: justify;
+  margin-top: 0;
+  /* Remover o espaçamento entre a seção de conteúdo e a próxima seção */
+}
+
+
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #007BFF;
+  /* Borda ao redor da imagem */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+  /* Sombra sutil */
+  transition: transform 0.3s ease;
+  /* Efeito de hover */
+}
+
+.professional-background {
+  margin-top: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  padding: 20px;
+  background-color: #f9f9f9;
+  /* Fundo suave para a seção */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  /* Sombra sutil */
+}
+
+/* Caixa branca abaixo do cabeçalho */
+.content-box {
+  background-color: white;
+  /* Caixa branca */
+  padding: 1.5rem;
+  /* Reduzi o espaçamento interno */
+  margin-top: 20px;
+  /* Espaçamento entre a barra e a caixa */
+  border-radius: 8px;
+  /* Bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  /* Sombra suave */
+  width: fit-content;
+  /* Ajusta a largura ao conteúdo */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Imagem do perfil */
+.profile-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  border: 4px solid #007BFF;
+  /* Borda ao redor da imagem */
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+  /* Sombra sutil */
+  transition: transform 0.3s ease;
+  /* Efeito de hover */
+}
+
+.profile-image:hover {
+  transform: scale(1.25);
+  /* Aumenta um pouco a imagem ao passar o mouse */
+}
+
+
+/* Títulos dentro do conteúdo */
+h3 {
+  font-size: 2rem;
+  color: #007BFF;
+  margin-bottom: 1rem;
+}
+
+/* Estilo para os parágrafos */
+p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/*===================
+9. Secretary
+=====================*/
+
+/* Reset básico de estilos */
+
+/* Seção de Agendamento */
+.agendamento {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.agendamento h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.agendamento p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para o formulário */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+form select,
+form input[type="date"] {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+}
+
+form select:disabled,
+form input[type="date"]:disabled {
+  background-color: #e9e9e9;
+}
+
+form button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Estilo para esconder seções inicialmente */
+#medicos-container,
+#dias-container,
+#horarios-container {
+  display: none;
+}
+
+#medicos-container select,
+#dias-container input,
+#horarios-container select {
+  margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .agendamento {
+    padding: 20px;
+  }
+
+  .agendamento h2 {
+    font-size: 20px;
+  }
+
+  .agendamento p {
+    font-size: 14px;
+  }
+}
+
+
+/*===================
+10. Admin
+=====================*/
+
+.main-container {
+  display: grid;
+  /* Usando grid layout */
+  grid-template-columns: 30% 1fr;
+  /* A primeira coluna ocupa 30%, a segunda coluna ocupa o espaço restante */
+  gap: 20px;
+  /* Espaço entre as colunas */
+  width: 100%;
+  padding: 20px;
+}
+
+#register-role,
+#some-other-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  /* Azul */
+  font-family: 'Arial', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 2px;
+}
+
+form input,
+form select {
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+form button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #45a049;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: white;
+}
+
+
+
+/*===================
+11. Profile
+=====================*/
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile a {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+.changedata-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Espaçamento entre os elementos */
+}
+
+.logout-button {
+  display: flex;
+  justify-content: space-between; /* Alinhamento dos elementos dentro da div */
+  align-items: center; /* Alinhamento vertical */
+  margin-bottom: 20px; /* Espaçamento abaixo do contêiner */
+}
+
+.logout-button h2 {
+  margin: 0; /* Remove margens extras do título */
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 15px;
+}
+
+.logout-button a {
+  text-decoration: none;
+  color: #fff;
+  padding: 12px 24px; /* Aumenta o padding dos botões */
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: bold; /* Negrito para o texto */
+  font-size: 1rem; /* Tamanho de fonte aumentado */
+  transition: background-color 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.btn-logout {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.btn-logout:hover {
+  background-color: #028f99; /* Cor escura ao passar o mouse */
+  color: #fff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Intensifica a sombra */
+}
+
+.btn-edit {
+  background-color: #0daf1b;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+
+.btn-edit:hover {
+  background-color: #388e3c; /* Cor escura ao passar o mouse */
+  color: #fff;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Intensifica a sombra */
+}
+.profile-info {
+  margin: 10px 0; /* Espaço entre informações */
+}
+
+h1, h2 {
+  margin-top: 0;
+}
+
+.profile-info p {
+  margin: 5px 0;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.appointments-table th, .appointments-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.appointments-table th {
+  background-color: #f4f4f4;
+}
+
+.appointments-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.appointments-table tr:hover {
+  background-color: #eee;
+}
+
+.white-box h2 {
+  text-align: left; /* Alinhamento à esquerda para os títulos dentro das caixas */
+}
+  
+
+
+/*===================
+11. Edit Profile
+=====================*/
+/* Estilo do Fieldset com a nova classe */
+.changedata-form {
+  border: none; /* Remove qualquer borda */
+  padding: 0; /* Remove qualquer espaçamento interno */
+  margin: 0; /* Remove qualquer margem externa */
+  background: none; /* Torna o fundo transparente */
+  width: 100%; /* Garante que o tamanho não limite os elementos */
+  display: flex; /* Alinha os elementos dentro do formulário */
+  flex-direction: column;
+  gap: 1rem; /* Espaçamento entre os campos */
+  align-items: flex-start; /* Alinha tudo à esquerda */
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1); /* Sombra leve para definir o contorno visualmente sem adicionar uma borda */
+  
+}
+
+fieldset.changedata-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3; 
+  border-radius: 5px; /* Bordas arredondadas */
+  background-color: #d3f1f6; /* Azul claro como fundo, similar ao white-box */
+  width: auto; /* Ajusta a largura ao conteúdo */
+  max-width: 100%; /* Limita a largura ao máximo para evitar sair da página */
+}
+
+
+/* Rótulos e campos em linha */
+.changedata-form .input-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Alinha tudo à esquerda */
+  gap: 1rem;
+  /* Espaçamento entre o rótulo e o campo */
+}
+
+/* Estilo do Label */
+.changedata-form .input-container label {
+  flex: 0 0 150px;
+  /* Largura fixa para os rótulos */
+  text-align: right;
+  /* Alinha o texto do rótulo à direita */
+  font-size: 1rem;
+}
+
+/* Campos de entrada */
+.changedata-form .input-container input {
+  width: 300px; /* Define uma largura fixa */
+  min-width: 300px; /* Garante que os inputs não sejam menores */
+  padding: 0.5rem; /* Espaçamento interno */
+  font-size: 1rem; /* Tamanho da fonte consistente */
+  border: 1px solid #ccc; /* Borda padrão */
+  border-radius: 5px; /* Bordas arredondadas */
+  box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+}
+
+/* Garante consistência para todos os tipos de entrada */
+.changedata-form .input-container input[type="text"],
+.changedata-form .input-container input[type="number"],
+.changedata-form .input-container input[type="email"],
+.changedata-form .input-container input[type="tel"],
+.changedata-form .input-container input[type="password"] {
+  width: 300px; /* Define largura uniforme */
+}
+
+/* Botão de envio */
+.changedata-form input[type="submit"] {
+  align-self: flex-start;
+  /* Alinha o botão ao início (esquerda) */
+  background-color: #007BFF;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.changedata-form input[type="submit"]:hover {
+  background-color: #0056b3;
+  /* Escurece o botão ao passar o mouse */
+}
+
+/* Estilo opcional para mensagens de erro */
+.changedata-form h4 {
+  color: #FF0000;
+  /* Mensagens de erro em vermelho */
+  font-size: 0.875rem;
+  margin-top: 1rem;
+  text-align: left;
+  /* Alinha ao texto do formulário */
+}
