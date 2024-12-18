@@ -31,7 +31,7 @@ CREATE TABLE Department (
 );
 
 CREATE TABLE Person (
-    person_id INTEGER PRIMARY KEY,
+    person_id INTEGER PRIMARY KEY AUTOINCREMENT,
     password TEXT NOT NULL,
     name TEXT NOT NULL,
     age INTEGER, 
@@ -99,10 +99,9 @@ CREATE TABLE LabTech (
 );
 
 CREATE TABLE Appointment (
-    appointment_id INTEGER PRIMARY KEY,
-    doctor_id INTEGER REFERENCES Doctor NOT NULL,
+    appointment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_id INTEGER REFERENCES Patient,
-    secretary_id INTEGER REFERENCES Secretary NOT NULL, 
+    doctor_id INTEGER REFERENCES Doctor NOT NULL,
     nurse_id INTEGER REFERENCES Nurse,
     schedule INTEGER NOT NULL REFERENCES schedule,
     report TEXT NOT NULL

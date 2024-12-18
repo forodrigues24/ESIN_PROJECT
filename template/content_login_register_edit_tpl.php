@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 
 function login()

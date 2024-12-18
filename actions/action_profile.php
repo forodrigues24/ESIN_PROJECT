@@ -1,41 +1,39 @@
 <?php
 session_start();
 
-function fetchUserProfile($email)
-{
-    global $dbh;
-    $stmt = $dbh->prepare('
-        SELECT 
-            person_id,
-            name,
-            age,
-            email_address,
-            address,
-            phone_number
-        FROM Person
-        WHERE email_address = ?
-    ');
-    $stmt->execute(array($email));
-    return $stmt->fetch(PDO::FETCH_ASSOC);
-}
 
 function fetchAppointments($patient_id)
-{
+{   
     global $dbh;
     $stmt = $dbh->prepare('
         SELECT 
             a.appointment_id,
-            a.schedule,
-            a.report,
-            d.name AS doctor_name,
-            n.name AS nurse_name,
-            s.name AS secretary_name
-        FROM Appointments a
-        LEFT JOIN Doctors d ON a.doctor_id = d.doctor_id
-        LEFT JOIN Nurses n ON a.nurse_id = n.nurse_id
-        LEFT JOIN Secretaries s ON a.secretary_id = s.secretary_id
-        WHERE a.patient_id = ?
-        ORDER BY datetime(a.schedule)
+            dp.name AS doctor_name,
+            np.name AS nurse_name,
+            sp.name AS secretary_name,
+            s.day AS consultation_day,
+            s.start_time AS consultation_start_time,
+            a.report AS consultation_report
+        FROM 
+            Appointment a
+        JOIN 
+            Schedule s ON a.schedule = s.schedule_id
+        JOIN 
+            Doctor d ON a.doctor_id = d.employee_id
+        JOIN 
+            Person dp ON d.employee_id = dp.person_id
+        LEFT JOIN 
+            Nurse n ON a.nurse_id = n.employee_id
+        LEFT JOIN 
+            Person np ON n.employee_id = np.person_id
+        LEFT JOIN 
+            Secretary sec ON a.secretary_id = sec.employee_id
+        LEFT JOIN 
+            Person sp ON sec.employee_id = sp.person_id
+        WHERE 
+            a.patient_id = ?
+        ORDER BY 
+            s.day, s.start_time
     ');
     $stmt->execute(array($patient_id));
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -47,17 +45,14 @@ try {
     $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Obtém o ID do paciente da sessão
     $patient_id = $_SESSION['user_id'];
-
-    // Obtém os detalhes do usuário com base no e-mail
-    $userProfile = fetchUserProfile($_SESSION['email']);
 
     // Busca os agendamentos do paciente logado
     $appointments = fetchAppointments($patient_id);
 } catch (PDOException $e) {
     $_SESSION['msg'] = "Erro ao acessar o banco de dados: " . $e->getMessage();
-    header("Location: profile.php");
+    header("Location:../ profile.php");
     die();
 }
+
 ?>

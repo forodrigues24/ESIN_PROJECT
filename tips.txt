@@ -1,7 +1,10 @@
 
 ./sqlite3.exe
-.open sql/Sdatabase.db
-.read database.sql
+.open sql/database.db
+.read sql/database.sql
+
+.read sql/queries.sql
+
 
 PRAGMA table_info(nome_da_tabela);
 
