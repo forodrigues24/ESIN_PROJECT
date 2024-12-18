@@ -7,31 +7,31 @@
 .mode columns
 PRAGMA FOREIGN_KEYS = ON;
 
-DROP TABLE IF EXISTS Department;
-DROP TABLE IF EXISTS Person;
+
+DROP TABLE IF EXISTS AppointmentDrug;
+DROP TABLE IF EXISTS ExamTech;
+DROP TABLE IF EXISTS Exam;
+DROP TABLE IF EXISTS Appointment;
+DROP TABLE IF EXISTS LabTech;
+DROP TABLE IF EXISTS Admin;
+DROP TABLE IF EXISTS Secretary;
+DROP TABLE IF EXISTS Nurse;
+DROP TABLE IF EXISTS Supervision;
+DROP TABLE IF EXISTS Doctor;
 DROP TABLE IF EXISTS Employee;
-DROP TABLE IF EXISTS Schedule;
+DROP TABLE IF EXISTS PatientDisease;
 DROP TABLE IF EXISTS Patient;
 DROP TABLE IF EXISTS Disease;
-DROP TABLE IF EXISTS PatientDisease;
-DROP TABLE IF EXISTS Doctor;
-DROP TABLE IF EXISTS Supervision;
-DROP TABLE IF EXISTS Nurse;
-DROP TABLE IF EXISTS Secretary;
-DROP TABLE IF EXISTS Admin;
-DROP TABLE IF EXISTS LabTech;
-DROP TABLE IF EXISTS Appointment;
-DROP TABLE IF EXISTS Exam;
-DROP TABLE IF EXISTS ExamTech;
-DROP TABLE IF EXISTS Drug;
-DROP TABLE IF EXISTS AppointmentDrug;
+DROP TABLE IF EXISTS Schedule;
+DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS Person;
 
 CREATE TABLE Department (
     name TEXT PRIMARY KEY
 );
 
 CREATE TABLE Person (
-    person_id INTEGER PRIMARY KEY,
+    person_id INTEGER PRIMARY KEY AUTOINCREMENT,
     password TEXT NOT NULL,
     name TEXT NOT NULL,
     age INTEGER, 
@@ -48,10 +48,10 @@ CREATE TABLE Employee (
 );
 
 CREATE TABLE Schedule (
-    schedule_id INTEGER PRIMARY KEY,
-    day INTEGER,
+    schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    date DATE,   
     start_time TEXT NOT NULL,
-    leaving_time TEXT NOT NULL CHECK(leaving_time > start_time)
+    leaving_time 
 );
 
 CREATE TABLE Patient (
@@ -99,10 +99,9 @@ CREATE TABLE LabTech (
 );
 
 CREATE TABLE Appointment (
-    appointment_id INTEGER PRIMARY KEY,
-    doctor_id INTEGER REFERENCES Doctor NOT NULL,
+    appointment_id INTEGER PRIMARY KEY AUTOINCREMENT,
     patient_id INTEGER REFERENCES Patient,
-    secretary_id INTEGER REFERENCES Secretary NOT NULL, 
+    doctor_id INTEGER REFERENCES Doctor NOT NULL,
     nurse_id INTEGER REFERENCES Nurse,
     schedule INTEGER NOT NULL REFERENCES schedule,
     report TEXT NOT NULL
