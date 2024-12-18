@@ -79,9 +79,8 @@ h2 {
 /* Estilo para os parágrafos */
 p {
   font-size: 1rem;
-  color: #555;
+  color: #000000;
   line-height: 1.6;
-  margin-bottom: 1rem;
   text-align: justify;
   /* Justifica o texto */
 
@@ -178,6 +177,10 @@ nav {
   height: auto;
   /* Permite que o contêiner ajuste automaticamente à altura do conteúdo */
   display: inline-block;
+}
+
+.profile-info p {
+  margin-bottom: 0.5rem; /* Adiciona um espaço entre os parágrafos */
 }
 
 .profile img {
@@ -928,6 +931,15 @@ a:hover {
 }
 
 
+
+.button-group-edit {
+  display: grid;
+  grid-template-columns: auto auto 1fr; /* Cria 3 colunas com espaçamento igual */
+  align-items: center; /* Alinha verticalmente os itens no centro */
+  justify-items: center; /* Centraliza os itens dentro de suas células */
+  gap:0.5rem;
+}
+
 .btn-logout {
   background-color: #007BFF;
   color: #fff;
@@ -993,25 +1005,92 @@ a:hover {
 .appointments-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
 .appointments-table th,
 .appointments-table td {
-  padding: 10px;
-  border: 1px solid #ccc;
+  padding: 12px 15px; /* Aumentando o padding para melhor espaçamento */
+  border: 1px solid #ddd;
+  text-align: justify; /* Justifica o texto nas células */
 }
 
 .appointments-table th {
-  background-color: #f4f4f4;
+  background-color: #007bff; /* Cor de fundo azul */
+  color: #fff; /* Cor do texto branco */
+  font-weight: bold; /* Deixa o texto em negrito */
 }
 
 .appointments-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f4f4f4; /* Cor de fundo alternada para linhas pares */
+}
+
+.appointments-table tr:nth-child(odd) {
+  background-color: #ffffff; /* Cor de fundo alternada para linhas ímpares */
 }
 
 .appointments-table tr:hover {
-  background-color: #eee;
+  background-color: #b9d9fa; /* Cor de fundo ao passar o mouse */
+  cursor: pointer; /* Muda o cursor para indicar que é interativo */
 }
+
+.appointments-table td {
+  font-size: 14px; /* Define o tamanho da fonte nas células */
+}
+
+.appointments-table th, .appointments-table td {
+  vertical-align: middle; /* Alinha o conteúdo verticalmente no centro */
+}
+
+/* Estilo para a div que usa grid */
+.report_grid {
+  display: grid;
+  grid-template-columns: 1fr 0.1fr; /* Primeira coluna maior (1fr), segunda coluna menor (0.1fr) */
+  gap: 10px; /* Espaço entre os itens */
+  align-items: center; /* Centraliza os itens verticalmente */
+}
+
+
+
+
+/* Estilo do botão */
+/* Estilo do botão */
+.toggle-appointment-btn {
+  background-color: transparent; /* Fundo transparente */
+  border: none; /* Sem borda */
+  width: 2.5rem; /* Largura ajustada usando rem (aproximadamente 40px) */
+  height: 2.5rem; /* Altura ajustada usando rem (aproximadamente 40px) */
+  cursor: pointer; /* Cursor de clique */
+  position: relative; /* Para posicionamento da seta */
+  padding: 0.3125rem; /* Espaçamento interno ajustado (aproximadamente 5px) */
+  display: block; /* Garante que o botão ocupe seu espaço completo */
+  margin: 0 auto; /* Centraliza o botão horizontalmente */
+}
+
+/* Seta triangular apontando para baixo */
+.toggle-appointment-btn::after {
+  content: ''; /* Conteúdo vazio para a seta */
+  position: absolute;
+  top: 50%; /* Centraliza verticalmente */
+  left: 50%; /* Centraliza horizontalmente */
+  width: 0;
+  height: 0;
+  border-left: 1rem solid transparent; /* Aumenta a largura da seta usando rem (aproximadamente 16px) */
+  border-right: 1rem solid transparent; /* Aumenta a largura da seta usando rem (aproximadamente 16px) */
+  border-top: 1.25rem solid #007bff; /* Aumenta a altura da seta e cor usando rem (aproximadamente 20px) */
+  transform: translate(-50%, -50%); /* Ajuste para centralizar */
+}
+
+/* Efeito de hover para a seta */
+.toggle-appointment-btn:hover::after {
+  border-top-color: #0056b3; /* Altera a cor da seta ao passar o mouse */
+}
+
+#show-report-message {
+  color: #000000; /* Cor azul para destacar */
+  text-decoration: underline; /* Sublinha o texto */
+}
+
 
 
 

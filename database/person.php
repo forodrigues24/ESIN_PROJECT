@@ -38,3 +38,84 @@ function updateUser($id, $name, $age, $address, $phone, $password)
         $stmt->execute([$name, $age, $address, $phone, $id]);
     }
 }
+
+
+function checkRole($patient_id) {
+    global $dbh;
+    
+    // Verifica se o patient_id existe na tabela Employee
+    $stmt = $dbh->prepare('SELECT COUNT(*) FROM Employee WHERE employee_id = ?');
+    $stmt->execute([$patient_id]);
+    $result = $stmt->fetchColumn();
+
+    // Se o employee_id não for encontrado na tabela Employee, verifica nas outras tabelas
+    if ($result == 0) {
+        return 'patient';  // Se não existir em Employee, assume-se que é um paciente
+    }
+
+    // Se encontrado em Employee, agora verifica nas tabelas de funções
+    $roles = ['Admin', 'Doctor', 'Nurse', 'Secretary', 'LabTech'];
+    
+    foreach ($roles as $role) {
+        // Verifica se o employee_id existe em cada tabela de função
+        $stmt = $dbh->prepare("SELECT COUNT(*) FROM $role WHERE employee_id = ?");
+        $stmt->execute([$patient_id]);
+        $roleExists = $stmt->fetchColumn();
+
+        // Se encontrar o ID em alguma das tabelas de funções, retorna o papel
+        if ($roleExists > 0) {
+            return strtolower($role);  // Retorna o nome do papel encontrado (ex: 'admin', 'doctor', etc.)
+        }
+    }
+}
+
+
+function fetchAppointments($patient_id)
+{   
+    global $dbh;
+    $stmt = $dbh->prepare('
+        SELECT 
+            a.appointment_id,
+            dp.name AS doctor_name,
+            np.name AS nurse_name,
+            s.date AS consultation_day,
+            s.start_time AS consultation_start_time,
+            a.report AS consultation_report
+        FROM 
+            Appointment a
+        JOIN 
+            Schedule s ON a.schedule = s.schedule_id
+        JOIN 
+            Doctor d ON a.doctor_id = d.employee_id
+        JOIN 
+            Person dp ON d.employee_id = dp.person_id
+        LEFT JOIN 
+            Nurse n ON a.nurse_id = n.employee_id
+        LEFT JOIN 
+            Person np ON n.employee_id = np.person_id
+        WHERE 
+            a.patient_id = ?
+        ORDER BY 
+            s.date DESC, s.start_time DESC
+    ');
+    $stmt->execute(array($patient_id));
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+try {
+    // Conexão com o banco de dados
+    $dbh = new PDO('sqlite:../sql/database.db');
+    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $patient_id = $_SESSION['user_id'];
+
+    // Busca os agendamentos do paciente logado
+    $appointments = fetchAppointments($patient_id);
+} catch (PDOException $e) {
+    $_SESSION['msg'] = "Erro ao acessar o banco de dados: " . $e->getMessage();
+    header("Location:../profile.php");
+    die();
+}
+
+?>

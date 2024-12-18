@@ -26,20 +26,29 @@
         </div>
     </fieldset>
 
+
+
+
     <!-- Caixa branca com histórico de consultas -->
     <fieldset class="changedata-form">
         <h2>Histórico de Consultas</h2>
 
-        <!-- Tabela de consultas -->
-        <?php if (!empty($_SESSION['appointments'])) { ?>
-            <table class="appointments-table">
+        <?php
+        // Verifica se há agendamentos na sessão
+        if (!empty($_SESSION['appointments'])) {
+            // Exibe o número total de consultas
+            $totalAppointments = count($_SESSION['appointments']);
+
+        ?>
+
+            <table id="appointments-table" class="appointments-table">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Horário</th>
                         <th>Médico</th>
                         <th>Enfermeiro</th>
-                        <th>Secretário</th>
+                        <th>Dia</th>
+                        <th>Horário</th>
                         <th>Relatório</th>
                     </tr>
                 </thead>
@@ -47,17 +56,52 @@
                     <?php foreach ($_SESSION['appointments'] as $appointment) { ?>
                         <tr>
                             <td><?php echo $appointment['appointment_id']; ?></td>
-                            <td><?php echo date('d/m/Y H:i', strtotime($appointment['schedule'])); ?></td>
                             <td><?php echo $appointment['doctor_name']; ?></td>
                             <td><?php echo $appointment['nurse_name']; ?></td>
-                            <td><?php echo $appointment['secretary_name']; ?></td>
-                            <td><?php echo $appointment['report']; ?></td>
+                            <td><?php echo $appointment['consultation_day']; ?></td>
+                            <td><?php echo $appointment['consultation_start_time']; ?></td>
+                            <td>
+                                <div class="report_grid">
+                                    <div class="grid-item">
+                                        <?php
+                                        // Verifica se a variável de sessão 'selected_appointments' existe e é um array
+                                        if (isset($_SESSION['selected_appointments']) && is_array($_SESSION['selected_appointments'])):
+                                            if (in_array($appointment['appointment_id'], $_SESSION['selected_appointments'])):
+                                        ?>
+                                                <p> <?php echo $appointment['consultation_report']; ?></p>
+                                            <?php else: ?>
+                                                <!-- Exibe a mensagem para clicar e mostrar o relatório completo -->
+                                                <p id="show-report-message">Clique para mostrar relatório completo</p>
+                                            <?php endif; ?>
+                                        <?php else: ?>
+                                            <!-- Caso a variável de sessão não exista ou não seja um array -->
+                                            <p id="show-report-message">Clique para mostrar relatório completo</p>
+                                        <?php endif; ?>
+                                    </div>
+
+
+                                    <div class="show_hide_button">
+                                        <form action="actions/action_showhide_report.php" method="POST">
+                                            <input type="hidden" name="appointment_id" value="<?php echo $appointment['appointment_id']; ?>">
+                                            <button type="submit" class="toggle-appointment-btn"></button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
-        <?php } else { ?>
-            <p>Você ainda não possui consultas registradas.</p>
-        <?php } ?>
-    </fieldset class="changedata-form">
+
+        <?php
+        } else {
+            // Exibe mensagem se não houver consultas
+            echo '<p>Você ainda não possui consultas registradas.</p>';
+        }
+        ?>
+
+    </fieldset>
+
+
 </section>
