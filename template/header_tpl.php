@@ -27,15 +27,19 @@ function renderHeader($activePage = '')
                     <?php } ?>
 
                     <?php if ($_SESSION['role'] == 'secretary' && $activePage !== 'secretaria') { ?>
-                        <li><a href="../secretaria.php"> Secretária </a></li>
+                        <li><a href="../secretaria.php"> Horários    </a></li>
                     <?php } ?>
                     
+                    <?php if ($_SESSION['role'] == 'nurse' && $activePage !== 'doctor' ) { ?>
+                        <li><a href="../.php"> Doutor </a></li>
+                    <?php } ?>
+
                     <?php if ($_SESSION['role'] == 'admin' && $activePage !== 'admin') { ?>
                         <li><a href="../admin.php"> Admin</a></li>
                     <?php } ?>
 
                     <?php if ($_SESSION['role'] == 'nurse' && $activePage !== 'nurse' ) { ?>
-                        <li><a href="../.php"> Enfermeira</a></li>
+                        <li><a href="../.php"> Enfermeira </a></li>
                     <?php } ?>
 
                     <?php if ($_SESSION['role'] == 'labtech'&& $activePage !== 'labtech') { ?>
