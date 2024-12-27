@@ -1,0 +1,12 @@
+
+
+
+1. Fazer a pagina em que quando o admin loga-se e faz parte da tabela admin abre uma pagina em que consegue adicionar medicos, enfermeiros e todos os outros roles.
+Para facilitar estava a pensar em ter apenas que especificar o email (eles têm de se registrar primeiro), e com esses dados meter no role que eles querem 
+(ter uma cena de selecionar os diferentes roles, e se for medico especialidade por exemplo, campos que forem precisos)
+
+2. Fazer a janela em que o paciente pode marcar as consultas. Seleciona a especialidade, tem os medicos dessa especialidade, e de acordo com as consultas que ja foram marcadas,
+abrir os horarios disponiveis do dia em que ele marcar e dar para marcar para esse dia.
+
+3. Fazer a pagina do medico em que abre a consulta em que tá, aparece lhe uma lista das consutlas que tem marcadas, e ele escolhe a que quer e faz o texto a dizer o relatorio.
+

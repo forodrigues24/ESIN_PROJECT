@@ -1,0 +1,34 @@
+./sqlite3.exe
+.open sql/database.db
+.read sql/database.sql
+
+.read sql/queries.sql
+
+
+PRAGMA table_info(nome_da_tabela);
+
+Limpar tabelas:
+DROP TABLE IF EXISTS TimeStamps;
+DROP TABLE IF EXISTS EmployeeSchedule;
+DROP TABLE IF EXISTS AppointmentDrug;
+DROP TABLE IF EXISTS Drug;
+DROP TABLE IF EXISTS ExamTech;
+DROP TABLE IF EXISTS Exam;
+DROP TABLE IF EXISTS Appointment;
+DROP TABLE IF EXISTS LabTech;
+DROP TABLE IF EXISTS Admin;
+DROP TABLE IF EXISTS Secretary;
+DROP TABLE IF EXISTS Nurse;
+DROP TABLE IF EXISTS Supervision;
+DROP TABLE IF EXISTS Doctor;
+DROP TABLE IF EXISTS Employee;
+DROP TABLE IF EXISTS PatientDisease;
+DROP TABLE IF EXISTS Patient;
+DROP TABLE IF EXISTS Disease;
+DROP TABLE IF EXISTS Department;
+DROP TABLE IF EXISTS Person;
+
+.open sql/database.db
+.read sql/database.sql
+
+.read sql/queries.sql
