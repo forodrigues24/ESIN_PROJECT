@@ -1,4 +1,3 @@
-
 <form action="actions/action_edit_profile.php" class="registration-form" method="post" autocomplete="off">
     <fieldset class="edit">
         <h2>Perfil de <?php echo $_SESSION['name']; ?></h2>
@@ -34,13 +33,18 @@
             <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password">
         </div>
 
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn-logout" value="Salvar">
+
+        <div class="msg-centered">
+            <h5 class="message">
+                <?php if (isset($msg)) { ?>
+                    <?php echo $msg ?>
+                <?php } ?>
+            </h5>
+        <div class="input-container">
 
 
     </fieldset>
-    <?php if (isset($msg)) { ?>
-        <?php echo $msg ?>
-    <?php } ?>
+
 </form>
 </body>
-

@@ -27,7 +27,7 @@ function renderHeader($activePage = '')
                     <?php } ?>
 
                     <?php if ($_SESSION['role'] == 'secretary' && $activePage !== 'secretaria') { ?>
-                        <li><a href="../secretaria.php"> Secretária </a></li>
+                        <li><a href="../secretaria.php"> Horários    </a></li>
                     <?php } ?>
                     
                     <?php if ($_SESSION['role'] == 'nurse' && $activePage !== 'doctor' ) { ?>

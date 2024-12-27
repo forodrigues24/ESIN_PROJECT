@@ -1,7 +1,8 @@
 <?php
 
 function login()
-{ ?>
+{ 
+    global $msg; ?>
     <section id='content_loginregister'>
         <form action="actions/action_login.php" class='login-form' method="post">
             <fieldset>
@@ -15,11 +16,12 @@ function login()
                     <a href="registpage.php" class="register-button">Registrar-se</a>
                 </div>
 
-                <p class="message">
+                <h5 class="message">
                     <?php if (isset($msg)) { ?>
                         <?php echo $msg ?>
                     <?php } ?>
-                </p>
+                </h5>
+
             </fieldset>
         </form>
     </section>
@@ -27,8 +29,11 @@ function login()
 
 <?php
 
+
+
 function register()
-{ ?>
+{ 
+    global $msg; ?>
     <section id='content_loginregister'>
         <form action="actions/action_register.php" class='registration-form' method="post" autocomplete="off">
             <fieldset>
@@ -69,15 +74,13 @@ function register()
                     <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password" required>
                 </div>
 
-                <div class="buttons-container">
-                    <input type="submit" value="Registrar">
-                </div>
+                <input type="submit" value="Registrar">
 
-                <p class="message">
+                <h5 class="message">
                     <?php if (isset($msg)) { ?>
                         <?php echo $msg ?>
                     <?php } ?>
-                </p>
+                </h5>
 
             </fieldset>
         </form>
@@ -87,7 +90,8 @@ function register()
 
 <?php
 function edit()
-{ ?>
+{ 
+    global $msg; ?>
     <section id='content_loginregister'>
 
         <form action="actions/action_edit_profile.php" class="edit-form" method="post" autocomplete="off">
@@ -130,11 +134,11 @@ function edit()
                     <input type="submit" value="Salvar">
                 </div>
 
-                <p class="message">
+                <h5 class="message">
                     <?php if (isset($msg)) { ?>
                         <?php echo $msg ?>
                     <?php } ?>
-                </p>
+                </h5>
             </fieldset>
         </form>
         </body>

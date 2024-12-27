@@ -16,7 +16,13 @@ function loginSuccess($email, $password)
   return $stmt->fetch();
 }
 
-
+function getTimeStamps()
+{
+  global $dbh;
+  $stmt = $dbh->prepare('SELECT * FROM TimeStamps');
+  $stmt->execute();
+  return $stmt->fetchAll();
+}
 
 try {
   $dbh = new PDO('sqlite:../sql/database.db');
@@ -35,7 +41,8 @@ try {
     $_SESSION['msg'] = 'Login Sucessfull!';
     $_SESSION['password']= $userData['password'];
     $_SESSION['appointments']=fetchAppointments($_SESSION['person_id']);
-    
+    $_SESSION['timestamps']=getTimeStamps();
+
     header('Location: ../index.php');
     die();
 
