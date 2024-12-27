@@ -27,7 +27,7 @@ function renderHeader($activePage = '')
                     <?php } ?>
 
                     <?php if ($_SESSION['role'] == 'secretary' && $activePage !== 'secretaria') { ?>
-                        <li><a href="../secretaria.php"> Secretária </a></li>
+                        <li><a href="../secretaria.php"> Horários    </a></li>
                     <?php } ?>
                     
                     <?php if ($_SESSION['role'] == 'nurse' && $activePage !== 'doctor' ) { ?>
@@ -43,7 +43,7 @@ function renderHeader($activePage = '')
                     <?php } ?>
 
                     <?php if ($_SESSION['role'] == 'labtech'&& $activePage !== 'labtech') { ?>
-                        <li><a href="../especialidades.php"> Técnico de Laboratório </a></li>
+                        <li><a href="../labtech.php"> Técnico de Laboratório </a></li>
                     <?php } ?>
 
                     <?php if ($activePage !== 'especialidades') { ?>
