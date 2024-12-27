@@ -67,8 +67,10 @@ body {
   /* Animação */
   text-align: center;
   /* Centraliza o texto horizontalmente */
-
+  margin: 0.5rem 0;
 }
+
+
 
 h2 {
   color: #007BFF;
@@ -492,7 +494,9 @@ img {
 .login-form {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: auto; /* Ajusta automaticamente à largura do conteúdo */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente se for um bloco */
 }
 
 
@@ -519,21 +523,26 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
+.buttons-container {
+  display: grid;
+  grid-template-columns: auto auto; /* Duas colunas de largura igual */
+  gap: 20px; /* Espaço entre os itens */
+}
+
 input[type="submit"] {
 
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.25rem;
   background-color: #007BFF;
-  color: white;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.3s ease;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;  
 }
 
 input[type="submit"]:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .register-button {
@@ -557,10 +566,6 @@ input[type="submit"]:hover {
   /* Leve aumento no botão no hover */
 }
 
-.register-button:active {
-  transform: scale(0.98);
-}
-
 
 /*===================
 5. Register Page
@@ -569,7 +574,9 @@ input[type="submit"]:hover {
 .registration-form {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: auto; /* Ajusta automaticamente à largura do conteúdo */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente se for um bloco */
 }
 
 
@@ -578,7 +585,7 @@ input[type="submit"]:hover {
   border-radius: 0.5rem;
   border: 0.25rem solid #007BFF;
   flex-direction: column;
-  height: 36rem;
+  height: 37rem;
   padding: 2rem;
 }
 
@@ -805,6 +812,7 @@ input[type="submit"]:hover {
   font-size: 1rem;
   line-height: 1.4;
   color: #555;
+  margin-bottom: 1rem ;
 }
 
 .especialidade:hover {
@@ -819,7 +827,7 @@ input[type="submit"]:hover {
 .especialidade img {
   width: 100%;
   /* Imagem ocupa toda a largura */
-  height: 15rem;
+  height: 22rem;
 }
 
 
@@ -851,20 +859,26 @@ a:hover {
   margin-top: 0;
 }
 
+.address {
+  display: flex; /* Define o layout flex */
+  justify-content: center; /* Alinha o conteúdo horizontalmente no centro */
+  align-items: center; /* Alinha o conteúdo verticalmente no centro */
+    }
 
-.professional-background {
-  margin-top: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  padding: 20px;
-  background-color: #f9f9f9;
-  /* Fundo suave para a seção */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  /* Sombra sutil */
-}
+
+  .professional-background {
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* Fundo suave para a seção */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+  }
 
 /* Caixa branca abaixo do cabeçalho */
 .content-box {
@@ -934,9 +948,8 @@ a:hover {
 
 .button-group-edit {
   display: grid;
-  grid-template-columns: auto auto 1fr; /* Cria 3 colunas com espaçamento igual */
+  grid-template-columns: auto auto auto 1fr; /* Cria 3 colunas com espaçamento igual */
   align-items: center; /* Alinha verticalmente os itens no centro */
-  justify-items: center; /* Centraliza os itens dentro de suas células */
   gap:0.5rem;
 }
 
@@ -994,14 +1007,6 @@ a:hover {
 }
 
 
-.changedata-form {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  /* Espaçamento entre os elementos */
-}
-
-
 .appointments-table {
   width: 100%;
   border-collapse: collapse;
@@ -1040,7 +1045,7 @@ a:hover {
 
 .appointments-table th, .appointments-table td {
   vertical-align: middle; /* Alinha o conteúdo verticalmente no centro */
-}
+} 
 
 /* Estilo para a div que usa grid */
 .report_grid {
@@ -1097,27 +1102,13 @@ a:hover {
 /*===================
 10. Edit Profile
 =====================*/
-/* Estilo do Fieldset com a nova classe */
-.changedata-form {
-  border: none;
-  /* Remove qualquer borda */
-  padding: 0;
-  /* Remove qualquer espaçamento interno */
-  margin: 0;
-  /* Remove qualquer margem externa */
-  background: none;
-  /* Torna o fundo transparente */
+
+#content_secretaria {
   width: 100%;
-  /* Garante que o tamanho não limite os elementos */
-  display: flex;
-  /* Alinha os elementos dentro do formulário */
-  flex-direction: column;
-  gap: 1rem;
-  /* Espaçamento entre os campos */
-  align-items: flex-start;
-  /* Alinha tudo à esquerda */
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-  /* Sombra leve para definir o contorno visualmente sem adicionar uma borda */
+  display: grid;
+  /* Ativa o grid layout */
+  grid-template-rows: auto auto auto;
+  gap:1rem;
 }
 
 fieldset.changedata-form {
@@ -1125,13 +1116,13 @@ fieldset.changedata-form {
   padding: 20px;
   border: 1px solid #05AEC3;
   border-radius: 5px;
-  /* Bordas arredondadas */
+  flex-direction: column;
+  display: flex;
   background-color: #d3f1f6;
-  /* Azul claro como fundo, similar ao white-box */
   width: auto;
-  /* Ajusta a largura ao conteúdo */
   max-width: 100%;
-  /* Limita a largura ao máximo para evitar sair da página */
+  gap: 1rem;
+  height: 22rem;
 }
 
 .edit-form {
@@ -1188,3 +1179,140 @@ fieldset.changedata-form {
   justify-content: center;
   /* Centraliza o conteúdo horizontalmente */
 }
+
+/*===================
+10. Secretária
+=====================*/
+.schedule_form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto; /* Duas colunas para selects e uma para o botão */
+  gap: 5px; /* Reduzido o espaçamento entre os itens do grid */
+  align-items: center; /* Alinha verticalmente os elementos ao centro */
+  padding: 1px; /* Reduzido o preenchimento interno */
+  background-color: #f9f9f9; /* Cor de fundo */
+  border: 1px solid #ddd; /* Borda */
+  border-radius: 6px; /* Bordas ligeiramente arredondadas */
+  max-width: 800px; /* Limita a largura máxima */
+  margin: 10px auto; /* Reduzido o espaço externo */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Suavizada a sombra */
+}
+
+.schedule_form select {
+  padding: 6px; /* Reduzido o preenchimento interno */
+  border: 1px solid #ccc;
+  border-radius: 3px; /* Menos arredondado */
+  font-size: 13px; /* Texto um pouco menor */
+  background-color: #fff;
+  width: 100%; /* O select ocupa sua célula */
+}
+
+.schedule_form button {
+  padding: 8px 15px; /* Reduzido o preenchimento interno */
+  font-size: 13px; /* Texto um pouco menor */
+  color: #fff;
+  background-color: #007bff; /* Azul padrão */
+  border: none;
+  border-radius: 3px; /* Menos arredondado */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.schedule_form button:hover {
+  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+fieldset.schedule-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  flex-direction: column;
+  display: flex;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  gap: 1rem;
+  height: auto;
+
+}
+
+/*===================
+11. Marcar Consultas
+=====================*/
+/* Estilo geral para o campo do formulário */
+
+fieldset.schedule-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  flex-direction: column;
+  display: flex;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  gap: 1rem;
+  height: auto;
+}
+
+
+fieldset.consultas-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  display: flex; /* Usando Flexbox */
+  flex-wrap: wrap; /* Permite que os itens se movam para a linha seguinte quando não há espaço suficiente */
+  justify-content: space-between; /* Distribui os itens uniformemente */
+  gap: 20px; /* Espaçamento entre os formulários */
+}
+
+/* Estilos para os formulários individuais com a classe medico-form */
+.medico-form {
+  background-color: #fff; /* Cor de fundo branca para o formulário */
+  border: 1px solid #05AEC3; /* Borda azul clara */
+  border-radius: 5px; /* Cantos arredondados */
+  padding: 20px; /* Espaçamento interno */
+  width: 100%; /* O formulário ocupa toda a largura disponível dentro do flex */
+  max-width: 350px; /* Largura máxima do formulário */
+  box-sizing: border-box; /* Inclui padding e bordas nas dimensões */
+  display: flex; /* Flexbox para o layout interno do formulário */
+  flex-direction: column; /* Organiza os elementos do formulário em coluna */
+  gap: 15px; /* Espaçamento entre os elementos dentro do formulário */
+  /* Responsividade: cada formulário vai se ajustar conforme o tamanho da tela */
+  justify-content: center; /* Alinha os itens na direção do eixo principal */
+  align-items: center; /* Alinha os itens no eixo transversal */
+  text-align: center; /* Centraliza o texto dentro do formulário */}
+
+/* Estilo para o select */
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+/* Estilo para o botão de submit */
+.submit-container input[type="submit"] {
+  background-color: #4CAF50; /* Cor verde */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.submit-container input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+

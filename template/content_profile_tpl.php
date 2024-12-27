@@ -31,9 +31,12 @@
 
     <!-- Caixa branca com histórico de consultas -->
     <fieldset class="changedata-form">
+    <?php if ($_SESSION['role_user'] == 'patient') { ?>
         <h2>Histórico de Consultas</h2>
 
         <?php
+
+       
         // Verifica se há agendamentos na sessão
         if (!empty($_SESSION['appointments'])) {
             // Exibe o número total de consultas
@@ -56,10 +59,10 @@
                     <?php foreach ($_SESSION['appointments'] as $appointment) { ?>
                         <tr>
                             <td><?php echo $appointment['appointment_id']; ?></td>
-                            <td><?php echo $appointment['doctor_name']; ?></td>
-                            <td><?php echo $appointment['nurse_name']; ?></td>
-                            <td><?php echo $appointment['consultation_day']; ?></td>
-                            <td><?php echo $appointment['consultation_start_time']; ?></td>
+                            <td><?php echo $appointment['Doutor']; ?></td>
+                            <td><?php echo $appointment['Enfermeiro']; ?></td>
+                            <td><?php echo $appointment['Data da Consulta']; ?></td>
+                            <td><?php echo $appointment['Hora']; ?></td>
                             <td>
                                 <div class="report_grid">
                                     <div class="grid-item">
@@ -68,7 +71,7 @@
                                         if (isset($_SESSION['selected_appointments']) && is_array($_SESSION['selected_appointments'])):
                                             if (in_array($appointment['appointment_id'], $_SESSION['selected_appointments'])):
                                         ?>
-                                                <p> <?php echo $appointment['consultation_report']; ?></p>
+                                                <p> <?php echo $appointment['Relatório']; ?></p>
                                             <?php else: ?>
                                                 <!-- Exibe a mensagem para clicar e mostrar o relatório completo -->
                                                 <p id="show-report-message">Clique para mostrar relatório completo</p>
@@ -101,7 +104,10 @@
         }
         ?>
 
-    </fieldset>
+    </fieldset> 
+    <?php } else { ?>
+        <h2>Horário</h2> <?php } ?>
+
 
 
 </section>

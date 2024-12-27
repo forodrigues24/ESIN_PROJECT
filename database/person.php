@@ -1,4 +1,14 @@
 <?php
+
+
+function loginSuccess($email, $password)
+{
+  global $dbh;
+  $stmt = $dbh->prepare('SELECT * FROM Person WHERE email_address = ? AND password = ?');
+  $stmt->execute(array($email, hash('sha256', $password)));
+  return $stmt->fetch();
+}
+
 function isPhoneUsed($phone, $id)
 {
     global $dbh;
@@ -76,15 +86,15 @@ function fetchAppointments($patient_id)
     $stmt = $dbh->prepare('
         SELECT 
             a.appointment_id,
-            dp.name AS doctor_name,
-            np.name AS nurse_name,
-            s.date AS consultation_day,
-            s.start_time AS consultation_start_time,
-            a.report AS consultation_report
+            dp.name AS "Doutor",
+            np.name AS "Enfermeiro",
+            a.appointment_date AS "Data da Consulta",
+            a.time_block AS "Hora",
+            a.report AS "Relatório"
         FROM 
             Appointment a
         JOIN 
-            Schedule s ON a.schedule = s.schedule_id
+            TimeStamps USING(time_block)
         JOIN 
             Doctor d ON a.doctor_id = d.employee_id
         JOIN 
@@ -96,11 +106,12 @@ function fetchAppointments($patient_id)
         WHERE 
             a.patient_id = ?
         ORDER BY 
-            s.date DESC, s.start_time DESC
+            a.appointment_date DESC, a.time_block DESC
     ');
     $stmt->execute(array($patient_id));
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 try {
     // Conexão com o banco de dados
