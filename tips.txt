@@ -7,15 +7,9 @@
 
 PRAGMA table_info(nome_da_tabela);
 
-docker run -d -p 9002:8080 -it --name=esinproject -v C:\project:/var/www/php gfcg/vesica-php73:dev
-
-Para aceder ao site localhost:9003
-
-docker run -d -p 9001:8080 -it --name=example -v C:\example:/var/www/php gfcg/vesica-php73:dev
-
-
 Limpar tabelas:
-
+DROP TABLE IF EXISTS TimeStamps;
+DROP TABLE IF EXISTS EmployeeSchedule;
 DROP TABLE IF EXISTS AppointmentDrug;
 DROP TABLE IF EXISTS Drug;
 DROP TABLE IF EXISTS ExamTech;
@@ -31,6 +25,10 @@ DROP TABLE IF EXISTS Employee;
 DROP TABLE IF EXISTS PatientDisease;
 DROP TABLE IF EXISTS Patient;
 DROP TABLE IF EXISTS Disease;
-DROP TABLE IF EXISTS Schedule;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Person;
+
+.open sql/database.db
+.read sql/database.sql
+
+.read sql/queries.sql

@@ -67,7 +67,7 @@ body {
   /* Animação */
   text-align: center;
   /* Centraliza o texto horizontalmente */
-
+  margin: 0.5rem 0;
 }
 
 h2 {
@@ -492,7 +492,9 @@ img {
 .login-form {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: auto; /* Ajusta automaticamente à largura do conteúdo */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente se for um bloco */
 }
 
 
@@ -519,21 +521,30 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
+.buttons-container {
+  display: grid;
+  grid-template-columns: auto auto; /* Duas colunas de largura igual */
+  gap: 20px; /* Espaço entre os itens */
+}
+
 input[type="submit"] {
 
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.25rem;
-  background-color: #007BFF;
+  display: inline-block;
+  background-color: #435ef8;
   color: white;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 0.4rem 1rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 0.1rem;
+  border:none;
 }
 
 input[type="submit"]:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .register-button {
@@ -557,10 +568,6 @@ input[type="submit"]:hover {
   /* Leve aumento no botão no hover */
 }
 
-.register-button:active {
-  transform: scale(0.98);
-}
-
 
 /*===================
 5. Register Page
@@ -569,7 +576,9 @@ input[type="submit"]:hover {
 .registration-form {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: auto; /* Ajusta automaticamente à largura do conteúdo */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente se for um bloco */
 }
 
 
@@ -578,7 +587,7 @@ input[type="submit"]:hover {
   border-radius: 0.5rem;
   border: 0.25rem solid #007BFF;
   flex-direction: column;
-  height: 36rem;
+  height: 37rem;
   padding: 2rem;
 }
 
