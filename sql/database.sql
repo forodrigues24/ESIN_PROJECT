@@ -7,8 +7,10 @@
 .mode columns
 PRAGMA FOREIGN_KEYS = ON;
 
-
+DROP TABLE IF EXISTS TimeStamps;
+DROP TABLE IF EXISTS EmployeeSchedule;
 DROP TABLE IF EXISTS AppointmentDrug;
+DROP TABLE IF EXISTS Drug;
 DROP TABLE IF EXISTS ExamTech;
 DROP TABLE IF EXISTS Exam;
 DROP TABLE IF EXISTS Appointment;
@@ -22,7 +24,6 @@ DROP TABLE IF EXISTS Employee;
 DROP TABLE IF EXISTS PatientDisease;
 DROP TABLE IF EXISTS Patient;
 DROP TABLE IF EXISTS Disease;
-DROP TABLE IF EXISTS Schedule;
 DROP TABLE IF EXISTS Department;
 DROP TABLE IF EXISTS Person;
 
@@ -42,17 +43,22 @@ CREATE TABLE Person (
 
 CREATE TABLE Employee (
     employee_id INTEGER REFERENCES Person PRIMARY KEY,
-    work_schedule INTEGER REFERENCES Schedule NOT NULL, 
-    start_contract TEXT NOT NULL, 
-    end_contract TEXT CHECK(end_contract IS NULL OR end_contract > start_contract)
+p
+    end_contract DATE CHECK(end_contract IS NULL OR end_contract > start_contract)
 );
 
-CREATE TABLE Schedule (
-    schedule_id INTEGER PRIMARY KEY AUTOINCREMENT,
-    date DATE,   
-    start_time TEXT NOT NULL,
-    leaving_time 
+CREATE TABLE TimeStamps (
+    time_block TIME PRIMARY KEY
 );
+
+CREATE TABLE EmployeeSchedule(
+    employee_id INTEGER REFERENCES Employee,
+    date DATE,
+    start_time TIME REFERENCES TimeStamps,
+    end_time TIME REFERENCES TimeStamps,
+    PRIMARY KEY (employee_id ,date)
+);
+
 
 CREATE TABLE Patient (
     patient_id INTEGER PRIMARY KEY REFERENCES Person
@@ -103,7 +109,8 @@ CREATE TABLE Appointment (
     patient_id INTEGER REFERENCES Patient,
     doctor_id INTEGER REFERENCES Doctor NOT NULL,
     nurse_id INTEGER REFERENCES Nurse,
-    schedule INTEGER NOT NULL REFERENCES schedule,
+    time_block TIME NOT NULL REFERENCES TimeStamps,
+    appointment_date DATE NOT NULL ,
     report TEXT NOT NULL
 );
 
