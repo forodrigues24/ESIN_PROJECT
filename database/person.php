@@ -1,4 +1,56 @@
 <?php
+
+function getPersonData($id)
+{
+    global $dbh;
+
+    try {
+        $query = 'SELECT * FROM Person WHERE person_id = ?';
+        $stmt = $dbh->prepare($query);
+        $stmt->execute([$id]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        // Handle errors
+        $_SESSION['msg'] = 'Error: ' . $e->getMessage();
+        header('Location: ../admin.php'); // Redirect with an error message
+        exit();
+    }
+}
+
+function getPersonDataByEmail($email)
+{
+    global $dbh;
+
+    try {
+        // Modificar a consulta para usar LIKE, permitindo correspondência parcial
+        $query = 'SELECT person_id FROM Person WHERE email_address LIKE ?';
+        $stmt = $dbh->prepare($query);
+
+        // Adiciona os porcentos ao redor do email para correspondência parcial
+        $emailSearch = "%" . $email . "%";
+
+        $stmt->execute([$emailSearch]);
+
+        // Retorna apenas o person_id
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        // Tratar erros
+        $_SESSION['msg'] = 'Error: ' . $e->getMessage();
+        header('Location: ../admin.php'); // Redireciona com uma mensagem de erro
+        exit();
+    }
+}
+
+
+function loginSuccess($email, $password)
+{
+    global $dbh;
+    $stmt = $dbh->prepare('SELECT * FROM Person WHERE email_address = ? AND password = ?');
+    $stmt->execute(array($email, hash('sha256', $password)));
+    return $stmt->fetch();
+}
+
 function isPhoneUsed($phone, $id)
 {
     global $dbh;
@@ -15,7 +67,7 @@ function updateUser($id, $name, $age, $address, $phone, $password)
 
     // Se a senha foi fornecida, valida e faz o hash
     if (!empty($password)) {
-        
+
         // Valida a senha: comprimento mínimo, maiúsculas, números, símbolos
         if (
             strlen($password) < 8 ||
@@ -40,9 +92,10 @@ function updateUser($id, $name, $age, $address, $phone, $password)
 }
 
 
-function checkRole($patient_id) {
+function checkRole($patient_id)
+{
     global $dbh;
-    
+
     // Verifica se o patient_id existe na tabela Employee
     $stmt = $dbh->prepare('SELECT COUNT(*) FROM Employee WHERE employee_id = ?');
     $stmt->execute([$patient_id]);
@@ -55,7 +108,7 @@ function checkRole($patient_id) {
 
     // Se encontrado em Employee, agora verifica nas tabelas de funções
     $roles = ['Admin', 'Doctor', 'Nurse', 'Secretary', 'LabTech'];
-    
+
     foreach ($roles as $role) {
         // Verifica se o employee_id existe em cada tabela de função
         $stmt = $dbh->prepare("SELECT COUNT(*) FROM $role WHERE employee_id = ?");
@@ -71,20 +124,20 @@ function checkRole($patient_id) {
 
 
 function fetchAppointments($patient_id)
-{   
+{
     global $dbh;
     $stmt = $dbh->prepare('
         SELECT 
             a.appointment_id,
-            dp.name AS doctor_name,
-            np.name AS nurse_name,
-            s.date AS consultation_day,
-            s.start_time AS consultation_start_time,
-            a.report AS consultation_report
+            dp.name AS "Doutor",
+            np.name AS "Enfermeiro",
+            a.appointment_date AS "Data da Consulta",
+            a.time_block AS "Hora",
+            a.report AS "Relatório"
         FROM 
             Appointment a
         JOIN 
-            Schedule s ON a.schedule = s.schedule_id
+            TimeStamps USING(time_block)
         JOIN 
             Doctor d ON a.doctor_id = d.employee_id
         JOIN 
@@ -96,26 +149,148 @@ function fetchAppointments($patient_id)
         WHERE 
             a.patient_id = ?
         ORDER BY 
-            s.date DESC, s.start_time DESC
+            a.appointment_date DESC, a.time_block DESC
     ');
     $stmt->execute(array($patient_id));
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-try {
-    // Conexão com o banco de dados
-    $dbh = new PDO('sqlite:../sql/database.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+function getAllPersonIds()
+{
+    global $dbh;
 
-    $patient_id = $_SESSION['user_id'];
+    try {
+        $query = 'SELECT person_id FROM Person ORDER BY person_id';
+        $stmt = $dbh->prepare($query);
+        $stmt->execute();
 
-    // Busca os agendamentos do paciente logado
-    $appointments = fetchAppointments($patient_id);
-} catch (PDOException $e) {
-    $_SESSION['msg'] = "Erro ao acessar o banco de dados: " . $e->getMessage();
-    header("Location:../profile.php");
-    die();
+        return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+    } catch (PDOException $e) {
+        // Handle errors
+        $_SESSION['msg'] = 'Error: ' . $e->getMessage();
+        header('Location: ../admin.php'); // Redirect with an error message
+        exit();
+    }
 }
 
-?>
+
+
+function deleteRole($person_id, $person_role)
+{
+    global $dbh;
+    
+   
+    try {
+        
+        switch ($person_role) {
+            case 'doctor':
+                $stmt = $dbh->prepare('DELETE FROM Doctor WHERE employee_id = ?');
+                $stmt->execute([$person_id]);
+
+                break;
+
+            case 'nurse':
+                // Remove o papel de 'nurse'
+                $stmt = $dbh->prepare('DELETE FROM Nurse WHERE employee_id = ?');
+                $stmt->execute([$person_id]);
+                break;
+
+            case 'secretary':
+                // Remove o papel de 'secretary'
+                $stmt = $dbh->prepare('DELETE FROM Secretary WHERE employee_id = ?');
+                $stmt->execute([$person_id]);
+                break;
+
+            case 'labtech':
+                // Remove o papel de 'labtech'
+                $stmt = $dbh->prepare('DELETE FROM LabTech WHERE employee_id = ?');
+                $stmt->execute([$person_id]);
+                break;
+
+            case 'admin':
+                // Remove o papel de 'admin'
+                $stmt = $dbh->prepare('DELETE FROM Admin WHERE employee_id = ?');
+                $stmt->execute([$person_id]);
+                break;
+        }
+        
+        $_SESSION['msg'] = 'Papel atualizado com sucesso!';
+        return True;
+
+    } catch (PDOException $e) {
+        // Tratar erros
+        $_SESSION['msg'] = 'Erro ao atualizar o papel: ' . $e->getMessage();
+        header('Location: ../admin.php'); // Redireciona com uma mensagem de erro
+        return False;
+
+        exit();
+    }
+}
+function addToEmployee($person_id, $person_role)
+{
+    global $dbh;
+
+    try {
+        if ($person_role == 'patient') {
+            // Tenta inserir o person_id na tabela Employee
+            $stmt = $dbh->prepare('INSERT INTO Employee(employee_id) VALUES (?)');
+            $stmt->execute([$person_id]); 
+            return true; // Retorna verdadeiro em caso de sucesso
+        }
+        return false; // Retorna falso se o papel não for 'patient'
+    } catch (PDOException $e) {
+        // Captura erro caso a inserção falhe e exibe uma mensagem apropriada
+        // Isso também evita que o script quebre com um erro inesperado
+        error_log('Erro ao adicionar à tabela Employee: ' . $e->getMessage());
+        return false; // Retorna falso em caso de erro
+    }
+}
+
+
+function updateRole($person_id, $role, $person_role)
+{
+    
+    global $dbh;
+
+    try {
+        switch ($role) {
+            case 'doctor':
+                $stmt = $dbh->prepare('INSERT INTO Doctor (employee_id) VALUES (?)');
+                $stmt->execute([$person_id]);
+
+                break;
+
+            case 'nurse':
+                // Adiciona o papel de 'nurse' apenas inserindo o person_id
+                $stmt = $dbh->prepare('INSERT INTO Nurse (employee_id) VALUES (?)');
+                $stmt->execute([$person_id]);
+                break;
+
+            case 'secretary':
+                // Adiciona o papel de 'secretary' apenas inserindo o person_id
+                $stmt = $dbh->prepare('INSERT INTO Secretary (employee_id) VALUES (?)');
+                $stmt->execute([$person_id]);
+                break;
+
+            case 'labtech':
+                // Adiciona o papel de 'labtech' apenas inserindo o person_id
+                $stmt = $dbh->prepare('INSERT INTO LabTech (employee_id) VALUES (?)');
+                $stmt->execute([$person_id]);
+                break;
+
+            case 'admin':
+                // Adiciona o papel de 'admin' apenas inserindo o person_id
+                $stmt = $dbh->prepare('INSERT INTO Admin (employee_id) VALUES (?)');
+                $stmt->execute([$person_id]);
+                break;
+        }
+
+        $_SESSION['msg'] = 'Papel atualizado com sucesso!';
+        return True;
+        exit();
+    } catch (PDOException $e) {
+        // Tratar erros
+        $_SESSION['msg'] = 'Erro ao atualizar o papel: ' . $e->getMessage();
+        return False;
+    }
+}
