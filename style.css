@@ -1,0 +1,442 @@
+/* =====================================
+Nome do projeto: Projeto clínica - Mediplus
+Autores: Fábio Rodrigues, Tiago Castanheira, Sandro Oliveira
+
+========================================*/
+/*======================================
+[ Styling: Índice ]
+
+1. Definições globais
+2. Styling do header
+3. Styling do footer
+4. Styling da página inicial
+
+
+========================================*/
+
+
+/*===================
+1. Definições globais
+=====================*/
+
+html {
+    --primary-color: #C62828;
+  
+    --background-color: #f4f4f4;
+    --background-color-light: #EEE;
+    --background-color-dark: #DDD;
+    background-color: var(--background-color);
+  
+    font-family: 'Merriweather', serif;
+  
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    box-sizing: border-box;
+
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    line-height: 1.6;
+}
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+.message {
+    color: #007BFF;
+
+    margin: 0.5rem 0;
+    
+    text-align: center;
+    font-size: 14px;
+
+    animation: fadeOut 6s ease-out forwards;
+}
+
+h2 {
+    color: #007BFF;
+
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #000000;
+
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+}
+
+
+/*===================
+2. Styling do header
+=====================*/
+
+header {
+    background-color: #05AEC3;
+    color: #fff;
+    
+    width: 100%; 
+    height: auto; 
+
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.logo {
+    height: auto; 
+
+    padding: 0.5rem; 
+}
+
+.logo img {
+    height: 2rem; 
+    width: auto;
+    
+    transition: filter 0.3s ease; 
+}
+
+.logo img:hover {
+    filter: brightness(0); 
+  }
+
+nav {
+    margin-left: auto; 
+}
+
+.nav-links {
+    margin-right: 20px;
+
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px; 
+}
+
+.nav-links a {
+    font-size: 16px;
+    color: #fff;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #000; 
+}
+
+.profile {
+    height: auto; 
+}
+
+.profile-info p {
+    margin-bottom: 0.5rem; 
+}
+
+.profile img {
+    height: auto; 
+    width: 40px;
+
+    border-radius: 100%;
+    border: 3px solid #fff;
+}
+
+.profile img:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); 
+
+    transform: scale(1.3); 
+    animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+    0% {
+      border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+  
+    50% {
+      border-color: #eaecf3;
+      box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+    }
+  
+    100% {
+      border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+}
+
+/*===================
+3. Styling do footer
+=====================*/
+
+footer {
+    background-color: #a5eef0f3;
+    color: #fff;
+
+    text-align: center; 
+
+    padding: 1rem;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+
+    justify-content: center; 
+}
+
+footer p {
+    margin: 0;
+}
+
+/*===================
+4. Styling da página inicial
+=====================*/
+
+#content_index {
+    width: 100%;
+    gap: 2rem; 
+}
+
+/* Styling dos slides */
+.slides-container {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    margin-bottom: 0;
+
+    background: transparent;
+
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.navigator {
+    position: absolute;
+    bottom: 2%;
+
+    transform: translateX(-50%);
+    gap: 0.5rem;
+}
+
+.navigator .bar {
+    height: 0.8rem;
+    width: 4rem;
+    margin-left: 1rem;
+
+    background: transparent;
+    cursor: pointer;
+    border: 0.2rem solid #fff;
+}
+
+.navigator .bar:hover {
+    background: #fff;
+}
+
+input[type="radio"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides {
+    height: 100%;
+    width: 300%;
+}
+
+.image {
+    width: 33.33333%;
+    transition: 0.4s ease;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#btn1:checked~.first {
+    margin-left: 0;
+}
+
+#btn2:checked~.first {
+    margin-left: -33.33333%;
+}
+
+#btn3:checked~.first {
+    margin-left: -66.66666%;
+}
+
+/* Styling da secção informativa */
+.infor-section {
+  width: 100%;
+  padding: 2vh 5vw;
+
+  margin: 1% 0 1% 0;
+  gap: 2rem;
+
+  background-color: #84c4cc81;
+
+  justify-content: space-around;
+}
+
+.info-card {
+    text-align: center;
+    margin: auto;
+
+    justify-content: center;
+}
+
+.info-card h2 {
+    font-size: 3rem;
+    color: #007b7f;
+    text-align: center;
+}
+
+.info-card p {
+    font-size: 2rem;
+    color: #303030;
+    margin: 1vh 0;
+    text-align: center;
+}
+
+/* Styling das secções localização e sobre */
+
+.location-section { 
+  
+  padding: 2vh 5vw;
+
+  text-align: justify;  
+  justify-content: center;
+}
+
+.about-section { 
+  width: 100%;
+  padding: 2vh 5vw;
+
+  margin: 1% 0 1%;
+
+  text-align: justify;  
+  justify-content: center;
+}
+
+
+.about-section p {
+  color: #0f0e0e;
+
+  margin: 0;
+
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+
+.location-section p {
+  color: #0f0e0e;
+
+  margin: 0 auto;
+  max-width: 90%;
+
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+
+.about-section a {
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #0f0e0e;
+    text-decoration: none;
+}
+
+.about-section a:hover {
+    text-decoration: underline;
+}
+
+.location-section {
+    margin-top: 6vh;
+    background: #84c4cc81;
+}
+
+/* Styling da secção de notícias */
+.news {
+    gap: 1.5rem; 
+    padding: 2vh 5vw;
+
+    margin: 1% 0 1% 0;
+}
+
+.news-header {
+    color: #303030;
+
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.news-item {
+    background-color: #fff;
+    color: #007b7f;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    gap: 1rem;
+
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: scale(1.03);
+}
+
+.news-item img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.news-content {
+    padding: 1.5vh 1.5vw;
+}
+
+.news-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.news-content p {
+    color: #303030;
+
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.news-content #news-date {
+    margin-top: auto;
+    font-size: 1.125rem;
+}
+  
