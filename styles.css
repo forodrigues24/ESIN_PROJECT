@@ -1432,3 +1432,152 @@ select {
   transform: translate(-50%, -50%) rotate(-45deg); /* Linha diagonal superior-direita para inferior-esquerda */
 }
 
+
+
+/*===================
+12. Doutor
+=====================*/
+.toggle-editreport-btn {
+  background: linear-gradient(45deg, #28a745, #218838); /* Gradiente de verde */
+  color: white; /* Texto branco */
+  padding: 0.25rem 0.5rem; /* Padding maior para um botão mais robusto */
+  border: none; /* Sem borda */
+  border-radius: 0.5rem; /* Bordas arredondadas mais suaves */
+  font-size: 1.125rem; /* Tamanho maior da fonte (18px) */
+  font-weight: 600; /* Texto em negrito */
+  cursor: pointer; /* Ícone de ponteiro para indicar interação */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+  outline: none; /* Remove o contorno */
+}
+
+.toggle-editreport-btn:hover {
+  background: linear-gradient(45deg, #218838, #28a745); /* Inverte o gradiente no hover */
+  transform: translateY(-0.1875rem); /* Levanta o botão suavemente */
+  box-shadow: 0 0.375rem 0.9375rem rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
+}
+
+.toggle-editreport-btn:focus {
+  border: 0.125rem solid #fff; /* Adiciona uma borda branca ao focar */
+}
+
+.toggle-editreport-btn:active {
+  background: #218838; /* Cor sólida ao pressionar */
+  transform: translateY(0.0625rem); /* Efeito de pressão para baixo */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Sombra menor ao pressionar */
+}
+
+/* Estilo do formulário */
+.report-form {
+  background-color: #f9f9f9; /* Fundo suave */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%; /* Garantir largura total */
+}
+
+/* Estilo do rótulo (label) */
+.report-label {
+  font-size: 1.2rem; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  display: block; /* Certifica-se de que o rótulo ocupa toda a largura */
+}
+
+/* Estilo do campo de texto (textarea) */
+#report {
+  width: 100%; /* Largura total do contêiner */
+  padding: 12px; /* Espaçamento interno */
+  font-size: 1rem; /* Tamanho da fonte */
+  border: 2px solid #ddd; /* Cor da borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  resize: vertical; /* Permite redimensionar apenas verticalmente */
+  transition: border-color 0.3s ease; /* Transição suave para borda */
+}
+
+/* Efeito de foco no campo de texto */
+#report:focus {
+  border-color: #28a745; /* Borda verde ao focar */
+  outline: none; /* Remover contorno */
+}
+
+/* Estilo do botão */
+.submit-report-btn {
+  background-color: #28a745; /* Cor de fundo verde */
+  color: white; /* Texto branco */
+  padding: 12px 24px; /* Padding maior para o botão */
+  border: none; /* Sem borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de pointer para indicar interação */
+  transition: background-color 0.3s ease; /* Transição suave */
+  margin-top: 15px; /* Espaçamento acima do botão */
+  width: 100%; /* Botão com largura total */
+}
+
+/* Efeito de hover no botão */
+.submit-report-btn:hover {
+  background-color: #218838; /* Cor mais escura no hover */
+}
+
+/* Estilo do botão ao pressionar */
+.submit-report-btn:active {
+  background-color: #1e7e34; /* Cor ainda mais escura quando pressionado */
+}
+
+/* Estilos para a div que contém o relatório */
+.report-container {
+  background-color: #f9f9f9; /* Fundo suave */
+  border-radius: 0.5rem; /* Bordas arredondadas em rem */
+  padding: 1.25rem; /* Padding ajustado para rem */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%; /* Garantir largura total */
+  font-size: 1.1rem; /* Tamanho de fonte levemente maior */
+  line-height: 1.6; /* Maior espaçamento entre as linhas */
+  font-family: 'Arial', sans-serif; /* Fonte limpa e moderna */
+  box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+  border: 0.125rem solid #333; /* Borda escura e sólida ao redor em rem */
+  overflow: hidden; /* Impede que o conteúdo ultrapasse os limites */
+  height: auto; /* Ajusta a altura ao conteúdo */
+}
+
+
+/* Estilo para o parágrafo dentro da div */
+.report-container p {
+  color: #222; /* Cor do texto em um tom mais escuro */
+  font-size: 1rem; /* Tamanho da fonte */
+  text-align: justify; /* Justifica o texto */
+  padding: 10px 0; /* Espaçamento superior e inferior */
+  word-wrap: break-word; /* Quebra de palavras longas que ultrapassam o limite */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilo do botão de retorno */
+.returnsubmit-report-btn {
+  background-color: #dc3545; /* Cor de fundo vermelha (igual ao botão de erro) */
+  color: white; /* Texto branco */
+  padding: 12px 24px; /* Padding maior para o botão */
+  border: none; /* Sem borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de ponteiro para indicar interação */
+  transition: background-color 0.3s ease; /* Transição suave */
+  width: 100%; /* Largura total */
+  margin-top: 15px; /* Espaçamento acima do botão */
+}
+
+/* Efeito de hover no botão de retorno */
+.returnsubmit-report-btn:hover {
+  background-color: #c82333; /* Cor mais escura no hover */
+}
+
+/* Estilo do botão de retorno ao pressionar */
+.returnsubmit-report-btn:active {
+  background-color: #bd2130; /* Cor ainda mais escura quando pressionado */
+}
+
+/* Estilo do botão de retorno quando em foco */
+.returnsubmit-report-btn:focus {
+  outline: none; /* Remove o contorno ao focar */
+}

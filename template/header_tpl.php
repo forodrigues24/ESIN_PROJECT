@@ -32,7 +32,7 @@ function renderHeader($activePage = '')
                     <?php } ?>
                     
                     <?php if ($_SESSION['role_user'] == 'doctor' && $activePage !== 'doutor' ) { ?>
-                        <li><a href="../.php"> Doutor </a></li>
+                        <li><a href="../doutor.php"> Médico </a></li>
                     <?php } ?>
 
                     <?php if ($_SESSION['role_user'] == 'admin' && $activePage !== 'admin') { ?>

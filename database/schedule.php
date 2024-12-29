@@ -194,6 +194,51 @@ function obterConsultasPorIdData($id, $data)
     }
 }
 
+function obterConsultasMedicoPorIdData($id, $data)
+{
+    global $dbh;
+
+    try {
+        // Prepara a query para buscar as consultas atribuídas a um médico específico (doctor_id) em uma data
+        $stmt = $dbh->prepare('
+            SELECT 
+                a.appointment_id AS appointment_id,
+                a.appointment_date AS date,
+                a.time_block AS time, 
+                person_doctor.name AS doctor_name,
+                doc.specialty AS doctor_specialty,
+                p.name AS patient_name,
+                p.age AS patient_age
+            FROM 
+                Appointment a
+            JOIN 
+                Patient pt ON a.patient_id = pt.patient_id
+            JOIN 
+                Person p ON pt.patient_id = p.person_id  -- Nome do paciente
+            JOIN 
+                Doctor doc ON a.doctor_id = doc.employee_id  -- Detalhes do médico
+            JOIN 
+                Person person_doctor ON doc.employee_id = person_doctor.person_id  -- Nome do médico
+            LEFT JOIN 
+                Nurse n ON a.nurse_id = n.employee_id  -- Relacionamento com a enfermeira
+            WHERE 
+                a.doctor_id = ? AND a.appointment_date = ?
+            ORDER BY 
+                a.time_block ASC  
+        ');
+
+        // Executa a query com os parâmetros fornecidos
+        $stmt->execute(array($id, $data));
+
+        // Retorna os resultados
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        // Em caso de erro, retorna a mensagem de erro
+        return "Erro ao buscar consultas: " . $e->getMessage();
+    }
+}
+
+
 
 
 

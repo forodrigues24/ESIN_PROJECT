@@ -103,6 +103,51 @@ function removeNurse($appointment_id)
     }
 }
 
+function atualizarRelatorio($appointment_id, $report_content) {
+    // Acesso ao banco de dados - Presumindo que a variável $dbh esteja definida
+    global $dbh;
+
+    try {
+        // Preparar a consulta SQL para atualizar o campo 'report' da consulta
+        $stmt = $dbh->prepare('
+            UPDATE Appointment 
+            SET report = ? 
+            WHERE appointment_id = ?
+        ');
+
+        // Executar a consulta com os parâmetros: conteúdo do relatório e o ID da consulta
+        $stmt->execute(array($report_content, $appointment_id));
+        
+        return true;  // Retorna true se a operação for bem-sucedida
+    } catch (PDOException $e) {
+        // Em caso de erro, retorna uma mensagem de erro
+        return "Erro ao atualizar relatório: " . $e->getMessage();
+    }
+}
+
+function obterRelatorioConsulta($appointment_id) {
+    global $dbh;
+
+    try {
+        // Preparar a consulta SQL para buscar o relatório da consulta específica
+        $stmt = $dbh->prepare('
+            SELECT report 
+            FROM Appointment 
+            WHERE appointment_id = ? 
+        ');
+
+        // Executar a consulta com o parâmetro appointment_id
+        $stmt->execute(array($appointment_id));
+
+        // Retorna o valor da coluna 'report' diretamente como uma string
+        return $stmt->fetchColumn();
+        
+    } catch (PDOException $e) {
+        // Em caso de erro, retorna uma mensagem de erro
+        return "Erro ao buscar relatório da consulta: " . $e->getMessage();
+    }
+}
+
 
 
 ?>
