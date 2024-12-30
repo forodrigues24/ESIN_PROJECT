@@ -1,0 +1,300 @@
+/* =====================================
+Nome do projeto: Projeto clínica - Mediplus
+Autores: Fábio Rodrigues, Tiago Castanheira, Sandro Oliveira
+
+========================================*/
+/*======================================
+[ Responsive: Índice ]
+
+1. Responsividade da página inicial
+2. Responsividade da página sobre
+3. Responsividade da página especialidades
+4. Responsividade da página de perfil
+5. Responsividade da página da secretária
+6. Responsividade da página de marcação de consultas
+7. Responsividade da página de admin
+
+========================================*/
+
+/*===================
+1. Responsividade da página inicial
+=====================*/
+
+/* Responsividade da secção informativa */
+@media screen and (max-width: 1024px) {
+  .infor-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 1rem; 
+  }
+
+  .info-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .infor-section {
+    grid-template-columns: 1fr;
+  }
+
+  .info-card {
+    width: 100%; 
+  }
+}
+
+/* Responsividade da secção de notícias */
+@media screen and (max-width: 1024px) {
+  .news {
+      grid-template-columns: repeat(2, 1fr);
+  }
+
+  .news-header {
+      grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .news {
+      grid-template-columns: 1fr;
+  }
+
+  .news-header {
+      grid-column: span 1;
+  }
+}
+
+
+/*===================
+2. Responsividade da página sobre
+=====================*/
+
+@media screen and (max-width: 425px) {
+  .board-members {
+      display: flex;
+      flex-direction: column; 
+      gap: 1.5rem;
+      margin: 1rem;
+  }
+
+  .member {
+      margin: 0 auto; 
+  }
+
+  .member img {
+      width: 200px; 
+      height: 200px;
+  }
+
+  .member a p {
+      font-size: 1.2rem; 
+  }
+}
+
+/*===================
+3. Responsividade da página especialidades
+=====================*/
+
+@media screen and (max-width: 768px) {
+  .especialidades-container {
+    display: grid;
+    grid-template-columns: repeat(1, 3fr);
+  }
+}
+
+
+/*===================
+4. Responsividade da página de perfil
+=====================*/
+/* Responsividade: Ocultar a coluna do enfermeiro em telas pequenas */
+@media (max-width: 768px) {
+  /* Esconde a coluna específica pelo índice */
+  #content_profile #appointments-table th:nth-child(2), /* Cabeçalho */
+  #content_profile #appointments-table td:nth-child(2) { /* Dados */
+      display: none;
+  }
+
+  #content_profile .toggle-appointment-btn {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.3rem;
+    font-size: 0.8rem; /* Reduz a fonte */
+    padding: 0;
+}
+}
+
+
+
+/*===================
+5. Responsividade da página da secretária
+=====================*/
+
+/* Responsividade do formulário de escolha de horários */
+@media (max-width: 768px) {
+  .schedule-form input[type="date"],
+  #content_secretaria .schedule-form input[type="submit"] {
+    max-width: 100%;
+  }
+
+  #content_secretaria .schedule-form label {
+    max-width: 100%;
+  }
+}
+
+/* Responsividade das tabelas */
+@media (max-width: 1024px) {
+  #content_secretaria h1 {
+      font-size: 1.8rem; 
+      padding: 0 1rem; 
+  }
+
+  #content_secretaria .schedule-form table th,
+  #content_secretaria .schedule-form table td {
+      font-size: 0.9rem;
+  }
+
+  /* Ocultar colunas menos importantes */
+  #appointments-table th:nth-child(4),
+  #appointments-table td:nth-child(4),
+  #schedule-table th:nth-child(4),
+  #schedule-table td:nth-child(4){
+      display: none; /* Email e Telemóvel */
+  }
+}
+
+
+/* Responsividade das tabelas */
+@media (max-width: 768px) {
+
+  #content_secretaria .schedule-form {
+      padding: 0.5rem;
+      margin: 0.5rem;
+  }
+
+  #content_secretaria .schedule-form input[type="date"],
+  #content_secretaria .schedule-form input[type="submit"] {
+      width: 100%;
+      max-width: 100%;
+      margin-bottom: 10px;
+  }
+
+  #content_secretaria .schedule-form table {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+  }
+
+  #content_secretaria .schedule-form table th,
+  #content_secretaria .schedule-form table td {
+      font-size: 0.8rem;
+      padding: 8px;
+  }
+
+  /* Ajustar largura das colunas em telas menores */
+  #appointments-table th:nth-child(1),
+  #appointments-table td:nth-child(1),
+  #schedule-table th:nth-child(1),
+  #schedule-table td:nth-child(1) {
+      width: 10%;
+  }
+
+  #appointments-table th:nth-child(2),
+  #appointments-table td:nth-child(2),
+  #schedule-table th:nth-child(2),
+  #schedule-table td:nth-child(2) {
+      width: 20%;
+  }
+
+  #appointments-table th:nth-child(3),
+  #appointments-table td:nth-child(3),
+  #schedule-table th:nth-child(3),
+  #schedule-table td:nth-child(3) {
+      width: 30%; 
+  }
+
+  #appointments-table th:nth-child(5),
+  #appointments-table td:nth-child(5),
+  #schedule-table th:nth-child(5),
+  #schedule-table td:nth-child(5) {
+      width: 10%; 
+  }
+
+  #appointments-table th:nth-child(7),
+  #appointments-table td:nth-child(7),
+  #schedule-table th:nth-child(7),
+  #schedule-table td:nth-child(7) {
+      width: 40%; 
+  }
+
+  /* Ocultar colunas menos importantes */
+  #appointments-table th:nth-child(4),
+  #appointments-table td:nth-child(4),
+  #schedule-table th:nth-child(4),
+  #schedule-table td:nth-child(4) {
+      display: none; /* Email e Telemóvel */
+  }
+
+  #content_secretaria .schedule-form select,
+  #content_secretaria .schedule-form button {
+      font-size: 0.8rem;
+      padding: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  #content_secretaria .schedule-form {
+      padding: 0.2rem;
+      margin: 0.2rem;
+  }
+
+  #content_secretaria .schedule-form table th,
+  #content_secretaria .schedule-form table td {
+      font-size: 0.7rem;
+      padding: 4px;
+  }
+}
+
+/*===================
+6. Styling da página de marcação de consultas
+=====================*/
+
+@media (max-width: 768px) {
+
+  .horarios input[type="date"], .horarios select, .consultas select, .horarios input[type="submit"], .consultas input[type="submit"] {
+      max-width: 100%;
+  }
+
+  .horarios label, .consultas label {
+      max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .medico-form input[type="submit"] {
+      width: 100%; 
+  }
+}
+
+
+/*===================
+7. Responsividade da página de admin
+=====================*/
+
+@media (max-width: 768px) {
+  #content_consultas .search-results-table th:nth-child(4),
+  #content_consultas .search-results-table td:nth-child(4), 
+  #content_consultas .search-results-table th:nth-child(5),
+  #content_consultas .search-results-table td:nth-child(5) { 
+      display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #content_consultas .search-results-table th, .search-results-table td {
+      font-size: 14px;
+      padding: 5px;
+  }
+}
