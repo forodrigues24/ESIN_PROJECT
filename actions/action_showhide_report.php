@@ -2,6 +2,7 @@
 
 session_start(); // Inicia a sessão para manipular variáveis de sessão
 
+
 $appointment_id = $_POST['appointment_id'];
 
 // Verifica se a variável de sessão 'selected_appointments' já existe
