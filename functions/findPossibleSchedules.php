@@ -87,4 +87,12 @@ function findPossibleSchedulesNurse($id,$data)
     // Armazenar na sessão
     $_SESSION['consultas_sem_enfermeira'] = $dadosFiltradosSemConflitos;
     $_SESSION['consultas_da_enfermeira'] = $consultas_marcadas;
+
+    if (empty($_SESSION['consultas_sem_enfermeira'])) {
+        unset($_SESSION['consultas_sem_enfermeira']);
+    }
+    
+    if (empty($_SESSION['consultas_da_enfermeira'])) {
+        unset($_SESSION['consultas_da_enfermeira']);
+    }
 }
