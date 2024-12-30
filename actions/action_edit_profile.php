@@ -39,9 +39,8 @@ if (empty($phone)) {
 
 
 try {
-    $dbh = new PDO('sqlite:../sql/database.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once('../database/init.php');
+
 
     // Verifica se o número de telefone já está em uso por outro usuário
     if (isPhoneUsed($phone, $_SESSION['id'])) {
