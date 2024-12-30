@@ -67,8 +67,10 @@ body {
   /* Animação */
   text-align: center;
   /* Centraliza o texto horizontalmente */
-
+  margin: 0.5rem 0;
 }
+
+
 
 h2 {
   color: #007BFF;
@@ -492,7 +494,9 @@ img {
 .login-form {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: auto; /* Ajusta automaticamente à largura do conteúdo */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente se for um bloco */
 }
 
 
@@ -519,21 +523,26 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
+.buttons-container {
+  display: grid;
+  grid-template-columns: auto auto; /* Duas colunas de largura igual */
+  gap: 20px; /* Espaço entre os itens */
+}
+
 input[type="submit"] {
 
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 0.25rem;
   background-color: #007BFF;
-  color: white;
-  cursor: pointer;
-  margin-top: 1rem;
-  transition: background-color 0.3s ease;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;  
 }
 
 input[type="submit"]:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 .register-button {
@@ -557,10 +566,6 @@ input[type="submit"]:hover {
   /* Leve aumento no botão no hover */
 }
 
-.register-button:active {
-  transform: scale(0.98);
-}
-
 
 /*===================
 5. Register Page
@@ -569,7 +574,9 @@ input[type="submit"]:hover {
 .registration-form {
   display: flex;
   justify-content: center;
-  align-items: center;
+  width: auto; /* Ajusta automaticamente à largura do conteúdo */
+  height: auto; /* Ajusta automaticamente à altura do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente se for um bloco */
 }
 
 
@@ -578,7 +585,7 @@ input[type="submit"]:hover {
   border-radius: 0.5rem;
   border: 0.25rem solid #007BFF;
   flex-direction: column;
-  height: 36rem;
+  height: 37rem;
   padding: 2rem;
 }
 
@@ -805,6 +812,7 @@ input[type="submit"]:hover {
   font-size: 1rem;
   line-height: 1.4;
   color: #555;
+  margin-bottom: 1rem ;
 }
 
 .especialidade:hover {
@@ -819,7 +827,7 @@ input[type="submit"]:hover {
 .especialidade img {
   width: 100%;
   /* Imagem ocupa toda a largura */
-  height: 15rem;
+  height: 22rem;
 }
 
 
@@ -851,20 +859,26 @@ a:hover {
   margin-top: 0;
 }
 
+.address {
+  display: flex; /* Define o layout flex */
+  justify-content: center; /* Alinha o conteúdo horizontalmente no centro */
+  align-items: center; /* Alinha o conteúdo verticalmente no centro */
+    }
 
-.professional-background {
-  margin-top: 20px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  padding: 20px;
-  background-color: #f9f9f9;
-  /* Fundo suave para a seção */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  /* Sombra sutil */
-}
+
+  .professional-background {
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 20px;
+    background-color: #f9f9f9;
+    /* Fundo suave para a seção */
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+  }
 
 /* Caixa branca abaixo do cabeçalho */
 .content-box {
@@ -934,9 +948,8 @@ a:hover {
 
 .button-group-edit {
   display: grid;
-  grid-template-columns: auto auto 1fr; /* Cria 3 colunas com espaçamento igual */
+  grid-template-columns: auto auto auto 1fr; /* Cria 3 colunas com espaçamento igual */
   align-items: center; /* Alinha verticalmente os itens no centro */
-  justify-items: center; /* Centraliza os itens dentro de suas células */
   gap:0.5rem;
 }
 
@@ -993,14 +1006,41 @@ a:hover {
   /* Intensifica a sombra */
 }
 
-
-.changedata-form {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  /* Espaçamento entre os elementos */
+.perfil {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  display: flex; /* Usando Flexbox */
+  flex-direction: column; /* Disposição em coluna, ou seja, um item abaixo do outro */
+  gap: 20px; /* Espaçamento entre os itens */
+  height: auto;
 }
 
+#pagination {
+  text-align: center; /* Centraliza o conteúdo */
+  margin-top: 20px;
+}
+
+.pagination-link {
+  color: blue; /* Cor azul para os links */
+  text-decoration: none; /* Remove o sublinhado */
+  font-weight: normal; /* Garantir que o texto não fique em negrito */
+  margin: 0 10px; /* Espaçamento entre os links */
+}
+
+.pagination-link:hover {
+  text-decoration: underline; /* Adiciona o sublinhado ao passar o mouse */
+}
+
+.page-number {
+  font-weight: bold; /* Deixa o número da página em negrito */
+  font-size: 16px; /* Tamanho da fonte */
+  margin: 0 10px; /* Espaçamento à esquerda e direita */
+}
 
 .appointments-table {
   width: 100%;
@@ -1040,7 +1080,7 @@ a:hover {
 
 .appointments-table th, .appointments-table td {
   vertical-align: middle; /* Alinha o conteúdo verticalmente no centro */
-}
+} 
 
 /* Estilo para a div que usa grid */
 .report_grid {
@@ -1065,6 +1105,7 @@ a:hover {
   padding: 0.3125rem; /* Espaçamento interno ajustado (aproximadamente 5px) */
   display: block; /* Garante que o botão ocupe seu espaço completo */
   margin: 0 auto; /* Centraliza o botão horizontalmente */
+  
 }
 
 /* Seta triangular apontando para baixo */
@@ -1077,7 +1118,7 @@ a:hover {
   height: 0;
   border-left: 1rem solid transparent; /* Aumenta a largura da seta usando rem (aproximadamente 16px) */
   border-right: 1rem solid transparent; /* Aumenta a largura da seta usando rem (aproximadamente 16px) */
-  border-top: 1.25rem solid #007bff; /* Aumenta a altura da seta e cor usando rem (aproximadamente 20px) */
+  border-top: 1.25rem solid #24b424; /* Aumenta a altura da seta e cor usando rem (aproximadamente 20px) */
   transform: translate(-50%, -50%); /* Ajuste para centralizar */
 }
 
@@ -1093,45 +1134,49 @@ a:hover {
 
 
 
+/* Estilo para os títulos dentro do .horario-info */
+.horario-info h3 {
+  color: #333;                  /* Cor do texto */
+  font-size: 18px;              /* Tamanho da fonte */
+  font-weight: bold;            /* Deixar o texto em negrito */
+  margin-bottom: 10px;          /* Espaço entre as linhas */
+  text-transform: capitalize;   /* Deixar as palavras com a primeira letra maiúscula */
+}
+
+/* Estilo para a primeira linha de texto, ex: Entrada */
+.horario-info h3:first-of-type {
+  color: #4CAF50;               /* Cor personalizada para "Entrada" */
+}
+
+/* Estilo para a segunda linha de texto, ex: Saída */
+.horario-info h3:last-of-type {
+  color: #f50c04;               /* Cor personalizada para "Saída" */
+}
+
+
 
 /*===================
 10. Edit Profile
 =====================*/
-/* Estilo do Fieldset com a nova classe */
-.changedata-form {
-  border: none;
-  /* Remove qualquer borda */
-  padding: 0;
-  /* Remove qualquer espaçamento interno */
-  margin: 0;
-  /* Remove qualquer margem externa */
-  background: none;
-  /* Torna o fundo transparente */
+
+#content_secretaria {
   width: 100%;
-  /* Garante que o tamanho não limite os elementos */
-  display: flex;
-  /* Alinha os elementos dentro do formulário */
-  flex-direction: column;
-  gap: 1rem;
-  /* Espaçamento entre os campos */
-  align-items: flex-start;
-  /* Alinha tudo à esquerda */
-  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
-  /* Sombra leve para definir o contorno visualmente sem adicionar uma borda */
+  display: grid;
+  /* Ativa o grid layout */
+  grid-template-rows: auto auto auto;
+  gap:1rem;
 }
 
-fieldset.changedata-form {
+fieldset.historico {
   margin: 20px;
   padding: 20px;
   border: 1px solid #05AEC3;
   border-radius: 5px;
-  /* Bordas arredondadas */
+  flex-direction: column;
+  display: flex;
+  gap: 1rem;
+  height: 22rem;
   background-color: #d3f1f6;
-  /* Azul claro como fundo, similar ao white-box */
-  width: auto;
-  /* Ajusta a largura ao conteúdo */
-  max-width: 100%;
-  /* Limita a largura ao máximo para evitar sair da página */
 }
 
 .edit-form {
@@ -1188,3 +1233,501 @@ fieldset.changedata-form {
   justify-content: center;
   /* Centraliza o conteúdo horizontalmente */
 }
+
+/*===================
+10. Secretária
+=====================*/
+.schedule_form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto; /* Duas colunas para selects e uma para o botão */
+  gap: 5px; /* Reduzido o espaçamento entre os itens do grid */
+  align-items: center; /* Alinha verticalmente os elementos ao centro */
+  padding: 1px; /* Reduzido o preenchimento interno */
+  background-color: #f9f9f9; /* Cor de fundo */
+  border: 1px solid #ddd; /* Borda */
+  border-radius: 6px; /* Bordas ligeiramente arredondadas */
+  max-width: 800px; /* Limita a largura máxima */
+  margin: 10px auto; /* Reduzido o espaço externo */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Suavizada a sombra */
+}
+
+.schedule_form select {
+  padding: 6px; /* Reduzido o preenchimento interno */
+  border: 1px solid #ccc;
+  border-radius: 3px; /* Menos arredondado */
+  font-size: 13px; /* Texto um pouco menor */
+  background-color: #fff;
+  width: 100%; /* O select ocupa sua célula */
+}
+
+.schedule_form button {
+  padding: 8px 15px; /* Reduzido o preenchimento interno */
+  font-size: 13px; /* Texto um pouco menor */
+  color: #fff;
+  background-color: #007bff; /* Azul padrão */
+  border: none;
+  border-radius: 3px; /* Menos arredondado */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.schedule_form button:hover {
+  background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+fieldset.schedule-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  flex-direction: column;
+  display: flex;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  gap: 1rem;
+  height: auto;
+
+}
+
+/*===================
+11. Marcar Consultas
+=====================*/
+/* Estilo geral para o campo do formulário */
+
+#content_consultas {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 0.9fr 0.1fr; /* O meio ocupa o espaço restante */
+}
+
+.horarios {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  display: flex; /* Usando Flexbox */
+  flex-direction: column; /* Alinha os itens em uma coluna */
+  gap: 20px; /* Espaçamento entre os itens */
+  height: fit-content;
+}
+
+.consultas {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  display: flex; /* Usando Flexbox */
+  gap: 20px; /* Espaçamento entre os itens */
+  height: fit-content;
+  justify-content: space-between; /* Espaço máximo entre os itens */
+}
+
+
+fieldset.schedule-form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  flex-direction: column;
+  display: flex;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  gap: 1rem;
+  height: auto; 
+}
+
+
+
+
+/* Estilos para os formulários individuais com a classe medico-form */
+.medico-form {
+  background-color: #fff; /* Cor de fundo branca para o formulário */
+  border: 1px solid #05AEC3; /* Borda azul clara */
+  border-radius: 5px; /* Cantos arredondados */
+  padding: 20px; /* Espaçamento interno */
+  width: 100%; /* O formulário ocupa toda a largura disponível dentro do flex */
+  max-width: 350px; /* Largura máxima do formulário */
+  box-sizing: border-box; /* Inclui padding e bordas nas dimensões */
+  display: flex; /* Flexbox para o layout interno do formulário */
+  flex-direction: column; /* Organiza os elementos do formulário em coluna */
+  gap: 15px; /* Espaçamento entre os elementos dentro do formulário */
+  /* Responsividade: cada formulário vai se ajustar conforme o tamanho da tela */
+  justify-content: center; /* Alinha os itens na direção do eixo principal */
+  align-items: center; /* Alinha os itens no eixo transversal */
+  text-align: center; /* Centraliza o texto dentro do formulário */}
+
+/* Estilo para o select */
+select {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+/* Estilo para o botão de submit */
+.submit-container input[type="submit"] {
+  background-color: #4CAF50; /* Cor verde */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse sobre o botão */
+.submit-container input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+/*===================
+12. Secretária
+=====================*/
+
+
+.show_hide_button {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+}
+
+.toggle-retirar-btn {
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.toggle-retirar-btn::before,
+.toggle-retirar-btn::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: red; /* Cor do 'x' vermelho */
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.toggle-retirar-btn::before {
+  transform: translate(-50%, -50%) rotate(45deg); /* Linha diagonal superior-esquerda para inferior-direita */
+}
+
+.toggle-retirar-btn::after {
+  transform: translate(-50%, -50%) rotate(-45deg); /* Linha diagonal superior-direita para inferior-esquerda */
+}
+
+
+
+/*===================
+12. Doutor
+=====================*/
+.toggle-editreport-btn {
+  background: linear-gradient(45deg, #28a745, #218838); /* Gradiente de verde */
+  color: white; /* Texto branco */
+  padding: 0.25rem 0.5rem; /* Padding maior para um botão mais robusto */
+  border: none; /* Sem borda */
+  border-radius: 0.5rem; /* Bordas arredondadas mais suaves */
+  font-size: 1.125rem; /* Tamanho maior da fonte (18px) */
+  font-weight: 600; /* Texto em negrito */
+  cursor: pointer; /* Ícone de ponteiro para indicar interação */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Sombra suave */
+  transition: all 0.3s ease; /* Transição suave para todos os efeitos */
+  outline: none; /* Remove o contorno */
+}
+
+.toggle-editreport-btn:hover {
+  background: linear-gradient(45deg, #218838, #28a745); /* Inverte o gradiente no hover */
+  transform: translateY(-0.1875rem); /* Levanta o botão suavemente */
+  box-shadow: 0 0.375rem 0.9375rem rgba(0, 0, 0, 0.3); /* Aumenta a sombra no hover */
+}
+
+.toggle-editreport-btn:focus {
+  border: 0.125rem solid #fff; /* Adiciona uma borda branca ao focar */
+}
+
+.toggle-editreport-btn:active {
+  background: #218838; /* Cor sólida ao pressionar */
+  transform: translateY(0.0625rem); /* Efeito de pressão para baixo */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* Sombra menor ao pressionar */
+}
+
+/* Estilo do formulário */
+.report-form {
+  background-color: #f9f9f9; /* Fundo suave */
+  border-radius: 8px; /* Bordas arredondadas */
+  padding: 20px; /* Espaçamento interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%; /* Garantir largura total */
+}
+
+
+/* Estilo do rótulo (label) */
+.report-label {
+  font-size: 1.2rem; /* Tamanho da fonte */
+  color: #333; /* Cor do texto */
+  display: block; /* Certifica-se de que o rótulo ocupa toda a largura */
+}
+
+/* Estilo do campo de texto (textarea) */
+#report {
+  width: 100%; /* Largura total do contêiner */
+  padding: 12px; /* Espaçamento interno */
+  font-size: 1rem; /* Tamanho da fonte */
+  border: 2px solid #ddd; /* Cor da borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  resize: vertical; /* Permite redimensionar apenas verticalmente */
+  transition: border-color 0.3s ease; /* Transição suave para borda */
+}
+
+/* Efeito de foco no campo de texto */
+#report:focus {
+  border-color: #28a745; /* Borda verde ao focar */
+  outline: none; /* Remover contorno */
+}
+
+/* Estilo do botão */
+.submit-report-btn {
+  background-color: #28a745; /* Cor de fundo verde */
+  color: white; /* Texto branco */
+  padding: 12px 24px; /* Padding maior para o botão */
+  border: none; /* Sem borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de pointer para indicar interação */
+  transition: background-color 0.3s ease; /* Transição suave */
+  margin-top: 15px; /* Espaçamento acima do botão */
+  width: 100%; /* Botão com largura total */
+}
+
+/* Efeito de hover no botão */
+.submit-report-btn:hover {
+  background-color: #218838; /* Cor mais escura no hover */
+}
+
+/* Estilo do botão ao pressionar */
+.submit-report-btn:active {
+  background-color: #1e7e34; /* Cor ainda mais escura quando pressionado */
+}
+
+/* Estilos para a div que contém o relatório */
+.report-container {
+  background-color: #f9f9f9; /* Fundo suave */
+  border-radius: 0.5rem; /* Bordas arredondadas em rem */
+  padding: 1.25rem; /* Padding ajustado para rem */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 100%; /* Garantir largura total */
+  font-size: 1.1rem; /* Tamanho de fonte levemente maior */
+  line-height: 1.6; /* Maior espaçamento entre as linhas */
+  font-family: 'Arial', sans-serif; /* Fonte limpa e moderna */
+  box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
+  border: 0.125rem solid #333; /* Borda escura e sólida ao redor em rem */
+  overflow: hidden; /* Impede que o conteúdo ultrapasse os limites */
+  height: auto; /* Ajusta a altura ao conteúdo */
+}
+
+
+/* Estilo para o parágrafo dentro da div */
+.report-container p {
+  color: #222; /* Cor do texto em um tom mais escuro */
+  font-size: 1rem; /* Tamanho da fonte */
+  text-align: justify; /* Justifica o texto */
+  padding: 10px 0; /* Espaçamento superior e inferior */
+  word-wrap: break-word; /* Quebra de palavras longas que ultrapassam o limite */
+  font-weight: bold; /* Texto em negrito */
+}
+
+/* Estilo do botão de retorno */
+.returnsubmit-report-btn {
+  background-color: #dc3545; /* Cor de fundo vermelha (igual ao botão de erro) */
+  color: white; /* Texto branco */
+  padding: 12px 24px; /* Padding maior para o botão */
+  border: none; /* Sem borda */
+  border-radius: 6px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito */
+  cursor: pointer; /* Cursor de ponteiro para indicar interação */
+  transition: background-color 0.3s ease; /* Transição suave */
+  width: 100%; /* Largura total */
+  margin-top: 15px; /* Espaçamento acima do botão */
+}
+
+/* Efeito de hover no botão de retorno */
+.returnsubmit-report-btn:hover {
+  background-color: #c82333; /* Cor mais escura no hover */
+}
+
+/* Estilo do botão de retorno ao pressionar */
+.returnsubmit-report-btn:active {
+  background-color: #bd2130; /* Cor ainda mais escura quando pressionado */
+}
+
+/* Estilo do botão de retorno quando em foco */
+.returnsubmit-report-btn:focus {
+  outline: none; /* Remove o contorno ao focar */
+}
+
+/*===================
+13. Admin
+=====================*/
+
+
+.box_search {
+  display: flex; /* Torna o container um flexbox */
+  justify-content: flex-start; /* Alinha os itens à esquerda (padrão) */
+  gap: 1rem; /* Espaço entre os elementos */
+  align-items: center; /* Alinha os itens verticalmente ao centro */
+  height: fit-content;
+}
+
+
+.box_search .search-container {
+  grid-column: 2; /* Segunda coluna */
+  grid-row: 1; /* Primeira linha */
+}
+.box_search .search-container2 {
+  grid-column: 2; /* Segunda coluna */
+  grid-row: 2; /* Primeira linha */
+}
+
+#search-email {
+  width: fit-content; /* Largura personalizada */
+  height: fit-content; /* Altura personalizada */
+  border: 0.125rem solid #ccc; /* Borda personalizada */
+  border-radius: 0.5rem; /* Bordas arredondadas */
+  outline: none; /* Remove a borda de foco padrão */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+  margin-bottom: 0rem;
+  border-color: #007bff; /* Cor da borda quando o campo é focado */
+
+}
+
+
+.search_admin {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #05AEC3;
+  border-radius: 5px;
+  background-color: #d3f1f6;
+  width: auto;
+  max-width: 100%;
+  display: flex; /* Usando Flexbox */
+  flex-direction: column; /* Alinha os itens em uma coluna */
+  height: fit-content;
+}
+.custom-select {
+  width: fit-content; /* Largura ajustada ao conteúdo */
+  justify-self: flex-start; /* Alinha o select ao início (à esquerda) */
+  margin: 0; /* Remove as margens */
+  padding: 0.5rem; /* Preenchimento interno para uma boa aparência */
+  font-size: 1rem; /* Tamanho de fonte ajustado */
+  border: 0.125rem solid #007bff; /* Borda azul */
+  border-radius: 0.375rem; /* Bordas arredondadas */
+  background-color: #ffffff; /* Cor de fundo branca */
+  color: #333333; /* Cor do texto */
+}
+/* Estilo para a container do botão de busca */
+.search-container {
+  display: flex;
+  align-items: flex-start; /* Garante que o botão comece no topo */
+  justify-content: flex-start; /* Garante que o conteúdo fique no topo */
+  border: 0.125rem solid #007bff; /* Borda azul (2px em rem) */
+  background-color: #007bff; /* Cor de fundo azul */
+  border-radius: 0.625rem; /* Cantos arredondados para a borda (10px em rem) */
+  width: fit-content; 
+
+}
+
+
+/* Estilo para o botão de busca */
+.search-container input[type="submit"] {
+  font-size: 1.125rem; /* Tamanho da fonte do ícone (18px em rem) */
+  padding: 0.5rem 0.75rem; /* Pequeno preenchimento ao redor do botão (8px 12px em rem) */
+  color: white; /* Cor do texto */
+  border: none; /* Remove borda */
+  border-radius: 0.3125rem; /* Cantos arredondados (5px em rem) */
+  cursor: pointer; /* Cursor de pointer para indicar interatividade */
+  transition: background-color 0.3s; /* Efeito de transição para o fundo */
+  height: auto;
+}
+
+
+
+/* Estilo geral para a tabela com a classe 'search-results-table' */
+.search-results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilo para os cabeçalhos da tabela */
+.search-results-table th {
+  background-color: #007bff; /* Cor de fundo verde */
+  color: white; /* Cor do texto */
+  padding: 10px;
+  text-align: left;
+  font-size: 16px;
+  border: 1px solid #444; /* Adiciona uma borda mais escura (cinza escuro) nas células */
+
+}
+
+/* Estilo para as células da tabela */
+.search-results-table td {
+  border: 1px solid #ddd; /* Borda leve */
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #444; /* Adiciona uma borda mais escura (cinza escuro) nas células */
+
+}
+
+/* Adiciona um sombreamento nas linhas ao passar o mouse */
+.search-results-table tr:hover {
+  background-color: #f1f1f1; /* Cor de fundo clara ao passar o mouse */
+}
+
+
+
+#update-button {
+  background-color: #007bff; /* Cor de fundo azul */
+  color: white; /* Cor do texto */
+  padding: 0.5rem 1rem; /* Espaçamento interno confortável */
+  font-size: 1rem; /* Tamanho da fonte */
+  border: none; /* Remove a borda */
+  border-radius: 0.25rem; /* Cantos arredondados */
+  cursor: pointer; /* Cursor de pointer para indicar que é clicável */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+}
+
+#update-button:hover {
+  background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+  transform: scale(1.05); /* Aumenta ligeiramente o botão ao passar o mouse */
+}
+
+#update-button:focus {
+  outline: none; /* Remove a borda de foco */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra suave quando focado */
+}
+
+.start_message {
+  text-align: left; /* Alinhar o texto à esquerda */
+  width: fit-content; /* Ajusta o tamanho ao conteúdo */
+}
+
