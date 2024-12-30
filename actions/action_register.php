@@ -1,5 +1,6 @@
 <?php
   session_start();
+  require_once('../database/person.php');
 
   $name = $_POST['name'];
   $age = $_POST['age'];
@@ -26,18 +27,15 @@
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     die();
 }
-  function insertUser($name,$age,$email,$address,$phone,$password) {
-    global $dbh;
-    $stmt = $dbh->prepare('INSERT INTO Person (name,age,email_address,address,phone_number,password) VALUES (?, ?,?,?,?,?)');
-    $stmt->execute(array($name,$age,$email,$address,$phone, hash('sha256', $password)));
-  }
-
+ 
   try {
-    $dbh = new PDO('sqlite:../sql/database.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once('../database/init.php');
+
 
     insertUser($name,$age,$email,$address,$phone,$password);
+    $id=getPersonDataByEmail($email)['person_id'];
+    insertPatient($id);
+    
     $_SESSION['msg'] = 'Registration successful!';
     header('Location: ../index.php');
   } catch (PDOException $e) {

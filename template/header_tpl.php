@@ -22,28 +22,53 @@ function renderHeader($activePage = '')
 
                 <ul class="nav-links">
 
-                    <?php if ($_SESSION['role'] == 'patient' && $activePage !== 'consultas') { ?>
+                    <?php if ($_SESSION['role_user'] == 'patient' && $activePage !== 'consultas') { ?>
                         <li><a href="../marcarconsultas.php"> Marcar Consultas</a></li>
+
                     <?php } ?>
 
-                    <?php if ($_SESSION['role'] == 'secretary' && $activePage !== 'secretaria') { ?>
-                        <li><a href="../secretaria.php"> Secretária </a></li>
-                    <?php } ?>
-                    
-                    <?php if ($_SESSION['role'] == 'nurse' && $activePage !== 'doctor' ) { ?>
-                        <li><a href="../.php"> Doutor </a></li>
-                    <?php } ?>
-
-                    <?php if ($_SESSION['role'] == 'admin' && $activePage !== 'admin') { ?>
-                        <li><a href="../admin.php"> Admin</a></li>
+                    <?php if ($_SESSION['role_user'] == 'secretary') { ?>
+                        <?php if ($activePage !== 'consultas') { ?>
+                            <li><a href="../marcarconsultas.php"> Marcar Consultas</a></li>
+                        <?php } ?>
+                        <?php if ($activePage !== 'secretaria') { ?>
+                            <li><a href="../secretaria.php"> Horários </a></li>
+                        <?php } ?>
                     <?php } ?>
 
-                    <?php if ($_SESSION['role'] == 'nurse' && $activePage !== 'nurse' ) { ?>
-                        <li><a href="../.php"> Enfermeira </a></li>
+                    <?php if ($_SESSION['role_user'] == 'doctor') { ?>
+                        <?php if ($activePage !== 'consultas') { ?>
+                            <li><a href="../marcarconsultas.php"> Marcar Consultas</a></li>
+                        <?php } ?>
+                        <?php if ($activePage !== 'doutor') { ?>
+                            <li><a href="../doutor.php"> Doutor </a></li>
+                        <?php } ?>
                     <?php } ?>
 
-                    <?php if ($_SESSION['role'] == 'labtech'&& $activePage !== 'labtech') { ?>
-                        <li><a href="../especialidades.php"> Técnico de Laboratório </a></li>
+                    <?php if ($_SESSION['role_user'] == 'admin') { ?>
+                        <?php if ($activePage !== 'consultas') { ?>
+                            <li><a href="../marcarconsultas.php"> Marcar Consultas</a></li>
+                        <?php } ?>
+                        <?php if ($activePage !== 'admin') { ?>
+                            <li><a href="../admin.php"> Admin </a></li>
+                        <?php } ?>
+                    <?php } ?>
+
+                    <?php if ($_SESSION['role_user'] == 'nurse') { ?>
+                        <?php if ($activePage !== 'consultas') { ?>
+                            <li><a href="../marcarconsultas.php"> Marcar Consultas</a></li>
+                        <?php } ?>                        <?php if ($activePage !== 'enfermeira') { ?>
+                            <li><a href="../enfermeira.php"> Enfermeira </a></li>
+                        <?php } ?>
+                    <?php } ?>
+
+                    <?php if ($_SESSION['role_user'] == 'labtech') { ?>
+                        <?php if ($activePage !== 'labtech') { ?>
+                            <li><a href="../marcarconsultas.php"> Marcar Consultas</a></li>
+                        <?php } ?>                        
+                        <?php if ($activePage !== 'labtech') { ?>
+                            <li><a href="../labtech.php"> Labtech </a></li>
+                        <?php } ?>
                     <?php } ?>
 
                     <?php if ($activePage !== 'especialidades') { ?>
@@ -51,6 +76,7 @@ function renderHeader($activePage = '')
                     <?php } ?>
                     <?php if ($activePage !== 'sobre') { ?>
                         <li><a href="sobre.php">Sobre</a></li>
+
                     <?php } ?>
                 </ul>
                 <div class="profile">
