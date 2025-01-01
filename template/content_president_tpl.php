@@ -1,4 +1,7 @@
 <?php
+
+// Páginas acessórias apenas que mostram dados da direção da clinica
+
 function president1()
 { ?>
     <section id='content_presidente'>

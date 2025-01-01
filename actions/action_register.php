@@ -1,6 +1,11 @@
 <?php
   session_start();
 
+  // Para usar funções deste ficheiro
+  require_once('../database/person.php');
+
+
+  // Obtém informação do formulário
   $name = $_POST['name'];
   $age = $_POST['age'];
   $email = $_POST['email'];
@@ -26,25 +31,24 @@
     header('Location: ' . $_SERVER['HTTP_REFERER']);
     die();
 }
-  function insertUser($name,$age,$email,$address,$phone,$password) {
-    global $dbh;
-    $stmt = $dbh->prepare('INSERT INTO Person (name,age,email_address,address,phone_number,password) VALUES (?, ?,?,?,?,?)');
-    $stmt->execute(array($name,$age,$email,$address,$phone, hash('sha256', $password)));
-  }
-
+ 
   try {
-    $dbh = new PDO('sqlite:../sql/database.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Conexão com o banco de dados
+    include_once('../database/init.php');
+
+    // Insere informação do utilizador no banco de dados
     insertUser($name,$age,$email,$address,$phone,$password);
+    $id=getPersonDataByEmail($email)['person_id'];
+    insertPatient($id);
+    
     $_SESSION['msg'] = 'Registration successful!';
     header('Location: ../index.php');
-  } catch (PDOException $e) {
+  } catch (PDOException $e) {  // Em caso de erro
     $error_msg = $e->getMessage();
 
     if (strpos($error_msg, 'UNIQUE')) {
-      $_SESSION['msg'] = 'Email already exists!';
+      $_SESSION['msg'] = 'Email or phone already exists!';
     } else {
       $_SESSION['msg'] = "Registration failed! ($error_msg)";
     }

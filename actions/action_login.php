@@ -1,32 +1,31 @@
 <?php
 session_start();
+
+// Para utilizar funções destes ficheiros
 require_once('../database/person.php');
+require_once('../database/appointment.php');
+
+require_once('../database/schedule.php');
 
 
-// get username and password from HTTP parameters
+// Obtém os dados do formulário
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// check if username and password are correct
-function loginSuccess($email, $password)
-{
-  global $dbh;
-  $stmt = $dbh->prepare('SELECT * FROM Person WHERE email_address = ? AND password = ?');
-  $stmt->execute(array($email, hash('sha256', $password)));
-  return $stmt->fetch();
-}
-
-
 
 try {
-  $dbh = new PDO('sqlite:../sql/database.db');
-  $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-  $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+  // Conexão ao banco de dados
+  include_once('../database/init.php');
+
+  // Realiza o login e verifica se teve sucesso
   $userData = loginSuccess($email, $password);
-  if ($userData) {
+  
+  if ($userData) { // Caso o login tenha sido bem sucedido
     $_SESSION['person_id']=$userData['person_id'];
-    $_SESSION['role']=checkRole($_SESSION['person_id']);
+    $_SESSION['role_user']=checkRole($_SESSION['person_id']);
+
+    // Confirma a informação deste perfil
     $_SESSION['email'] = $email;
     $_SESSION['name'] = $userData['name'];
     $_SESSION['age'] = $userData['age'];
@@ -35,14 +34,14 @@ try {
     $_SESSION['msg'] = 'Login Sucessfull!';
     $_SESSION['password']= $userData['password'];
     $_SESSION['appointments']=fetchAppointments($_SESSION['person_id']);
-    
+    $_SESSION['timestamps']=getTimeStamps();
     header('Location: ../index.php');
     die();
 
-  } else {
+  } else { // Caso o login não tenha sido bem sucedido
     $_SESSION['msg'] = 'Invalid username or password!';
   }
-} catch (PDOException $e) {
+} catch (PDOException $e) { // Em caso de erro
   $_SESSION['msg'] = 'Error: ' . $e->getMessage();
 }
 

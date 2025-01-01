@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+// Para utilizar funções presentes neste ficheiro
 require_once('../database/person.php');
 
 // Obtém os dados do formulário
@@ -14,6 +16,7 @@ $confirm_password = $_POST['confirm_password'];
 
 
 if (!empty($password) && $password !== $confirm_password) {
+    // Caso a password esteja a ser alterada e elas não sejam iguais
     $_SESSION['msg'] = 'Passwords do not match';
     header('Location: ../edit_profile.php');
     exit();
@@ -39,9 +42,8 @@ if (empty($phone)) {
 
 
 try {
-    $dbh = new PDO('sqlite:../sql/database.db');
-    $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    include_once('../database/init.php');
+
 
     // Verifica se o número de telefone já está em uso por outro usuário
     if (isPhoneUsed($phone, $_SESSION['id'])) {

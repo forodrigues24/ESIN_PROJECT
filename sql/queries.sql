@@ -44,6 +44,8 @@ VALUES (6, '2024-01-01', '2025-01-01');
 INSERT INTO Employee (employee_id, start_contract, end_contract) 
 VALUES (7, '2024-01-01', '2025-01-01');
 
+INSERT INTO Employee (employee_id, start_contract, end_contract) 
+VALUES (11, '2024-01-01', '2025-01-01');
 -- Inserção de pacientes
 INSERT INTO Patient (patient_id) 
 VALUES (1);
@@ -63,6 +65,7 @@ VALUES (6, 'A2', 'cardiology');
 
 INSERT INTO Nurse (employee_id, department, specialty) 
 VALUES (7, 'A2', 'cardiology');
+
 
 INSERT INTO Admin (employee_id) 
 VALUES (3);

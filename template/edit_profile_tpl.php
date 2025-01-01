@@ -1,3 +1,5 @@
+<!-- Página que serve apenas para alterar os dados do perfil-->
+
 
 <form action="actions/action_edit_profile.php" class="registration-form" method="post" autocomplete="off">
     <fieldset class="edit">
@@ -34,13 +36,18 @@
             <input type="password" id="confirm_password" name="confirm_password" autocomplete="new-password">
         </div>
 
-        <input type="submit" value="Salvar">
+        <input type="submit" class="btn-logout" value="Salvar">
+
+        <div class="msg-centered">
+            <h5 class="message">
+                <?php if (isset($msg)) { ?>
+                    <?php echo $msg ?>
+                <?php } ?>
+            </h5>
+        <div class="input-container">
 
 
     </fieldset>
-    <?php if (isset($msg)) { ?>
-        <?php echo $msg ?>
-    <?php } ?>
+
 </form>
 </body>
-

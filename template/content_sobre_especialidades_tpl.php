@@ -1,5 +1,7 @@
 <?php
 
+// Páginas acessórias apenas que mostram dados da clinica
+
 function sobre()
 { ?>
 

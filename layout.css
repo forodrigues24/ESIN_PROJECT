@@ -1,0 +1,417 @@
+/* =====================================
+Nome do projeto: Projeto clínica - Mediplus
+Autores: Fábio Rodrigues, Tiago Castanheira, Sandro Oliveira
+
+========================================*/
+/*======================================
+[ Layout: Índice ]
+
+1. Definições globais
+2. Layout do header
+3. Layout do footer
+4. Layout da página inicial
+5. Layout da página de login
+6. Layout da página de register
+7. Layout da página sobre
+8. Layout da página especialidades 
+8. Layout da página dos presidentes
+9. Layout da página de perfil
+10. Layout da página de edição de perfil
+11. Layout da página da secretária
+12. Layout da página de marcação de consultas
+13. Layout da página do doutor
+14. Layout da página de admin
+
+
+========================================*/
+
+/*===================
+1. Definições globais
+=====================*/
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/*===================
+2. Layout do header
+=====================*/
+
+header {
+    display: grid;
+    grid-template-columns: 300px 1fr auto auto auto; /* 1 coluna flexível para o conteúdo à esquerda 
+                                                    e 3 colunas automáticas para os outros elementos */
+}
+
+.logo {
+    display: inline-block;
+}
+
+.logo img {
+    display: block;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile {
+    display: inline-block;
+}
+
+.profile img {
+    display: block;
+}
+
+/*===================
+3. Layout do footer
+=====================*/
+
+footer {
+    display: flex;
+    align-items: center;
+}
+
+/*===================
+4. Layout da página inicial
+=====================*/
+
+#content_index {
+    display: grid;
+    grid-template-rows: auto auto auto auto 1fr;
+}
+
+/* Layout dos slides */
+.slides {
+    display: flex;
+}
+
+.navigator {
+    display: flex;
+    left: 50%;
+}
+
+/* Layout da secção informativa */
+.infor-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card h2 {
+    flex: 1;
+}
+
+/* Layout das secções localização e sobre */
+.about-section,
+.location-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.location-section iframe {
+    align-self: center;
+}
+
+/* Layout da secção de notícias */
+.news {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.news-header {
+    grid-column: span 3;
+}
+
+.news-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item img {
+    flex-shrink: 0;
+}
+
+.news-content #news-date {
+    align-self: flex-end;
+}
+
+/*===================
+5. Layout da página de login
+=====================*/
+
+#content_loginregister {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: auto;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+}
+
+.login-form fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.registration-form fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+input[type="submit"] {
+    display: inline-block;
+}
+
+.register-button {
+    display: inline-block;
+}
+
+/*===================
+6. Layout da página de register
+=====================*/
+
+.registration-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.registration-form fieldset {
+    flex-direction: column;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.registration-form .input-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="number"],
+.registration-form input[type="email"],
+.registration-form input[type="tel"],
+.registration-form input[type="password"] {
+  flex-grow: 1;
+}
+
+.registration-form input {
+    flex-grow: 1;
+}
+
+.registration-form label {
+    display: inline-block;
+}
+
+.registration-form input[type="submit"] {
+    display: block;
+    width: auto;
+}
+
+/*===================
+7. Layout da página sobre
+=====================*/
+
+#content_sobre {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.board-members {
+    display: flex;
+    justify-content: center;
+}
+
+/*===================
+8. Layout da página especialidades 
+=====================*/
+
+#content_especialidade {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.especialidades-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.especialidade {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 calc(33.33% - 2rem);
+}
+
+/*===================
+8. Layout da página dos presidentes
+=====================*/
+
+.profile-image {
+    display: block;
+}
+
+/*===================
+9. Layout da página de perfil
+=====================*/
+
+#content_profile {
+    display: grid;
+    grid-template-rows: auto auto;
+}
+
+.changedata-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-group-edit {
+    display: flex;
+    justify-content: left;
+}
+
+#appointments-table {
+    table-layout: fixed;
+}
+
+#content_profile #appointments-table th, #appointments-table td {
+    vertical-align: top;
+    overflow-wrap: break-word;
+}
+
+.report_grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-appointment-btn {
+    display: block; 
+}
+
+/*===================
+10. Layout da página de edição de perfil
+=====================*/
+
+.edit-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.edit-form fieldset {
+    flex-direction: column;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.edit-form .input-container {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="number"],
+.edit-form input[type="email"],
+.edit-form input[type="tel"],
+.edit-form input[type="password"] {
+  flex-grow: 1;
+}
+
+.edit-form input {
+    flex-grow: 1;
+}
+
+.edit-form label {
+    display: inline-block;
+}
+
+.edit-form input[type="submit"] {
+    display: block;
+    width: auto;
+}
+
+/*===================
+11. Layout da página da secretária
+=====================*/
+
+/* Formulário de escolha dos horários */
+
+#content_secretaria .schedule-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#content_secretaria .schedule-form label {
+    display: block;
+}
+
+#content_secretaria .schedule-form .select-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tabelas com os resultados da pesquisa */
+#content_secretaria .schedule-form table th, #content_secretaria .schedule-form table td {
+    vertical-align: middle;
+}
+
+/*===================
+12. Layout da página de marcação de consultas
+=====================*/
+
+.horarios label, .consultas label {
+    display: block;
+}
+
+/*===================
+13. Layout da página do doutor
+=====================*/
+
+/* Formulário inicial igual à secretária */
+
+/*===================
+14. Layout da página de admin
+=====================*/
+
+#content_consultas .schedule-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#content_consultas .box_search {
+    display: flex;
+    align-items: center;
+}

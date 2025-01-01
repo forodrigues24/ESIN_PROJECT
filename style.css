@@ -1,0 +1,1724 @@
+/* =====================================
+Nome do projeto: Projeto clínica - Mediplus
+Autores: Fábio Rodrigues, Tiago Castanheira, Sandro Oliveira
+
+========================================*/
+/*======================================
+[ Styling: Índice ]
+
+1. Definições globais
+2. Styling do header
+3. Styling do footer
+4. Styling da página inicial
+5. Styling da página de login
+6. Styling da página de register
+7. Styling da página sobre
+8. Styling da página especialidades
+9. Styling da páginda dos presidentes
+10. Styling da página de perfil
+11. Styling da página de edição de perfil
+12. Styling da página da secretária
+13. Styling da página de marcação de consultas
+14. Styling da página do doutor
+15. Styling da página do enfermeiro
+16. Styling da página do admin
+
+
+========================================*/
+
+/*===================
+1. Definições globais
+=====================*/
+
+html {
+    --primary-color: #C62828;
+
+    --background-color: #f4f4f4;
+    --background-color-light: #EEE;
+    --background-color-dark: #DDD;
+    background-color: var(--background-color);
+
+    font-family: 'Merriweather', serif;
+
+    height: 100%;
+}
+
+body {
+    box-sizing: border-box;
+
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: Arial, sans-serif;
+
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    line-height: 1.6;
+}
+
+* {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+.message {
+    color: #007BFF;
+
+    margin: 0.5rem 0;
+
+    text-align: center;
+    font-size: 14px;
+    animation: fadeOut 6s ease-out forwards;
+}
+
+h2 {
+    color: #007BFF;
+
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    color: #000000;
+
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+
+/*===================
+2. Styling do header
+=====================*/
+
+header {
+    background-color: #05AEC3;
+    color: #fff;
+
+    width: 100%;
+    height: auto;
+
+    padding: 10px 20px;
+    justify-content: space-between;
+}
+
+.logo {
+    height: auto;
+
+    padding: 0.5rem;
+}
+
+.logo img {
+    height: 2rem;
+    width: auto;
+
+    transition: filter 0.3s ease;
+}
+
+.logo img:hover {
+    filter: brightness(0);
+}
+
+nav {
+    margin-left: auto;
+}
+
+.nav-links {
+    margin-right: 20px;
+
+    list-style: none;
+
+    text-align: center;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    font-size: 16px;
+    color: #fff;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #000;
+}
+
+.profile {
+    height: auto;
+}
+
+.profile img {
+    height: auto;
+    width: 40px;
+
+    border-radius: 100%;
+    border: 3px solid #fff;
+}
+
+.profile img:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+
+    transform: scale(1.3);
+    animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+    0% {
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    50% {
+        border-color: #eaecf3;
+        box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+    }
+
+    100% {
+        border-color: #007BFF;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+}
+
+/*===================
+3. Styling do footer
+=====================*/
+
+footer {
+    background-color: #a5eef0f3;
+    color: #fff;
+
+    text-align: center;
+
+    padding: 1rem;
+    width: 100%;
+    margin-top: auto;
+    position: relative;
+    bottom: 0;
+
+    justify-content: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+/*===================
+4. Styling da página inicial
+=====================*/
+
+#content_index {
+    width: 100%;
+    gap: 2rem;
+}
+
+/* Styling dos slides */
+.slides-container {
+    width: 100%;
+    height: 60vh;
+    position: relative;
+    margin-bottom: 0;
+
+    background: transparent;
+
+    border: 1px solid #fff;
+    overflow: hidden;
+}
+
+.navigator {
+    position: absolute;
+    bottom: 2%;
+
+    transform: translateX(-50%);
+    gap: 0.5rem;
+}
+
+.navigator .bar {
+    height: 0.8rem;
+    width: 4rem;
+    margin-left: 1rem;
+
+    background: transparent;
+    cursor: pointer;
+    border: 0.2rem solid #fff;
+}
+
+.navigator .bar:hover {
+    background: #fff;
+}
+
+input[type="radio"] {
+    position: absolute;
+    visibility: hidden;
+}
+
+.slides {
+    height: 100%;
+    width: 300%;
+}
+
+.image {
+    width: 33.33333%;
+    transition: 0.4s ease;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#btn1:checked~.first {
+    margin-left: 0;
+}
+
+#btn2:checked~.first {
+    margin-left: -33.33333%;
+}
+
+#btn3:checked~.first {
+    margin-left: -66.66666%;
+}
+
+/* Styling da secção informativa */
+.infor-section {
+    width: 100%;
+    padding: 2vh 5vw;
+
+    margin: 1% 0 1% 0;
+    gap: 2rem;
+
+    background-color: #84c4cc81;
+
+    justify-content: space-around;
+}
+
+.info-card {
+    text-align: center;
+    margin: auto;
+
+    justify-content: center;
+}
+
+.info-card h2 {
+    font-size: 3rem;
+    color: #007b7f;
+    text-align: center;
+}
+
+.info-card p {
+    font-size: 2rem;
+    color: #303030;
+    margin: 1vh 0;
+    text-align: center;
+}
+
+/* Styling das secções localização e sobre */
+
+.location-section {
+
+    padding: 2vh 5vw;
+
+    text-align: justify;
+    justify-content: center;
+}
+
+.about-section {
+    width: 100%;
+    padding: 2vh 5vw;
+
+    margin: 1% 0 1%;
+
+    text-align: justify;
+    justify-content: center;
+}
+
+
+.about-section p {
+    color: #0f0e0e;
+
+    margin: 0;
+
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+.location-section p {
+    color: #0f0e0e;
+
+    margin: 0 auto;
+    max-width: 90%;
+
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+.about-section a {
+    margin: 0 auto;
+    font-size: 1.2rem;
+    color: #0f0e0e;
+    text-decoration: none;
+}
+
+.about-section a:hover {
+    text-decoration: underline;
+}
+
+.location-section {
+    margin-top: 6vh;
+    background: #84c4cc81;
+}
+
+/* Styling da secção de notícias */
+.news {
+    gap: 1.5rem;
+    padding: 2vh 5vw;
+
+    margin: 1% 0 1% 0;
+}
+
+.news-header {
+    color: #303030;
+
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.news-item {
+    background-color: #fff;
+    color: #007b7f;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    gap: 1rem;
+
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover {
+    transform: scale(1.03);
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0;
+}
+
+.news-content {
+    padding: 1.5vh 1.5vw;
+}
+
+.news-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.news-content p {
+    color: #303030;
+
+    font-size: 1.25rem;
+    line-height: 1.5;
+}
+
+.news-content #news-date {
+    margin-top: auto;
+    font-size: 1.125rem;
+}
+
+/*===================
+5. Styling da página de login
+=====================*/
+
+#content_loginregister {
+    width: 100%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.login-form {
+    width: auto;
+    height: auto;
+
+    margin: 0 auto;
+}
+
+.login-form fieldset {
+    max-width: 800px;
+    height: 20rem;
+    padding: 2rem;
+
+    background-color: #f9f9f9;
+
+    border: 0.25rem solid #007BFF;
+    border-radius: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
+
+    box-sizing: border-box;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.buttons-container {
+    gap: 20px;
+}
+
+
+input[type="submit"] {
+    padding: 0.4rem 1rem;
+    margin-top: 0.1rem;
+
+    background-color: #435ef8;
+    color: white;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+
+    transform: scale(1.05);
+}
+
+.register-button {
+    padding: 0.4rem 1rem;
+    margin-top: 0.1rem;
+
+    background-color: #28a745;
+    color: white;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+
+    border-radius: 0.25rem;
+
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.register-button:hover {
+    background-color: #218838;
+
+    transform: scale(1.05);
+}
+
+/*===================
+6. Styling da página de register
+=====================*/
+
+.registration-form {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.registration-form fieldset {
+    background-color: #f9f9f9;
+
+    border-radius: 0.5rem;
+    border: 0.25rem solid #007BFF;
+
+    flex-direction: column;
+    height: 37rem;
+    padding: 2rem;
+}
+
+.registration-form .input-container {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.registration-form label {
+    width: 150px;
+    margin-right: 10px;
+
+    font-size: 1rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="number"],
+.registration-form input[type="email"],
+.registration-form input[type="tel"],
+.registration-form input[type="password"] {
+    width: 50vw;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin-left: 15px;
+
+    font-size: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+}
+
+.registration-form input[type="submit"] {
+    background-color: #43a1df;
+    color: white;
+
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.registration-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/*===================
+7. Styling da página sobre
+=====================*/
+
+#content_sobre {
+    width: 100%;
+}
+
+#content_sobre h2 {
+    color: #43a1df;
+
+    text-align: center;
+    font-size: 3rem;
+}
+
+.sobre-texto {
+    padding: 2rem;
+}
+
+.sobre-texto h3 {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+.sobre-texto p {
+    font-size: 1.5rem;
+}
+
+.board-section {
+    margin: 0;
+    padding: 2rem;
+
+    text-align: center;
+
+    background-color: #f9f9f9;
+
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.board-members {
+    gap: 20px;
+    margin: 2rem;
+}
+
+.member {
+    margin: 10px;
+
+    text-align: center;
+
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.member a {
+    text-decoration: none;
+}
+
+.member a p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.member img {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 10px;
+
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.member:hover {
+    transform: scale(1.1);
+}
+
+.map-container {
+    background-color: #e3f2fd;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.map-container iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+
+    border: 0;
+}
+
+.address p {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/*===================
+8. Styling da página especialidades
+=====================*/
+
+#content_especialidade {
+    width: 100%;
+    padding: 2rem;
+
+
+    gap: 1rem;
+}
+
+.especialidades-texto {
+    background: white;
+    width: 100%;
+    text-align: justify;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.especialidades-texto p {
+    font-size: 1.5rem;
+}
+
+.especialidades-container {
+    height: 50%;
+    width: 100%;
+
+    margin-top: 10vh;
+    gap: 2rem;
+}
+
+.especialidade {
+    height: auto;
+    width: 100%;
+
+    background-color: #ffffff;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    text-align: center;
+}
+
+.especialidade:hover {
+    background-color: #e1ebf4;
+    transform: translateY(-10px);
+}
+
+
+.especialidade-content h3 {
+    padding: 1rem 1rem 0 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.especialidade-content p {
+    padding: 1rem 1rem 0 1rem;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+.especialidade img {
+    margin-top: 1.5rem;
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+/*===================
+9. Styling da páginda dos presidentes
+=====================*/
+
+.content-box {
+    background-color: white;
+
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.professional-background {
+    margin-top: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+
+    text-align: left;
+
+    background-color: #f9f9f9;
+
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.profile-image {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+
+    border-radius: 50%;
+    border: 4px solid #007BFF;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    box-shadow: 0 0 30px rgba(0, 123, 255, 0.5);
+
+    filter: brightness(1.2);
+}
+
+/*===================
+10. Styling da página de perfil
+=====================*/
+
+
+.perfil {
+    margin-top: 20px;
+    /* Ajuste conforme necessário */
+}
+
+
+#content_profile {
+    width: 100%;
+    padding: 20px;
+}
+
+#content_profile fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.changedata-form {
+    gap: 3rem;
+
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+
+    background-color: #f9f9f9;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.changedata-form h2 {
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.profile-info {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.profile-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+
+    color: #555;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-info p:last-child {
+    border-bottom: none;
+}
+
+.profile-info p strong {
+    font-weight: bold;
+    color: #000;
+}
+
+.button-group-edit {
+    gap: 1rem;
+}
+
+.btn-edit,
+.btn-logout {
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-edit {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.btn-logout {
+    background-color: #c23a47;
+    color: white;
+    border: none;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+#content_profile #appointments-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+#content_profile #appointments-table th,
+#content_profile #appointments-table td {
+    padding: 0.75rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+#content_profile #appointments-table thead th {
+    background-color: #05AEC3;
+    color: white;
+
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#content_profile #appointments-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+#content_profile #appointments-table tbody tr:nth-child(even) {
+    background-color: #e1ebf4;
+}
+
+#content_profile #appointments-table td {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.report_grid {
+    gap: 1rem;
+}
+
+.report_grid .grid-item {
+    flex: 1;
+    text-align: left;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#show-report-message {
+    font-style: italic;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.show_hide_button form {
+    text-align: center;
+}
+
+#content_profile #pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem 0;
+    gap: 1rem;
+}
+
+#content_profile .pagination-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #007BFF;
+    text-decoration: none;
+    border: 1px solid #007BFF;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+#content_profile .pagination-link:hover {
+    background-color: #007BFF;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+#content_profile .page-number {
+    font-size: 1rem;
+    color: #555;
+}
+
+#content_profile form {
+    width: 100%;
+    margin: 2rem auto;
+    padding: 10px;
+}
+
+#content_profile form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#content_profile form input[type="date"] {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#content_profile form input[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#content_profile form input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: none;
+}
+
+#content_profile .horario-info {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid #05AEC3;
+    border-radius: 8px;
+    background-color: #e1f7fd;
+}
+
+#content_profile .horario-info h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+}
+
+
+#content_profile .toggle-appointment-btn {
+    width: 1rem;
+    height: 1rem;
+    border: none;
+    border-radius: 50%;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+}
+
+#content_profile #appointments-table .toggle-appointment-btn:hover {
+    background-color: #0056b3;
+}
+
+/*===================
+11. Styling da página de edição de perfil
+=====================*/
+
+.edit-form {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.edit-form fieldset {
+    background-color: #f9f9f9;
+
+    border-radius: 0.5rem;
+    border: 0.25rem solid #007BFF;
+
+    flex-direction: column;
+    height: 37rem;
+    padding: 2rem;
+}
+
+.edit-form .input-container {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.edit-form label {
+    width: 150px;
+    margin-right: 10px;
+
+    font-size: 1rem;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="number"],
+.edit-form input[type="email"],
+.edit-form input[type="tel"],
+.edit-form input[type="password"] {
+    width: 50vw;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin-left: 15px;
+
+    font-size: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    box-sizing: border-box;
+}
+
+.edit-form input[type="submit"] {
+    background-color: #43a1df;
+    color: white;
+
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 1rem;
+
+    border: none;
+    border-radius: 0.25rem;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/*===================
+12. Styling da página da secretária
+=====================*/
+
+/* Formulário de escolha dos horários */
+#content_secretaria .schedule-form {
+    padding: 1rem;
+    margin: 1rem;
+
+    border: 2px solid #ccc;
+    border-radius: 8px;
+
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#content_secretaria .schedule-form label {
+    max-width: 25%;
+    margin-bottom: 8px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: #555;
+}
+
+#content_secretaria .schedule-form input[type="date"] {
+    width: 100%;
+    max-width: 20%;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    font-size: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#content_secretaria .schedule-form input[type="submit"] {
+    width: 100%;
+    max-width: 20%;
+    padding: 10px;
+
+    font-size: 1rem;
+
+    color: #fff;
+    background-color: #007BFF;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s, transform 0s;
+}
+
+#content_secretaria .schedule-form input[type="submit"]:hover {
+    background-color: #0056b3;
+
+    transform: none;
+}
+
+/* Tabelas com os resultados da pesquisa */
+
+#content_secretaria .schedule-form table {
+    width: 100%;
+    margin: 1rem 0;
+
+    border-collapse: collapse;
+
+    font-size: 1rem;
+    text-align: left;
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+#content_secretaria .schedule-form table thead {
+    background-color: #05AEC3;
+    color: #fff;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+#content_secretaria .schedule-form table th,
+#content_secretaria .schedule-form table td {
+    padding: 12px;
+
+    border: 1px solid #ddd;
+
+    text-align: center;
+}
+
+#content_secretaria .schedule-form table tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+#content_secretaria .schedule-form table tbody tr:nth-of-type(even) {
+    background-color: #e1ebf4;
+}
+
+#content_secretaria .schedule-form .select-options {
+    gap: 10px;
+}
+
+#content_secretaria .schedule-form select {
+    padding: 8px;
+    margin-bottom: 10px;
+
+    font-size: 1rem;
+    text-align: center;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#content_secretaria .schedule-form button {
+    padding: 8px 12px;
+    margin-top: 10px;
+
+    font-size: 1rem;
+
+    background-color: #007BFF;
+    color: #fff;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s;
+}
+
+#content_secretaria .schedule-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Largura das colunas da tabela (com horário definido) */
+#schedule-table th:nth-child(1),
+#schedule-table td:nth-child(1) {
+    width: 5%;
+}
+
+#schedule-table th:nth-child(2),
+#schedule-table td:nth-child(2) {
+    width: 15%;
+}
+
+#schedule-table th:nth-child(3),
+#schedule-table td:nth-child(3) {
+    width: 10%;
+}
+
+#schedule-table th:nth-child(4),
+#schedule-table td:nth-child(4) {
+    width: 15%;
+}
+
+#schedule-table th:nth-child(5),
+#schedule-table td:nth-child(5) {
+    width: 10%;
+}
+
+#schedule-table th:nth-child(6),
+#schedule-table td:nth-child(6) {
+    width: 10%;
+}
+
+#schedule-table th:nth-child(7),
+#schedule-table td:nth-child(7) {
+    width: 10%;
+}
+
+#schedule-table th:nth-child(8),
+#schedule-table td:nth-child(8) {
+    width: 10%;
+}
+
+#schedule-table th:nth-child(9),
+#schedule-table td:nth-child(9) {
+    width: 25%;
+}
+
+
+/*===================
+13. Styling da página de marcação de consultas
+=====================*/
+
+#content_consultas {
+    padding: 20px;
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f9f9f9;
+
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.horarios {
+    margin-bottom: 20px;
+    padding: 1.5rem;
+
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    justify-content: space-between;
+    /* Espaço máximo entre os itens */
+    height: fit-content;
+
+    background-color: #fff;
+}
+
+.consultas {
+    margin-bottom: 20px;
+    padding: 1.5rem;
+    display: flex;
+    /* Usando Flexbox */
+    justify-content: space-between;
+    /* Espaço máximo entre os itens */
+    height: fit-content;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    gap: 20px;
+
+    background-color: #fff;
+}
+
+/* Estilos para os formulários individuais com a classe medico-form */
+.medico-form {
+    background-color: #fff;
+    /* Cor de fundo branca para o formulário */
+    border: 1px solid #05AEC3;
+    /* Borda azul clara */
+    border-radius: 5px;
+    /* Cantos arredondados */
+    padding: 20px;
+    /* Espaçamento interno */
+    width: 100%;
+    /* O formulário ocupa toda a largura disponível dentro do flex */
+    max-width: 350px;
+    /* Largura máxima do formulário */
+    box-sizing: border-box;
+    /* Inclui padding e bordas nas dimensões */
+    display: flex;
+    /* Flexbox para o layout interno do formulário */
+    flex-direction: column;
+    /* Organiza os elementos do formulário em coluna */
+    gap: 15px;
+    /* Espaçamento entre os elementos dentro do formulário */
+    /* Responsividade: cada formulário vai se ajustar conforme o tamanho da tela */
+    justify-content: center;
+    /* Alinha os itens na direção do eixo principal */
+    align-items: center;
+    /* Alinha os itens no eixo transversal */
+    text-align: center;
+    /* Centraliza o texto dentro do formulário */
+}
+
+
+.horarios h2,
+.consultas h3 {
+    margin-bottom: 1rem;
+
+    font-size: 2rem;
+
+    color: #007BFF;
+}
+
+
+
+
+
+.horarios label,
+.consultas label {
+    width: 100%;
+    max-width: 100%;
+
+    margin-bottom: 0.5rem;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: #555;
+}
+
+.horarios input[type="date"],
+.horarios select,
+.consultas select {
+    width: fit-content;
+    max-width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.horarios input[type="submit"],
+.consultas input[type="submit"] {
+    width: 25%;
+    max-width: 100%;
+    padding: 10px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: #fff;
+    background-color: #007BFF;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+.horarios input[type="submit"]:hover,
+.consultas input[type="submit"]:hover {
+    background-color: #0056b3;
+
+    transform: none;
+}
+
+.horarios .message {
+    margin-top: 1rem;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.consultas .submit-container {
+    margin-top: 1rem;
+
+    text-align: center;
+}
+
+/* Botão de envio nos formulários médicos */
+.medico-form input[type="submit"] {
+    width: auto;
+    padding: 10px 20px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: #fff;
+    background-color: #007BFF;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+
+/*===================
+14. Styling da página do doutor
+=====================*/
+
+/* Formulário igual ao da secretária */
+
+/* Botão "Editar" na tabela */
+.toggle-editreport-btn {
+    padding: 5px 10px;
+
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    color: #fff;
+    background-color: #007BFF;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-editreport-btn:hover {
+    background-color: #0056b3;
+}
+
+.report-container {
+    margin: 20px 0;
+    padding: 15px;
+
+    background-color: #f9f9f9;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    font-size: 1rem;
+    color: #333;
+}
+
+.report-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+
+    font-size: 1rem;
+    font-family: Arial, sans-serif;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.report-form button {
+    padding: 10px 20px;
+    margin: 5px;
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/*===================
+15. Styling da página do enfermeiro
+=====================*/
+
+/* Grande parte semelhante à secretária */
+
+.toggle-appointment-btn,
+.toggle-retirar-btn {
+    background-color: transparent;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    padding: 0;
+}
+
+/*===================
+16. Styling da página do admin
+=====================*/
+
+#content_consultas {
+    padding: 20px;
+}
+
+#content_consultas .schedule-form {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+#content_consultas .schedule-form form {
+    gap: 15px;
+}
+
+#content_consultas .box_search {
+    gap: 15px;
+    width: 100%;
+    max-width: 25%;
+    padding: 1rem;
+}
+
+#content_consultas input[type="text"],
+#content_consultas input[type="date"],
+#content_consultas select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#content_consultas .search-container input[type="submit"] {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#content_consultas .search-container input[type="submit"]:hover {
+    background-color: #00796b;
+}
+
+#content_consultas .search-results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+#content_consultas .search-results-table th,
+#content_consultas .search-results-table td {
+    text-align: left;
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+#content_consultas .search-results-table th {
+    background-color: #05AEC3;
+    color: #ffffff;
+}
+
+#content_consultas .search-results-table tr:nth-child(even) {
+    background-color: #e1ebf4;
+}
+
+#content_consultas #update-button {
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#content_consultas #update-button:hover {
+    background-color: #0056b3;
+}
